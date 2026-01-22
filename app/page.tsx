@@ -33,11 +33,11 @@ function HomeContent() {
         <PrinciplesSection />
         
         {/* Inline signup form */}
-        {/* <section className="py-24 md:py-32">
+        <section className="py-24 md:py-32">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <SignupForm />
           </div>
-        </section> */}
+        </section>
       </main>
 
       <Footer />

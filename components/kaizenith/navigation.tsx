@@ -34,7 +34,7 @@ export function Navigation({ onOpenSignup }: NavigationProps) {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="/" className="focus-visible-ring rounded-lg" aria-label="Kaizenith home">
-            <KaizenithLogo size="sm" dontShowWordmark/>
+            <KaizenithLogo size="md" orientation="horizontal" dontShowWordmark/>
           </a>
 
           {/* Nav Links - Desktop */}

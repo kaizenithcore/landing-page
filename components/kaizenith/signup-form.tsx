@@ -65,13 +65,13 @@ export function SignupForm() {
         <p className="text-muted-foreground mb-6">
           {t.signup.successMessage}
         </p>
-        <a
+        {/* <a
           href="/downloads/7-mistakes-guide.pdf"
           download
           className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-primary hover:bg-primary/90 text-primary-foreground transition-colors"
         >
           {t.leadMagnet.title}
-        </a>
+        </a> */}
       </div>
     )
   }
