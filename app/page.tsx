@@ -29,7 +29,7 @@ function HomeContent() {
         <IntroSection />
         {/* <LeadMagnet onOpenSignup={openSignup} /> */}
         <Roadmap />
-        <ProjectsSection />
+        {/* <ProjectsSection /> */}
         <PrinciplesSection />
         
         {/* Inline signup form */}

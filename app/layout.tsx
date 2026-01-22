@@ -20,6 +20,7 @@ export const metadata: Metadata = {
   title: 'Kaizenith — We build in public',
   description: 'Kaizenith documents experiments, failures and lessons — short, useful updates and early access to our projects.',
   generator: 'v0.app',
+  keywords: ['Kaizenith', 'Kaizen', 'Build in public', 'Product development', 'Startups', 'Indie hackers', 'Tech experiments'],
   openGraph: {
     title: 'Kaizenith — We build in public',
     description: 'Kaizenith documents experiments, failures and lessons — short, useful updates and early access to our projects.',
@@ -40,8 +41,7 @@ export const metadata: Metadata = {
     images: ['/og-image.png'],
   },
   icons: {
-    icon: '/favicon.svg',
-    apple: '/apple-icon.png',
+    icon: '/icon.png',
   },
 }
 
