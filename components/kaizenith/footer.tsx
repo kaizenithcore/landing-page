@@ -1,0 +1,106 @@
+"use client"
+
+import { KaizenithLogo } from "./logo"
+import { useLocale } from "@/lib/i18n/locale-context"
+import { SettingsToggles } from "./settings-toggle"
+
+export function Footer() {
+  const currentYear = new Date().getFullYear()
+  const { t } = useLocale()
+
+  return (
+    <footer className="py-16 border-t border-border">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+          {/* Logo and tagline */}
+          <div className="space-y-4">
+            <KaizenithLogo size="md" dontShowWordmark orientation="horizontal" className="mb-0"/>
+            <p className="text-sm text-muted-foreground max-w-xs ms-2">
+              {t.footer.tagline}
+            </p>
+          </div>
+
+          {/* Links */}
+          <div className="flex flex-wrap gap-8 md:gap-12">
+            <div className="space-y-3">
+              <h4 className="text-xs uppercase tracking-wider text-muted-foreground font-medium">
+                {t.footer.navigate}
+              </h4>
+              <nav className="flex flex-col gap-2">
+                <a
+                  href="#roadmap"
+                  className="text-sm text-foreground/80 hover:text-foreground transition-colors"
+                >
+                  {t.footer.roadmap}
+                </a>
+                <a
+                  href="#about"
+                  className="text-sm text-foreground/80 hover:text-foreground transition-colors"
+                >
+                  {t.footer.about}
+                </a>
+                <a
+                  href="#projects"
+                  className="text-sm text-foreground/80 hover:text-foreground transition-colors"
+                >
+                  {t.footer.projects}
+                </a>
+              </nav>
+            </div>
+
+            <div className="space-y-3">
+              <h4 className="text-xs uppercase tracking-wider text-muted-foreground font-medium">
+                {t.footer.connect}
+              </h4>
+              <nav className="flex flex-col gap-2">
+                <a
+                  href="https://twitter.com/kaizenith"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-foreground/80 hover:text-foreground transition-colors"
+                >
+                  {t.footer.twitter}
+                </a>
+                <a
+                  href="https://github.com/kaizenith"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-foreground/80 hover:text-foreground transition-colors"
+                >
+                  {t.footer.github}
+                </a>
+                <a
+                  href="mailto:hello@kaizenith.com"
+                  className="text-sm text-foreground/80 hover:text-foreground transition-colors"
+                >
+                  Email
+                </a>
+              </nav>
+            </div>
+
+            <div className="space-y-3">
+              <h4 className="text-xs uppercase tracking-wider text-muted-foreground font-medium">
+                {t.settings.theme}
+              </h4>
+              <div className="flex">
+                <SettingsToggles />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-muted-foreground">
+            © {currentYear} Kaizenith. {t.footer.copyright}
+          </p>
+          <p className="text-xs uppercase tracking-wider text-muted-foreground">
+            KAIZENITH · <a className="hover:text-accent hover:cursor-pointer" href="/labs">LABS</a>
+             · <a className="hover:text-accent hover:cursor-pointer" href="/works">WORKS</a> · 
+             <a className="hover:text-accent hover:cursor-pointer" href="/studio">STUDIO</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  )
+}
