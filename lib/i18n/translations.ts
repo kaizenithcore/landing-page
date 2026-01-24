@@ -51,6 +51,76 @@ export type TranslationKeys = {
     description: string;
     cta: string;
   };
+  // Lead Magnet Page
+  leadMagnetPage: {
+    backToHome: string;
+    internalArchive: string;
+    pageTitle: string;
+    pageSubtitle: string;
+    noteTitle: string;
+    noteText: string;
+    downloadPdf: string;
+    download: string;
+    lockedTitle: string;
+    lockedDesc: string;
+    lockedFooter: string;
+    lockedBtn: string;
+    contentLabel: string;
+    checklist: string;
+    caseStudies: string;
+    checklistTitle: string;
+    completed: string;
+    errorLabel: string;
+    caseStudiesTitle: string;
+    sourceLabel: string;
+    tenMinTask: string;
+    tenMinTaskTitle: string;
+    tenMinTaskDesc: string;
+    downloadGuide: string;
+    downloadGuideDesc: string;
+    footerNote: string;
+    privacy: string;
+    allRightsReserved: string;
+    hiddenPageNote: string;
+    hiddenPageNoteText: string;
+    backToHomeLink: string;
+    // Completion Modal
+    completionTitle: string;
+    completionDesc: string;
+    nextStepsTitle: string;
+    flowFocusTitle: string;
+    flowFocusDesc: string;
+    flowFocusTrialBadge: string;
+    blogTitle: string;
+    blogDesc: string;
+    communityTitle: string;
+    communityDesc: string;
+    socialTitle: string;
+    socialDesc: string;
+    continueBtn: string;
+    // FlowFocus Section
+    flowFocusSectionTitle: string;
+    flowFocusSectionDesc: string;
+    flowFocusCtaBtn: string;
+    // Signup Modal
+    signupModalTitle: string;
+    signupModalDesc: string;
+    // Signup Success
+    signupSuccessTitle: string;
+    signupSuccessDesc: string;
+    signupSuccessBtn: string;
+    // Error Node Labels
+    whatLabel: string;
+    whyLabel: string;
+    storyLabel: string;
+    exampleLabel: string;
+    solutionPracticalLabel: string;
+    solutionNarrativeLabel: string;
+    nextLabel: string;
+    toolsLabel: string;
+    kpiLabel: string;
+    doThisNowLabel: string;
+  };
   // Roadmap
   roadmap: {
     title: string;
@@ -112,12 +182,13 @@ export type TranslationKeys = {
       title: string;
       subtitle: string;
       description: string;
-    },
+    };
     project1: {
       title: string;
       subtitle: string;
       description: string;
-    },project2: {
+    };
+    project2: {
       title: string;
       subtitle: string;
       description: string;
@@ -155,6 +226,8 @@ export type TranslationKeys = {
     successMessage: string;
     errorTitle: string;
     errorMessage: string;
+    privacy: string;
+    privacyAuxText: string;
   };
   // Footer
   footer: {
@@ -170,6 +243,7 @@ export type TranslationKeys = {
     builtWith: string;
     navigate: string;
     connect: string;
+    privacyPolicy: string;
   };
   // Theme
   theme: {
@@ -200,8 +274,9 @@ export const translations: Record<Locale, TranslationKeys> = {
       ctaSecondary: "Ver la hoja de ruta",
       noSpam: "Solo contenido útil",
       unsubscribe: "Cancela cuando quieras",
-      ctaCommingSoon: "Acceso al proceso",
-      thankYou: "Gracias por tu interés. Estamos preparando todo. Pronto podrás acceder al newsletter.",
+      ctaCommingSoon: "Próximamente: acceso al proceso",
+      thankYou:
+        "Gracias por tu interés. Estamos preparando todo. Pronto podrás acceder al newsletter.",
     },
     intro: {
       title: "Proceso sobre hype. Datos sobre intuición.",
@@ -225,6 +300,81 @@ export const translations: Record<Locale, TranslationKeys> = {
         "Los errores que hemos cometido (y visto repetirse). Directos, sin rodeos. Descárgala al unirte.",
       cta: "Obtener la guía",
     },
+    leadMagnetPage: {
+      backToHome: "Volver a inicio",
+      internalArchive: "Archivo interno de Kaizenith",
+      pageTitle: "7 errores que frenan tu crecimiento indie",
+      pageSubtitle:
+        "Errores reales, ejemplos documentados, soluciones que puedes aplicar hoy.",
+      noteTitle: "Nota:",
+      noteText:
+        "Este es un archivo interno del lab de Kaizenith. Errores testeados, ejemplos reales, soluciones prácticas para marketing de juegos indie. No indexado.",
+      downloadPdf: "Descargar PDF",
+      lockedTitle: "Desbloquea la guía completa",
+      lockedDesc: "Accede al checklist, casos reales y el plan accionable completo.",
+      lockedBtn: "Acceder ahora",
+      lockedFooter:"Es gratis · sin spam · acceso inmediato",
+      download: "Descargar",
+      contentLabel: "Contenido",
+      checklist: "Checklist",
+      caseStudies: "Casos de estudio",
+      checklistTitle: "Checklist de acción",
+      completed: "completados",
+      errorLabel: "Error",
+      caseStudiesTitle: "Casos de estudio",
+      sourceLabel: "Fuente",
+      tenMinTask: "10 minutos",
+      tenMinTaskTitle: "Tarea inmediata",
+      tenMinTaskDesc:
+        "Abre tu Steam page ahora mismo. Lee la primera frase de tu descripción. Si contiene jerga técnica o una feature sin beneficio, reescríbela en 10 palabras que expliquen qué va a SENTIR el jugador. Eso es todo. 10 minutos. Hazlo ahora.",
+      downloadGuide: "Descarga esta guía",
+      downloadGuideDesc:
+        "PDF completo con los 7 errores, ejemplos y checklist.",
+      footerNote:
+        "Este material es parte del lab público de Kaizenith. Úsalo, pruébalo y comparte lo que funciona.",
+      privacy: "Privacidad",
+      allRightsReserved: "Todos los derechos reservados.",
+      hiddenPageNote: "¿Por qué está oculta esta página?",
+      hiddenPageNoteText:
+        "Es un recurso interno del lab. No está indexada para mantener el contenido fresco y exclusivo para quienes lo encuentran.",
+      backToHomeLink: "Volver al inicio",
+      completionTitle: "Has completado el checklist",
+      completionDesc:
+        "Excelente trabajo. Ahora tienes un plan claro para mejorar tu estrategia de marketing. Aquí tienes algunos recursos para continuar:",
+      nextStepsTitle: "Próximos pasos recomendados",
+      flowFocusTitle: "Trackea tu tiempo con FlowFocus",
+      flowFocusDesc:
+        "Mide cuánto tiempo dedicas a cada tarea de marketing. Datos reales para optimizar tu proceso.",
+      flowFocusTrialBadge: "Prueba gratis 7 días",
+      blogTitle: "Sigue aprendiendo",
+      blogDesc: "Nuevos posts sobre estrategia, analytics y growth",
+      communityTitle: "Únete a la comunidad",
+      communityDesc: "Comparte tus resultados y aprende de otros devs",
+      socialTitle: "Síguenos en redes",
+      socialDesc: "Tips diarios y casos de estudio",
+      continueBtn: "Continuar",
+      flowFocusSectionTitle: "Cómo usar FlowFocus para esto",
+      flowFocusSectionDesc:
+        "FlowFocus te ayuda a trackear el tiempo que dedicas a cada experimento de marketing. Aquí tienes un ejemplo de cómo estructurar una sesión de trabajo:",
+      flowFocusCtaBtn: "Probar FlowFocus — 7 días gratis",
+      signupModalTitle: "Descarga la guía",
+      signupModalDesc:
+        "Deja tu email para descargar el PDF y recibir actualizaciones del lab.",
+      signupSuccessTitle: "¡Gracias por apuntarte!",
+      signupSuccessDesc: "Ya tienes acceso completo a la guía y al contenido interactivo.",
+      signupSuccessBtn: "Ver la guía completa",
+      whatLabel: "El problema",
+      whyLabel: "Por qué",
+      storyLabel: "La historia",
+      exampleLabel: "Ejemplo real",
+      solutionPracticalLabel: "Solución paso a paso",
+      solutionNarrativeLabel: "Cómo solucionarlo",
+      nextLabel: "Siguiente",
+      toolsLabel: "Herramientas",
+      kpiLabel: "KPI a medir",
+      doThisNowLabel: "Si no haces nada más, haz esto",
+      
+    },
     roadmap: {
       title: "El Sistema",
       subtitle:
@@ -237,7 +387,7 @@ export const translations: Record<Locale, TranslationKeys> = {
           title: "Validación de Demanda",
           timeframe: "Semana 1-2",
           status: "Completado",
-          what: "Landing con signup. Análisis de competencia directa e indirecta.",
+          what: "Entrevistas con usuarios potenciales. Landing con signup. Análisis de competencia directa e indirecta.",
           why: "Construir sin validar es el error #1. Necesitamos señales antes de invertir tiempo.",
           next: "Si >50 signups en 2 semanas → prototipo. Si no → pivotar propuesta de valor.",
         },
@@ -250,10 +400,10 @@ export const translations: Record<Locale, TranslationKeys> = {
           next: "10 usuarios activos con >3 sesiones/semana → beta. Si no → iterar core loop.",
         },
         betaLaunch: {
-          title: "Lanzamiento Beta",
+          title: "Beta Cerrada",
           timeframe: "Semana 7-10",
           status: "Próximo",
-          what: "Métricas de retención y engagement. Feedback cualitativo estructurado.",
+          what: "50-100 beta testers seleccionados. Métricas de retención y engagement. Feedback cualitativo estructurado.",
           why: "La beta no es para pulir. Es para encontrar el PMF signal: ¿los usuarios vuelven sin que les recordemos?",
           next: "Retención D7 >30% → escalar. Si no → analizar churns y ajustar.",
         },
@@ -283,18 +433,21 @@ export const translations: Record<Locale, TranslationKeys> = {
       project0: {
         title: "FlowFocus",
         subtitle: "Herramienta de productividad.",
-        description: "Probando mejora de enfoque basada en datos vs temporizadores tradicionales.",
+        description:
+          "Probando mejora de enfoque basada en datos vs temporizadores tradicionales.",
       },
       project1: {
         title: "Forja Pixel",
         subtitle: "Conceptos tempranos de pixel art.",
-        description: "Mecánicas de automatización, pixel art y espadas, todo en un juego.",
+        description:
+          "Mecánicas de automatización, pixel art y espadas, todo en un juego.",
       },
       project2: {
         title: "Build Log",
         subtitle: "Actualización semanal de estados de los proyectos.",
-        description: "La transparencia genera confianza. Números reales, lecciones reales.",
-      }
+        description:
+          "La transparencia genera confianza. Números reales, lecciones reales.",
+      },
     },
     principles: {
       title: "Lo Que Creemos",
@@ -310,11 +463,13 @@ export const translations: Record<Locale, TranslationKeys> = {
       },
       small: {
         title: "Pequeño > Grande",
-        description: "Incrementos pequeños, resultados compuestos. Sin apuestas épicas.",
+        description:
+          "Incrementos pequeños, resultados compuestos. Sin apuestas épicas.",
       },
       share: {
         title: "Abierto > Cerrado",
-        description: "Documentamos todo. Los errores enseñan más que los éxitos.",
+        description:
+          "Documentamos todo. Los errores enseñan más que los éxitos.",
       },
     },
     signup: {
@@ -329,6 +484,8 @@ export const translations: Record<Locale, TranslationKeys> = {
       successMessage: "Revisa tu correo. El primer email llega pronto.",
       errorTitle: "Algo salió mal",
       errorMessage: "Intenta de nuevo en unos minutos.",
+      privacy: "la política de privacidad.",
+      privacyAuxText: "Al hacer clic en 'Quiero acceso', aceptas ",
     },
     footer: {
       tagline: "Proceso sobre hype. Datos sobre intuición.",
@@ -343,6 +500,7 @@ export const translations: Record<Locale, TranslationKeys> = {
       builtWith: "Construido con",
       connect: "Conectar",
       navigate: "Navegar",
+      privacyPolicy: "Política de Privacidad",
     },
     theme: {
       light: "Claro",
@@ -351,7 +509,7 @@ export const translations: Record<Locale, TranslationKeys> = {
     },
     settings: {
       language: "Idioma",
-        theme: "Tema",
+      theme: "Tema",
     },
   },
   en: {
@@ -369,8 +527,9 @@ export const translations: Record<Locale, TranslationKeys> = {
       ctaSecondary: "View the roadmap",
       noSpam: "Useful content only",
       unsubscribe: "Unsubscribe anytime",
-      ctaCommingSoon: "Access the process",
-      thankYou: "Thanks for your interest. We're setting everything up. You'll get access to the newsletter soon.",
+      ctaCommingSoon: "Coming soon: access the process",
+      thankYou:
+        "Thanks for your interest. We're setting everything up. You'll get access to the newsletter soon.",
     },
     intro: {
       title: "Process over hype. Data over intuition.",
@@ -393,6 +552,80 @@ export const translations: Record<Locale, TranslationKeys> = {
       description:
         "Mistakes we've made (and seen repeated). Direct, no sugarcoating. Download when you join.",
       cta: "Get the guide",
+    },
+    leadMagnetPage: {
+      backToHome: "Back to home",
+      internalArchive: "Kaizenith Internal Archive",
+      pageTitle: "7 mistakes that stall your indie growth",
+      pageSubtitle:
+        "Real mistakes, documented examples, solutions you can apply today.",
+      noteTitle: "Note:",
+      noteText:
+        "This is an internal archive from the Kaizenith lab. Tested errors, real examples, practical solutions for indie game marketing. Not indexed.",
+      downloadPdf: "Download PDF",
+      lockedTitle: "Get the guide",
+      lockedDesc: "Get the complete guide, checkboxs, and case studies.",
+      lockedBtn: "Access the process",
+      lockedFooter: "Free· no spam · inmediate access",
+      download: "Download",
+      contentLabel: "Contents",
+      checklist: "Checklist",
+      caseStudies: "Case studies",
+      checklistTitle: "Action checklist",
+      completed: "completed",
+      errorLabel: "Error",
+      caseStudiesTitle: "Case studies",
+      sourceLabel: "Source",
+      tenMinTask: "10 minutes",
+      tenMinTaskTitle: "Immediate task",
+      tenMinTaskDesc:
+        "Open your Steam page right now. Read the first sentence of your description. If it contains technical jargon or a feature without a benefit, rewrite it in 10 words that explain what the player will FEEL. That's it. 10 minutes. Do it now.",
+      downloadGuide: "Download this guide",
+      downloadGuideDesc:
+        "Complete PDF with all 7 errors, examples, and checklist.",
+      footerNote:
+        "This material is part of the public Kaizenith lab. Use it, test it, and share what works.",
+      privacy: "Privacy",
+      allRightsReserved: "All rights reserved.",
+      hiddenPageNote: "Why is this page hidden?",
+      hiddenPageNoteText:
+        "It's an internal lab resource. Not indexed to keep the content fresh and exclusive for those who find it.",
+      backToHomeLink: "Back to home",
+      completionTitle: "You completed the checklist",
+      completionDesc:
+        "Great work. Now you have a clear plan to improve your marketing strategy. Here are some resources to continue:",
+      nextStepsTitle: "Recommended next steps",
+      flowFocusTitle: "Track your time with FlowFocus",
+      flowFocusDesc:
+        "Measure how much time you spend on each marketing task. Real data to optimize your process.",
+      flowFocusTrialBadge: "7-day free trial",
+      blogTitle: "Keep learning",
+      blogDesc: "New posts about strategy, analytics, and growth",
+      communityTitle: "Join the community",
+      communityDesc: "Share your results and learn from other devs",
+      socialTitle: "Follow us on social",
+      socialDesc: "Daily tips and case studies",
+      continueBtn: "Continue",
+      flowFocusSectionTitle: "How to use FlowFocus for this",
+      flowFocusSectionDesc:
+        "FlowFocus helps you track the time you spend on each marketing experiment. Here's an example of how to structure a work session:",
+      flowFocusCtaBtn: "Try FlowFocus — 7 days free",
+      signupModalTitle: "Download the guide",
+      signupModalDesc:
+        "Leave your email to download the PDF and receive lab updates.",
+      signupSuccessTitle: "Thanks for signing up!",
+      signupSuccessDesc: "You now have full access to the guide and interactive content.",
+      signupSuccessBtn: "View the complete guide",
+      whatLabel: "The problem",
+      whyLabel: "Why",
+      storyLabel: "The story",
+      exampleLabel: "Real example",
+      solutionPracticalLabel: "Step-by-step solution",
+      solutionNarrativeLabel: "How to fix it",
+      nextLabel: "Next",
+      toolsLabel: "Tools",
+      kpiLabel: "KPI to measure",
+      doThisNowLabel: "If you do nothing else, do this",
     },
     roadmap: {
       title: "The System",
@@ -452,28 +685,32 @@ export const translations: Record<Locale, TranslationKeys> = {
       project0: {
         title: "FlowFocus",
         subtitle: "Productivity tool UI mock",
-        description: "Testing data-driven focus improvement vs traditional timers.",
+        description:
+          "Testing data-driven focus improvement vs traditional timers.",
       },
       project1: {
         title: "Forja Pixel",
         subtitle: "Early pixel art concepts.",
-        description: "Combining automation mechanics with satisfying visual craft.",
+        description:
+          "Combining automation mechanics with satisfying visual craft.",
       },
       project2: {
         title: "Build Log",
         subtitle: "Weekly update screenshot.",
         description: "Transparency builds trust. Real numbers, real lessons.",
-      }
+      },
     },
     principles: {
       title: "What We Believe",
       iteration: {
         title: "Iteration > Perfection",
-        description: "Ship fast, measure, adjust. Repeat. Perfection is the enemy of progress.",
+        description:
+          "Ship fast, measure, adjust. Repeat. Perfection is the enemy of progress.",
       },
       measured: {
         title: "Data > Opinions",
-        description: "Every decision has a metric. If you can't measure it, you don't know if it works.",
+        description:
+          "Every decision has a metric. If you can't measure it, you don't know if it works.",
       },
       small: {
         title: "Small > Big",
@@ -481,7 +718,8 @@ export const translations: Record<Locale, TranslationKeys> = {
       },
       share: {
         title: "Open > Closed",
-        description: "We document everything. Mistakes teach more than successes.",
+        description:
+          "We document everything. Mistakes teach more than successes.",
       },
     },
     signup: {
@@ -496,6 +734,8 @@ export const translations: Record<Locale, TranslationKeys> = {
       successMessage: "Check your email. First message arrives soon.",
       errorTitle: "Something went wrong",
       errorMessage: "Try again in a few minutes.",
+      privacy: "Privacy Policy.",
+      privacyAuxText: "By signing up, you agree to our ",
     },
     footer: {
       tagline: "Process over hype. Data over intuition.",
@@ -508,8 +748,9 @@ export const translations: Record<Locale, TranslationKeys> = {
       discord: "Discord",
       copyright: "All rights reserved.",
       builtWith: "Built with",
-        connect: "Connect",
-        navigate: "Navigate",
+      connect: "Connect",
+      navigate: "Navigate",
+      privacyPolicy: "Privacy Policy",
     },
     theme: {
       light: "Light",

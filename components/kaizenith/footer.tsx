@@ -45,6 +45,13 @@ export function Footer() {
                 >
                   {t.footer.projects}
                 </a>
+                {/* Privacy Policy */}
+                <a
+                  href="/privacy-policy"
+                  className="text-sm text-foreground/80 hover:text-foreground transition-colors"
+                >
+                  {t.footer.privacyPolicy}
+                </a>
               </nav>
             </div>
 
@@ -54,7 +61,7 @@ export function Footer() {
               </h4>
               <nav className="flex flex-col gap-2">
                 <a
-                  href="https://twitter.com/kaizenith"
+                  href="https://twitter.com/kaizenithcore"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-foreground/80 hover:text-foreground transition-colors"
@@ -62,7 +69,7 @@ export function Footer() {
                   {t.footer.twitter}
                 </a>
                 <a
-                  href="https://github.com/kaizenith"
+                  href="https://github.com/kaizenithcore"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-foreground/80 hover:text-foreground transition-colors"
@@ -70,7 +77,7 @@ export function Footer() {
                   {t.footer.github}
                 </a>
                 <a
-                  href="mailto:hello@kaizenith.com"
+                  href="mailto:hola@kaizenith.es"
                   className="text-sm text-foreground/80 hover:text-foreground transition-colors"
                 >
                   Email

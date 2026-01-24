@@ -7,6 +7,7 @@ import { Navigation } from "@/components/kaizenith/navigation"
 import { Hero } from "@/components/kaizenith/hero"
 import { IntroSection } from "@/components/kaizenith/intro"
 import { LeadMagnet } from "@/components/kaizenith/lead-magnet"
+import { LeadMagnetPreview } from "@/components/kaizenith/lead-magnet-preview"
 import { Roadmap } from "@/components/kaizenith/roadmap"
 import { ProjectsSection } from "@/components/kaizenith/projects"
 import { PrinciplesSection } from "@/components/kaizenith/principles"
@@ -28,6 +29,7 @@ function HomeContent() {
         <Hero onOpenSignup={openSignup} />
         <IntroSection />
         {/* <LeadMagnet onOpenSignup={openSignup} /> */}
+        <LeadMagnetPreview />
         <Roadmap />
         {/* <ProjectsSection /> */}
         <PrinciplesSection />

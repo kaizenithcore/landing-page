@@ -21,8 +21,10 @@ interface SignupFormContentProps {
       subtitle: string
       namePlaceholder: string
       emailPlaceholder: string
-      button: string
+      submit: string
+      submitting: string
       privacy: string
+      privacyAuxText: string
     }
   }
 }
@@ -90,21 +92,23 @@ export function SignupFormContent({
         <Button
           type="submit"
           disabled={isSubmitting}
+          
           className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
         >
           {isSubmitting ? (
             <>
               <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-              Submitting...
+              t.signup.submiting
             </>
           ) : (
-            t.signup.button
+            t.signup.submit
           )}
         </Button>
       </form>
 
       <p className="text-xs text-center text-muted-foreground">
-        {t.signup.privacy}
+        {t.signup.privacyAuxText}
+        <a href="/privacy-policy" className="hover:underline">{t.signup.privacy}</a>
       </p>
     </div>
   )
