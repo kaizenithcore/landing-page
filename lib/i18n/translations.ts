@@ -244,12 +244,32 @@ export type TranslationKeys = {
     navigate: string;
     connect: string;
     privacyPolicy: string;
+    cookiePolicy: string;
+    cookieConfig: string;
   };
   // Theme
   theme: {
     light: string;
     dark: string;
     system: string;
+  };
+  // Cookie Consent
+  cookies: {
+    title: string;
+    description: string;
+    learnMore: string;
+    privacyPolicy: string;
+    accept: string;
+    reject: string;
+    configure: string;
+    // Configuration panel
+    configTitle: string;
+    essentialCookies: string;
+    essentialDesc: string;
+    analyticsCookies: string;
+    analyticsDesc: string;
+    savePreferences: string;
+    required: string;
   };
   // Settings
   settings: {
@@ -274,7 +294,7 @@ export const translations: Record<Locale, TranslationKeys> = {
       ctaSecondary: "Ver la hoja de ruta",
       noSpam: "Solo contenido útil",
       unsubscribe: "Cancela cuando quieras",
-      ctaCommingSoon: "Próximamente: acceso al proceso",
+      ctaCommingSoon: "Acceso al proceso",
       thankYou:
         "Gracias por tu interés. Estamos preparando todo. Pronto podrás acceder al newsletter.",
     },
@@ -501,11 +521,29 @@ export const translations: Record<Locale, TranslationKeys> = {
       connect: "Conectar",
       navigate: "Navegar",
       privacyPolicy: "Política de Privacidad",
+      cookiePolicy: "Política de Cookies",
+      cookieConfig: "Configuración de Cookies",
     },
     theme: {
       light: "Claro",
       dark: "Oscuro",
       system: "Sistema",
+    },
+    cookies: {
+      title: "Preferencias de cookies",
+      description: "Usamos cookies para mejorar tu experiencia y analizar cómo usas nuestro sitio. Puedes aceptarlas todas o configurar cuáles deseas usar.",
+      learnMore: "Más información",
+      privacyPolicy: "Política de Privacidad",
+      accept: "Aceptar todas",
+      reject: "Rechazar no esenciales",
+      configure: "Configurar cookies",
+      configTitle: "Configuración de cookies",
+      essentialCookies: "Cookies esenciales",
+      essentialDesc: "Necesarias para que el sitio funcione correctamente. No se pueden desactivar.",
+      analyticsCookies: "Cookies analíticas",
+      analyticsDesc: "Nos ayudan a entender cómo usas el sitio para mejorarlo continuamente.",
+      savePreferences: "Guardar preferencias",
+      required: "Requerida",
     },
     settings: {
       language: "Idioma",
@@ -527,7 +565,7 @@ export const translations: Record<Locale, TranslationKeys> = {
       ctaSecondary: "View the roadmap",
       noSpam: "Useful content only",
       unsubscribe: "Unsubscribe anytime",
-      ctaCommingSoon: "Coming soon: access the process",
+      ctaCommingSoon: "Access the process",
       thankYou:
         "Thanks for your interest. We're setting everything up. You'll get access to the newsletter soon.",
     },
@@ -751,11 +789,29 @@ export const translations: Record<Locale, TranslationKeys> = {
       connect: "Connect",
       navigate: "Navigate",
       privacyPolicy: "Privacy Policy",
+      cookieConfig: "Cookie Settings",
+      cookiePolicy: "Cookie Policy",
     },
     theme: {
       light: "Light",
       dark: "Dark",
       system: "System",
+    },
+    cookies: {
+      title: "Cookie Preferences",
+      description: "We use cookies to improve your experience and analyze how you use our site. You can accept all or customize which ones you'd like to use.",
+      learnMore: "Learn more",
+      privacyPolicy: "Privacy Policy",
+      accept: "Accept all",
+      reject: "Reject non-essential",
+      configure: "Customize cookies",
+      configTitle: "Cookie Settings",
+      essentialCookies: "Essential cookies",
+      essentialDesc: "Required for the site to work properly. These cannot be disabled.",
+      analyticsCookies: "Analytics cookies",
+      analyticsDesc: "Help us understand how you use the site so we can improve it continuously.",
+      savePreferences: "Save preferences",
+      required: "Required",
     },
     settings: {
       language: "Language",

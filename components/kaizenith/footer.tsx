@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { KaizenithLogo } from "./logo"
-import { useLocale } from "@/lib/i18n/locale-context"
-import { SettingsToggles } from "./settings-toggle"
+import { KaizenithLogo } from "./logo";
+import { useLocale } from "@/lib/i18n/locale-context";
+import { SettingsToggles } from "./settings-toggle";
 
 export function Footer() {
-  const currentYear = new Date().getFullYear()
-  const { t } = useLocale()
+  const currentYear = new Date().getFullYear();
+  const { t } = useLocale();
 
   return (
     <footer className="py-16 border-t border-border">
@@ -14,7 +14,12 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           {/* Logo and tagline */}
           <div className="space-y-4">
-            <KaizenithLogo size="md" dontShowWordmark orientation="horizontal" className="mb-0"/>
+            <KaizenithLogo
+              size="md"
+              dontShowWordmark
+              orientation="horizontal"
+              className="mb-0"
+            />
             <p className="text-sm text-muted-foreground max-w-xs ms-2">
               {t.footer.tagline}
             </p>
@@ -45,12 +50,37 @@ export function Footer() {
                 >
                   {t.footer.projects}
                 </a>
-                {/* Privacy Policy */}
                 <a
-                  href="/privacy-policy"
                   className="text-sm text-foreground/80 hover:text-foreground transition-colors"
+                  href="/privacy"
                 >
                   {t.footer.privacyPolicy}
+                </a>
+                <a
+                  className="text-sm text-foreground/80 hover:text-foreground transition-colors"
+                  href="/cookies"
+                >
+                  {t.footer.cookiePolicy}
+                </a>
+                <a
+                  className="text-sm text-foreground/80 hover:text-foreground transition-colors hover:cursor-pointer"
+                  onClick={() => {
+                    if (typeof window !== 'undefined' && (window as any).openCookieSettings) {
+                      (window as any).openCookieSettings()
+                    } else {
+                      // Si la función no existe aún, espera y reintenta
+                      const checkAndOpen = () => {
+                        if ((window as any).openCookieSettings) {
+                          (window as any).openCookieSettings()
+                        } else {
+                          setTimeout(checkAndOpen, 100)
+                        }
+                      }
+                      checkAndOpen()
+                    }
+                  }}
+                >
+                  {t.footer.cookieConfig}
                 </a>
               </nav>
             </div>
@@ -61,7 +91,7 @@ export function Footer() {
               </h4>
               <nav className="flex flex-col gap-2">
                 <a
-                  href="https://twitter.com/kaizenithcore"
+                  href="https://twitter.com/kaizenith"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-foreground/80 hover:text-foreground transition-colors"
@@ -69,7 +99,7 @@ export function Footer() {
                   {t.footer.twitter}
                 </a>
                 <a
-                  href="https://github.com/kaizenithcore"
+                  href="https://github.com/kaizenith"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-foreground/80 hover:text-foreground transition-colors"
@@ -77,7 +107,7 @@ export function Footer() {
                   {t.footer.github}
                 </a>
                 <a
-                  href="mailto:hola@kaizenith.es"
+                  href="mailto:hello@kaizenith.com"
                   className="text-sm text-foreground/80 hover:text-foreground transition-colors"
                 >
                   Email
@@ -102,12 +132,32 @@ export function Footer() {
             © {currentYear} Kaizenith. {t.footer.copyright}
           </p>
           <p className="text-xs uppercase tracking-wider text-muted-foreground">
-            KAIZENITH · <a className="hover:text-accent hover:cursor-pointer" href="/labs">LABS</a>
-             · <a className="hover:text-accent hover:cursor-pointer" href="/works">WORKS</a> · 
-             <a className="hover:text-accent hover:cursor-pointer" href="/studio">STUDIO</a>
+            <a className="hover:text-accent " 
+             href="/"
+            >
+              KAIZENITH
+            </a> ·{" "}
+            <a className="hover:text-accent " 
+            // href="/labs"
+            >
+              LABS
+            </a>
+            ·{" "}
+            <a className="hover:text-accent " 
+            // href="/works"
+            >
+              WORKS
+            </a>{" "}
+            ·
+            <a
+              className="hover:text-accent "
+              // href="/studio"
+            >
+              STUDIO
+            </a>
           </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }
