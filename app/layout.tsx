@@ -4,6 +4,7 @@ import { Sora, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import Providers from '@/components/Providers'
 import './globals.css'
+import Head from 'next/head'
 
 const sora = Sora({ 
   subsets: ["latin"],
@@ -59,6 +60,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="dark" suppressHydrationWarning>
+      <head>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-Q54HMYXVR1"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-Q54HMYXVR1');
+            `,
+          }}
+        />
+      </head>
       <body className={`${sora.variable} ${inter.variable} font-sans antialiased`}>
         <Providers>
           {children}

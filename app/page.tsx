@@ -14,6 +14,7 @@ import { PrinciplesSection } from "@/components/kaizenith/principles"
 import { SignupForm } from "@/components/kaizenith/signup-form"
 import { SignupModal } from "@/components/kaizenith/signup-modal"
 import { Footer } from "@/components/kaizenith/footer"
+import { CTABanner } from "@/components/kaizenith/cta-banner"
 
 function HomeContent() {
   const [isSignupOpen, setIsSignupOpen] = useState(false)
@@ -29,17 +30,20 @@ function HomeContent() {
         <Hero onOpenSignup={openSignup} />
         <IntroSection />
         {/* <LeadMagnet onOpenSignup={openSignup} /> */}
-        <LeadMagnetPreview />
+        {/* <LeadMagnetPreview /> */}
         <Roadmap />
         {/* <ProjectsSection /> */}
         <PrinciplesSection />
         
         {/* Inline signup form */}
-        <section className="py-24 md:py-32">
+        {/* <section className="py-24 md:py-32">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <SignupForm />
           </div>
-        </section>
+        </section> */}
+
+        <CTABanner />
+
       </main>
 
       <Footer />

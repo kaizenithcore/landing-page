@@ -11,7 +11,7 @@ export function Footer() {
   return (
     <footer className="py-16 border-t border-border">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+        <div className="flex flex-col md:flex-row items-start justify-between gap-8">
           {/* Logo and tagline */}
           <div className="space-y-4">
             <KaizenithLogo
@@ -96,7 +96,31 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="text-sm text-foreground/80 hover:text-foreground transition-colors"
                 >
-                  {t.footer.twitter}
+                  Twitter
+                </a>
+                <a
+                  href="https://tiktok.com/kaizenith"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-foreground/80 hover:text-foreground transition-colors"
+                >
+                  Tiktok
+                </a>
+                <a
+                  href="https://instagram.com/kaizenith"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-foreground/80 hover:text-foreground transition-colors"
+                >
+                  Instagram
+                </a>
+                <a
+                  href="https://discord.gg/kaizenith"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-foreground/80 hover:text-foreground transition-colors"
+                >
+                  Discord
                 </a>
                 <a
                   href="https://github.com/kaizenith"

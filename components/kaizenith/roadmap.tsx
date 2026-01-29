@@ -1,132 +1,170 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useRef } from "react"
-import { ChevronDown } from "lucide-react"
-import { useLocale } from "@/lib/i18n/locale-context"
+import { useState, useEffect, useRef } from "react";
+import { ChevronDown } from "lucide-react";
+import { useLocale } from "@/lib/i18n/locale-context";
 
 interface RoadmapNode {
-  id: string
-  title: string
-  status: string
-  timeframe: string
-  goal: string
-  what: string
-  why: string
-  next: string
+  id: string;
+  title: string; // “— 2026 · Q1 —”
+  timeframe: string; // “2026 · Q1”
+  status?: string; // e.g. "In progress" / "Planned" / "Completed"
+  summary: string; // Short visible sentence
+  focus: string; // What we're doing this quarter
+  why: string; // Why it matters now
+  unlocks: string; // What it unlocks next
 }
 
 const statusColors: Record<string, string> = {
   Launched: "bg-green-500/20 text-green-400 border-green-500/30",
+  Completed: "bg-green-500/20 text-green-400 border-green-500/30",
+  "In progress": "bg-primary/20 text-primary border-primary/30",
+  Planned:
+    "bg-muted-foreground/20 text-muted-foreground border-muted-foreground/30",
+  Active: "bg-primary/20 text-primary border-primary/30",
   Validation: "bg-primary/20 text-primary border-primary/30",
   Prototype: "bg-yellow-500/20 text-yellow-400 border-yellow-500/30",
   Concept: "bg-blue-500/20 text-blue-400 border-blue-500/30",
-  Ongoing: "bg-muted-foreground/20 text-muted-foreground border-muted-foreground/30",
-}
+};
 
 export function Roadmap() {
-  const [expandedNode, setExpandedNode] = useState<string | null>(null)
-  const [isVisible, setIsVisible] = useState(false)
-  const [animatedNodes, setAnimatedNodes] = useState<Set<string>>(new Set())
-  const [lineProgress, setLineProgress] = useState(0)
-  const sectionRef = useRef<HTMLElement>(null)
-  const nodeRefs = useRef<(HTMLDivElement | null)[]>([])
-  const { t } = useLocale()
+  const [expandedNode, setExpandedNode] = useState<string | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [animatedNodes, setAnimatedNodes] = useState<Set<string>>(new Set());
+  const [lineProgress, setLineProgress] = useState(0);
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const nodeRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const { t } = useLocale();
 
-  // Get translated roadmap data
+  // Get translated roadmap data (Q1-Q4 2026, games-first)
   const roadmapData: RoadmapNode[] = [
     {
-      id: "validation",
-      title: t.roadmap.milestones.validation.title,
-      status: t.roadmap.milestones.validation.status,
-      timeframe: t.roadmap.milestones.validation.timeframe,
-      goal: t.roadmap.milestones.validation.what,
-      what: t.roadmap.milestones.validation.what,
-      why: t.roadmap.milestones.validation.why,
-      next: t.roadmap.milestones.validation.next,
+      id: "q1-2026",
+      title: t?.roadmap?.quarters?.q1?.title ?? "— 2026 · Q1 —",
+      status: t?.roadmap?.quarters?.q1?.status ?? "In progress",
+      timeframe: t?.roadmap?.quarters?.q1?.timeframe ?? "2026 · Q1",
+      summary:
+        t?.roadmap?.quarters?.q1?.summary ??
+        "Establecer presencia y lanzar la primera herramienta (FlowFocus).",
+      focus:
+        t?.roadmap?.quarters?.q1?.focus ??
+        `Comenzar a crear audiencia.
+Terminar y publicar FlowFocus.
+Implementar estrategia de redes, lead magnet y posible newsletter.
+Desarrollo y publicación de la web.`,
+      why:
+        t?.roadmap?.quarters?.q1?.why ??
+        "Prioridad: validar canales y generar señales de interés antes de empujar el juego.",
+      unlocks:
+        t?.roadmap?.quarters?.q1?.unlocks ??
+        "Señales positivas → intensificar promoción del juego y preparar Q2 (Kickstarter).",
     },
     {
-      id: "prototype",
-      title: t.roadmap.milestones.prototype.title,
-      status: t.roadmap.milestones.prototype.status,
-      timeframe: t.roadmap.milestones.prototype.timeframe,
-      goal: t.roadmap.milestones.prototype.what,
-      what: t.roadmap.milestones.prototype.what,
-      why: t.roadmap.milestones.prototype.why,
-      next: t.roadmap.milestones.prototype.next,
+      id: "q2-2026",
+      title: t?.roadmap?.quarters?.q2?.title ?? "— 2026 · Q2 —",
+      status: t?.roadmap?.quarters?.q2?.status ?? "Planned",
+      timeframe: t?.roadmap?.quarters?.q2?.timeframe ?? "2026 · Q2",
+      summary:
+        t?.roadmap?.quarters?.q2?.summary ??
+        "Dar empuje al juego principal y preparar el crowdfunding.",
+      focus:
+        t?.roadmap?.quarters?.q2?.focus ??
+        `Ajustar estrategia según resultados.
+Intensificar promoción del juego.
+Lanzar Kickstarter.
+Crear Discord para la comunidad.`,
+      why:
+        t?.roadmap?.quarters?.q2?.why ??
+        "Kickstarter es la palanca de visibilidad y financiación si la comunidad responde.",
+      unlocks:
+        t?.roadmap?.quarters?.q2?.unlocks ??
+        "Éxito en crowdfunding → fondos para producción y alcance ampliado.",
     },
     {
-      id: "betaLaunch",
-      title: t.roadmap.milestones.betaLaunch.title,
-      status: t.roadmap.milestones.betaLaunch.status,
-      timeframe: t.roadmap.milestones.betaLaunch.timeframe,
-      goal: t.roadmap.milestones.betaLaunch.what,
-      what: t.roadmap.milestones.betaLaunch.what,
-      why: t.roadmap.milestones.betaLaunch.why,
-      next: t.roadmap.milestones.betaLaunch.next,
+      id: "q3-2026",
+      title: t?.roadmap?.quarters?.q3?.title ?? "— 2026 · Q3 —",
+      status: t?.roadmap?.quarters?.q3?.status ?? "Planned",
+      timeframe: t?.roadmap?.quarters?.q3?.timeframe ?? "2026 · Q3",
+      summary:
+        t?.roadmap?.quarters?.q3?.summary ??
+        "Publicar el juego y recoger métricas reales de los jugadores.",
+      focus:
+        t?.roadmap?.quarters?.q3?.focus ??
+        `Publicar el juego (release principal).
+Decidir: DLC/expansión o nuevo proyecto según feedback.
+Buscar colaboraciones para la newsletter.`,
+      why:
+        t?.roadmap?.quarters?.q3?.why ??
+        "El lanzamiento valida el producto en condiciones reales y guía el roadmap de contenido.",
+      unlocks:
+        t?.roadmap?.quarters?.q3?.unlocks ??
+        "Decisión clara: expansión / DLC o iniciar nuevo proyecto según datos.",
     },
     {
-      id: "iteration",
-      title: t.roadmap.milestones.iteration.title,
-      status: t.roadmap.milestones.iteration.status,
-      timeframe: t.roadmap.milestones.iteration.timeframe,
-      goal: t.roadmap.milestones.iteration.what,
-      what: t.roadmap.milestones.iteration.what,
-      why: t.roadmap.milestones.iteration.why,
-      next: t.roadmap.milestones.iteration.next,
+      id: "q4-2026",
+      title: t?.roadmap?.quarters?.q4?.title ?? "— 2026 · Q4 —",
+      status: t?.roadmap?.quarters?.q4?.status ?? "Planned",
+      timeframe: t?.roadmap?.quarters?.q4?.timeframe ?? "2026 · Q4",
+      summary:
+        t?.roadmap?.quarters?.q4?.summary ??
+        "Consolidar pipeline y buscar acuerdos mayores.",
+      focus:
+        t?.roadmap?.quarters?.q4?.focus ??
+        `Continuar desarrollo del siguiente juego / expansión.
+Buscar acuerdos y colaboraciones más grandes.`,
+      why:
+        t?.roadmap?.quarters?.q4?.why ??
+        "Escalar con prudencia y convertir señales tempranas en acuerdos y alcance.",
+      unlocks:
+        t?.roadmap?.quarters?.q4?.unlocks ??
+        "Preparar 2027: priorizar roadmap en función de ingresos y comunidad.",
     },
-    {
-      id: "publicLaunch",
-      title: t.roadmap.milestones.publicLaunch.title,
-      status: t.roadmap.milestones.publicLaunch.status,
-      timeframe: t.roadmap.milestones.publicLaunch.timeframe,
-      goal: t.roadmap.milestones.publicLaunch.what,
-      what: t.roadmap.milestones.publicLaunch.what,
-      why: t.roadmap.milestones.publicLaunch.why,
-      next: t.roadmap.milestones.publicLaunch.next,
-    },
-  ]
+  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true)
-          
+          setIsVisible(true);
+
           // Animate line progress
-          const duration = 1500
-          const startTime = Date.now()
+          const duration = 1200;
+          const startTime = Date.now();
           const animateLine = () => {
-            const elapsed = Date.now() - startTime
-            const progress = Math.min(elapsed / duration, 1)
-            setLineProgress(progress)
+            const elapsed = Date.now() - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            setLineProgress(progress);
             if (progress < 1) {
-              requestAnimationFrame(animateLine)
+              requestAnimationFrame(animateLine);
             }
-          }
-          requestAnimationFrame(animateLine)
-          
+          };
+          requestAnimationFrame(animateLine);
+
           // Animate nodes sequentially
           roadmapData.forEach((node, index) => {
-            setTimeout(() => {
-              setAnimatedNodes((prev) => new Set([...prev, node.id]))
-            }, 400 + index * 250)
-          })
+            setTimeout(
+              () => {
+                setAnimatedNodes(
+                  (prev) => new Set([...Array.from(prev), node.id]),
+                );
+              },
+              300 + index * 180,
+            );
+          });
         }
       },
-      { threshold: 0.15 }
-    )
+      { threshold: 0.15 },
+    );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
-    }
+    if (sectionRef.current) observer.observe(sectionRef.current);
 
-    return () => observer.disconnect()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+    return () => observer.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const toggleNode = (id: string) => {
-    setExpandedNode(expandedNode === id ? null : id)
-  }
+    setExpandedNode((prev) => (prev === id ? null : id));
+  };
 
   return (
     <section id="roadmap" ref={sectionRef} className="py-24 md:py-32">
@@ -135,30 +173,34 @@ export function Roadmap() {
         <div className="text-center mb-16 space-y-6">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-sm font-medium text-primary uppercase tracking-wider">Live System</span>
+            <span className="text-sm font-medium text-primary uppercase tracking-wider">
+              {t?.roadmap?.liveLabel ?? "Live System"}
+            </span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground text-balance">
-            {t.roadmap.title}
+            {t?.roadmap?.title ?? "El Sistema"}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            {t.roadmap.subtitle}
+            {t?.roadmap?.subtitle ??
+              "No es un timeline. Es un sistema de experimentos activos. Cada nodo es una hipótesis que estamos probando. Haz clic para ver qué estamos testing y qué buscamos aprender."}
           </p>
         </div>
 
         {/* Roadmap visualization */}
         <div className="relative">
           {/* Vertical connecting line with glow */}
-          <div 
+          <div
             className="absolute left-[1.75rem] md:left-[2.75rem] top-6 w-0.5 bg-border pointer-events-none"
-            style={{ height: 'calc(100% - 3rem)' }}
+            style={{ height: "calc(100% - 3rem)" }}
             aria-hidden="true"
           >
             {/* Animated progress line */}
-            <div 
+            <div
               className="absolute top-0 left-0 w-full bg-primary transition-all duration-100 ease-out"
-              style={{ 
+              style={{
                 height: `${lineProgress * 100}%`,
-                boxShadow: '0 0 12px 2px rgba(133, 76, 173, 0.5), 0 0 24px 4px rgba(133, 76, 173, 0.3)'
+                boxShadow:
+                  "0 0 12px 2px rgba(133, 76, 173, 0.5), 0 0 24px 4px rgba(133, 76, 173, 0.3)",
               }}
             />
           </div>
@@ -173,28 +215,46 @@ export function Roadmap() {
                 isAnimated={animatedNodes.has(node.id)}
                 onToggle={() => toggleNode(node.id)}
                 index={index}
-                nodeRef={(el) => { nodeRefs.current[index] = el }}
-                labels={{ what: t.roadmap.what, why: t.roadmap.why, next: t.roadmap.next }}
+                nodeRef={(el) => {
+                  nodeRefs.current[index] = el;
+                }}
+                labels={{
+                  focus: t?.roadmap?.focus ?? "En qué estamos centrados",
+                  why: t?.roadmap?.why ?? "Por qué importa ahora",
+                  unlocks: t?.roadmap?.unlocks ?? "Qué desbloquea después",
+                }}
               />
             ))}
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 interface RoadmapCardProps {
-  node: RoadmapNode
-  isExpanded: boolean
-  isAnimated: boolean
-  onToggle: () => void
-  index: number
-  nodeRef: (el: HTMLDivElement | null) => void
-  labels: { what: string; why: string; next: string }
+  node: RoadmapNode;
+  isExpanded: boolean;
+  isAnimated: boolean;
+  onToggle: () => void;
+  index: number;
+  nodeRef: (el: HTMLDivElement | null) => void;
+  labels: {
+    focus: string;
+    why: string;
+    unlocks: string;
+  };
 }
 
-function RoadmapCard({ node, isExpanded, isAnimated, onToggle, index, nodeRef, labels }: RoadmapCardProps) {
+function RoadmapCard({
+  node,
+  isExpanded,
+  isAnimated,
+  onToggle,
+  index,
+  nodeRef,
+  labels,
+}: RoadmapCardProps) {
   return (
     <div
       ref={nodeRef}
@@ -205,19 +265,19 @@ function RoadmapCard({ node, isExpanded, isAnimated, onToggle, index, nodeRef, l
     >
       {/* Node marker */}
       <div
-        className={`absolute -left-[2.25rem] md:-left-[2.75rem] top-6 w-4 h-4 rounded-full border-2 transition-all duration-300 z-10 ${
+        className={`absolute -left-[2.25rem] md:-left-[2.75rem] top-7 w-4 h-4 rounded-full border-2 z-10 transition-all duration-300 ${
           isAnimated
             ? isExpanded
               ? "bg-primary border-primary scale-125"
               : "bg-primary border-primary"
             : "bg-card border-border"
         }`}
-        style={{ 
-          boxShadow: isAnimated 
-            ? isExpanded 
-              ? '0 0 16px 4px rgba(133, 76, 173, 0.6)' 
-              : '0 0 8px 2px rgba(133, 76, 173, 0.4)'
-            : 'none'
+        style={{
+          boxShadow: isAnimated
+            ? isExpanded
+              ? "0 0 16px 4px rgba(133, 76, 173, 0.6)"
+              : "0 0 8px 2px rgba(133, 76, 173, 0.4)"
+            : "none",
         }}
       />
 
@@ -236,16 +296,28 @@ function RoadmapCard({ node, isExpanded, isAnimated, onToggle, index, nodeRef, l
           <div className="flex items-start justify-between gap-4">
             <div className="space-y-2 flex-1">
               <div className="flex flex-wrap items-center gap-3">
-                <h3 className="text-lg font-semibold text-foreground">{node.title}</h3>
-                <span
-                  className={`text-xs px-2 py-0.5 rounded-full border ${statusColors[node.status]}`}
-                >
-                  {node.status}
-                </span>
+                <h3 className="text-lg font-semibold text-foreground">
+                  {node.title}
+                </h3>
+                {node.status && (
+                  <span
+                    className={`text-xs px-2 py-0.5 rounded-full border ${
+                      statusColors[node.status] ??
+                      "bg-muted-foreground/20 text-muted-foreground border-muted-foreground/30"
+                    }`}
+                  >
+                    {node.status}
+                  </span>
+                )}
               </div>
+
               <p className="text-sm text-muted-foreground">{node.timeframe}</p>
-              <p className="text-foreground/90">{node.goal}</p>
+
+              <p className="text-foreground/90 leading-relaxed">
+                {node.summary}
+              </p>
             </div>
+
             <ChevronDown
               className={`w-5 h-5 text-muted-foreground transition-transform duration-300 shrink-0 ${
                 isExpanded ? "rotate-180" : ""
@@ -262,23 +334,35 @@ function RoadmapCard({ node, isExpanded, isAnimated, onToggle, index, nodeRef, l
           isExpanded ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="px-6 pb-6 pt-2 ml-0 border-l-2 border-primary/20 mt-2">
+        <div className="px-6 pb-6 pt-3 ml-0 border-l-2 border-primary/20 mt-2">
           <dl className="space-y-4 text-sm">
             <div>
-              <dt className="font-medium text-foreground mb-1">{labels.what}</dt>
-              <dd className="text-muted-foreground">{node.what}</dd>
+              <dt className="font-medium text-foreground mb-1">
+                {labels.focus}
+              </dt>
+              <dd className="text-muted-foreground whitespace-pre-line">
+                {node.focus}
+              </dd>
             </div>
+
             <div>
               <dt className="font-medium text-foreground mb-1">{labels.why}</dt>
-              <dd className="text-muted-foreground">{node.why}</dd>
+              <dd className="text-muted-foreground whitespace-pre-line">
+                {node.why}
+              </dd>
             </div>
+
             <div>
-              <dt className="font-medium text-foreground mb-1">{labels.next}</dt>
-              <dd className="text-muted-foreground">{node.next}</dd>
+              <dt className="font-medium text-foreground mb-1">
+                {labels.unlocks}
+              </dt>
+              <dd className="text-muted-foreground whitespace-pre-line">
+                {node.unlocks}
+              </dd>
             </div>
           </dl>
         </div>
       </div>
     </div>
-  )
+  );
 }

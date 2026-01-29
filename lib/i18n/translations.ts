@@ -44,6 +44,14 @@ export type TranslationKeys = {
     earlyAccess: string;
     earlyAccessDesc: string;
   };
+  // CTA Banner
+  ctaBanner: {
+    headline: string;
+    subheadline: string;
+    ctaPrimary: string;
+    ctaSecondary: string;
+    kickstarterNote: string;
+  };
   // Lead Magnet
   leadMagnet: {
     badge: string;
@@ -124,51 +132,47 @@ export type TranslationKeys = {
   // Roadmap
   roadmap: {
     title: string;
+    focus: string;
     subtitle: string;
-    what: string;
     why: string;
-    next: string;
-    // Milestones
-    milestones: {
-      validation: {
+    unlocks: string;
+    liveLabel: string;
+    quarters: {
+      q1: {
         title: string;
+        status: string; // Launched / Completed / Planned / Active / Validation / Prototype / Concept
         timeframe: string;
-        status: string;
-        what: string;
         why: string;
-        next: string;
+        summary: string;
+        focus: string;
+        unlocks: string;
       };
-      prototype: {
+      q2: {
         title: string;
-        timeframe: string;
         status: string;
-        what: string;
+        timeframe: string;
         why: string;
-        next: string;
+        summary: string;
+        focus: string;
+        unlocks: string;
       };
-      betaLaunch: {
+      q3: {
         title: string;
-        timeframe: string;
         status: string;
-        what: string;
+        timeframe: string;
         why: string;
-        next: string;
+        summary: string;
+        focus: string;
+        unlocks: string;
       };
-      iteration: {
+      q4: {
         title: string;
-        timeframe: string;
         status: string;
-        what: string;
-        why: string;
-        next: string;
-      };
-      publicLaunch: {
-        title: string;
         timeframe: string;
-        status: string;
-        what: string;
         why: string;
-        next: string;
+        summary: string;
+        focus: string;
+        unlocks: string;
       };
     };
   };
@@ -294,12 +298,12 @@ export const translations: Record<Locale, TranslationKeys> = {
       ctaSecondary: "Ver la hoja de ruta",
       noSpam: "Solo contenido útil",
       unsubscribe: "Cancela cuando quieras",
-      ctaCommingSoon: "Acceso al proceso",
+      ctaCommingSoon: "Próximamente: acceso al proceso",
       thankYou:
         "Gracias por tu interés. Estamos preparando todo. Pronto podrás acceder al newsletter.",
     },
     intro: {
-      title: "Proceso sobre hype. Datos sobre intuición.",
+      title: "Planificación, creación y lanzamiento",
       p1: "No creemos en lanzamientos épicos ni en marketing de humo. Creemos en ciclos cortos, hipótesis claras y métricas que no mienten. Cada decisión se prueba, se mide, se ajusta.",
       p2: "Kaizen (mejora continua) + Zenith (el punto más alto). Apuntamos alto, pero el camino es metodológico: pequeños incrementos, resultados compuestos.",
       p3: "El newsletter no es contenido motivacional. Es un registro técnico de lo que funciona, lo que falla, y por qué. Si prefieres claridad sobre inspiración, estás en el lugar correcto.",
@@ -312,6 +316,15 @@ export const translations: Record<Locale, TranslationKeys> = {
       earlyAccess: "Acceso Anticipado",
       earlyAccessDesc:
         "Prueba herramientas y juegos antes que nadie. Tu feedback moldea el producto.",
+    },
+    ctaBanner: {
+      headline: "Estamos desarrollando un juego!",
+      subheadline:
+        "Síguelo en wishlist y apóyanos. Tu support hace la diferencia.",
+      ctaPrimary: "Agregar a deseados en Steam",
+      ctaSecondary: "Apoyar en Patreon",
+      kickstarterNote:
+        "Kickstarter planeado para más adelante en el desarrollo",
     },
     leadMagnet: {
       badge: "Guía Gratuita",
@@ -331,9 +344,10 @@ export const translations: Record<Locale, TranslationKeys> = {
         "Este es un archivo interno del lab de Kaizenith. Errores testeados, ejemplos reales, soluciones prácticas para marketing de juegos indie. No indexado.",
       downloadPdf: "Descargar PDF",
       lockedTitle: "Desbloquea la guía completa",
-      lockedDesc: "Accede al checklist, casos reales y el plan accionable completo.",
+      lockedDesc:
+        "Accede al checklist, casos reales y el plan accionable completo.",
       lockedBtn: "Acceder ahora",
-      lockedFooter:"Es gratis · sin spam · acceso inmediato",
+      lockedFooter: "Es gratis · sin spam · acceso inmediato",
       download: "Descargar",
       contentLabel: "Contenido",
       checklist: "Checklist",
@@ -381,7 +395,8 @@ export const translations: Record<Locale, TranslationKeys> = {
       signupModalDesc:
         "Deja tu email para descargar el PDF y recibir actualizaciones del lab.",
       signupSuccessTitle: "¡Gracias por apuntarte!",
-      signupSuccessDesc: "Ya tienes acceso completo a la guía y al contenido interactivo.",
+      signupSuccessDesc:
+        "Ya tienes acceso completo a la guía y al contenido interactivo.",
       signupSuccessBtn: "Ver la guía completa",
       whatLabel: "El problema",
       whyLabel: "Por qué",
@@ -393,58 +408,73 @@ export const translations: Record<Locale, TranslationKeys> = {
       toolsLabel: "Herramientas",
       kpiLabel: "KPI a medir",
       doThisNowLabel: "Si no haces nada más, haz esto",
-      
     },
     roadmap: {
-      title: "El Sistema",
-      subtitle:
-        "No es un timeline. Es un sistema de experimentos activos. Cada nodo es una hipótesis que estamos probando. Haz clic para ver qué estamos testeando y qué buscamos aprender.",
-      what: "Qué estamos probando",
-      why: "Hipótesis",
-      next: "Siguiente iteración",
-      milestones: {
-        validation: {
-          title: "Validación de Demanda",
-          timeframe: "Semana 1-2",
-          status: "Completado",
-          what: "Entrevistas con usuarios potenciales. Landing con signup. Análisis de competencia directa e indirecta.",
-          why: "Construir sin validar es el error #1. Necesitamos señales antes de invertir tiempo.",
-          next: "Si >50 signups en 2 semanas → prototipo. Si no → pivotar propuesta de valor.",
+      title: "El sistema",
+      liveLabel: "En vivo",
+      subtitle: "Nuestro camino al éxito",
+      focus: "En qué estamos centrados",
+      why: "Por qué importa ahora",
+      unlocks: "Qué conseguimos después",
+
+      quarters: {
+        q1: {
+          title: "Fase inicial",
+          status: "Active",
+          timeframe: "2026 · Q1",
+          summary:
+            "Establecer presencia y lanzar la primera herramienta (FlowFocus).",
+          focus: `Comenzar a crear audiencia.
+Terminar y publicar FlowFocus.
+Implementar estrategia de redes, lead magnet y posible newsletter.
+Desarrollo y publicación de la web.`,
+          why: "Prioridad: validar canales y generar señales de interés antes de empujar el juego.",
+          unlocks:
+            "Señales positivas → intensificar promoción del juego y preparar Q2 (Kickstarter).",
         },
-        prototype: {
-          title: "Prototipo Funcional",
-          timeframe: "Semana 3-6",
-          status: "En Progreso",
-          what: "MVP con el core loop completo. Funcionalidad mínima, experiencia máxima en lo esencial.",
-          why: "El prototipo responde una pregunta: ¿el core loop engancha? Todo lo demás es ruido.",
-          next: "10 usuarios activos con >3 sesiones/semana → beta. Si no → iterar core loop.",
+
+        q2: {
+          title: "Primeros pasos",
+          status: "Prototype",
+          timeframe: "2026 · Q2",
+          summary: "Dar empuje al juego principal y preparar el crowdfunding.",
+          focus: `Ajustar estrategia según resultados.
+Intensificar promoción del juego.
+Lanzar Kickstarter.
+Crear Discord para la comunidad.`,
+          why: "Kickstarter es la palanca de visibilidad y financiación si la comunidad responde.",
+          unlocks:
+            "Éxito en crowdfunding → fondos para producción y alcance ampliado.",
         },
-        betaLaunch: {
-          title: "Beta Cerrada",
-          timeframe: "Semana 7-10",
-          status: "Próximo",
-          what: "50-100 beta testers seleccionados. Métricas de retención y engagement. Feedback cualitativo estructurado.",
-          why: "La beta no es para pulir. Es para encontrar el PMF signal: ¿los usuarios vuelven sin que les recordemos?",
-          next: "Retención D7 >30% → escalar. Si no → analizar churns y ajustar.",
-        },
-        iteration: {
-          title: "Ciclos de Iteración",
-          timeframe: "Semana 11-20",
+
+        q3: {
+          title: "Lanzamiento!",
           status: "Planificado",
-          what: "Sprints de 2 semanas. Una hipótesis por sprint. Métricas antes/después. Documentación pública.",
-          why: "El crecimiento no es lineal. Es una serie de micro-experimentos que compound.",
-          next: "Cada sprint documenta: hipótesis, experimento, resultado, aprendizaje.",
+          timeframe: "2026 · Q3",
+          summary:
+            "Publicar el juego y recoger métricas reales de los jugadores.",
+          focus: `Publicar el juego (release principal).
+Decidir: DLC/expansión o nuevo proyecto según feedback.
+Buscar colaboraciones para la newsletter.`,
+          why: "El lanzamiento valida el producto en condiciones reales y guía el roadmap de contenido.",
+          unlocks:
+            "Decisión clara: expansión / DLC o iniciar nuevo proyecto según datos.",
         },
-        publicLaunch: {
-          title: "Lanzamiento Público",
-          timeframe: "Semana 21+",
+
+        q4: {
+          title: "Expansión",
           status: "Planificado",
-          what: "Lanzamiento con product hunt, comunidades relevantes, PR selectivo. Base de usuarios validada.",
-          why: "Lanzar no es el objetivo. Es el punto donde el producto ha probado que merece atención.",
-          next: "Post-launch: seguir iterando. El lanzamiento es un milestone, no el final.",
+          timeframe: "2026 · Q4",
+          summary: "Consolidar pipeline y buscar acuerdos mayores.",
+          focus: `Continuar desarrollo del siguiente juego / expansión.
+Buscar acuerdos y colaboraciones más grandes.`,
+          why: "Escalar con prudencia y convertir señales tempranas en acuerdos y alcance.",
+          unlocks:
+            "Preparar 2027: priorizar roadmap en función de ingresos y comunidad.",
         },
       },
     },
+
     projects: {
       title: "Proyectos",
       subtitle: "Lo que estamos construyendo actualmente.",
@@ -508,7 +538,7 @@ export const translations: Record<Locale, TranslationKeys> = {
       privacyAuxText: "Al hacer clic en 'Quiero acceso', aceptas ",
     },
     footer: {
-      tagline: "Proceso sobre hype. Datos sobre intuición.",
+      tagline: "Planificación, creación y lanzamiento.",
       roadmap: "Hoja de Ruta",
       about: "Nosotros",
       projects: "Proyectos",
@@ -521,8 +551,8 @@ export const translations: Record<Locale, TranslationKeys> = {
       connect: "Conectar",
       navigate: "Navegar",
       privacyPolicy: "Política de Privacidad",
+      cookieConfig: "Configuración de cookies",
       cookiePolicy: "Política de Cookies",
-      cookieConfig: "Configuración de Cookies",
     },
     theme: {
       light: "Claro",
@@ -531,7 +561,8 @@ export const translations: Record<Locale, TranslationKeys> = {
     },
     cookies: {
       title: "Preferencias de cookies",
-      description: "Usamos cookies para mejorar tu experiencia y analizar cómo usas nuestro sitio. Puedes aceptarlas todas o configurar cuáles deseas usar.",
+      description:
+        "Usamos cookies para mejorar tu experiencia y analizar cómo usas nuestro sitio. Puedes aceptarlas todas o configurar cuáles deseas usar.",
       learnMore: "Más información",
       privacyPolicy: "Política de Privacidad",
       accept: "Aceptar todas",
@@ -539,9 +570,11 @@ export const translations: Record<Locale, TranslationKeys> = {
       configure: "Configurar cookies",
       configTitle: "Configuración de cookies",
       essentialCookies: "Cookies esenciales",
-      essentialDesc: "Necesarias para que el sitio funcione correctamente. No se pueden desactivar.",
+      essentialDesc:
+        "Necesarias para que el sitio funcione correctamente. No se pueden desactivar.",
       analyticsCookies: "Cookies analíticas",
-      analyticsDesc: "Nos ayudan a entender cómo usas el sitio para mejorarlo continuamente.",
+      analyticsDesc:
+        "Nos ayudan a entender cómo usas el sitio para mejorarlo continuamente.",
       savePreferences: "Guardar preferencias",
       required: "Requerida",
     },
@@ -565,12 +598,12 @@ export const translations: Record<Locale, TranslationKeys> = {
       ctaSecondary: "View the roadmap",
       noSpam: "Useful content only",
       unsubscribe: "Unsubscribe anytime",
-      ctaCommingSoon: "Access the process",
+      ctaCommingSoon: "Coming soon: access the process",
       thankYou:
         "Thanks for your interest. We're setting everything up. You'll get access to the newsletter soon.",
     },
     intro: {
-      title: "Process over hype. Data over intuition.",
+      title: "Planification, creation and launch.",
       p1: "We don't believe in epic launches or smoke-and-mirrors marketing. We believe in short cycles, clear hypotheses, and metrics that don't lie. Every decision is tested, measured, adjusted.",
       p2: "Kaizen (continuous improvement) + Zenith (the highest point). We aim high, but the path is methodical: small increments, compounding results.",
       p3: "The newsletter isn't motivational content. It's a technical log of what works, what fails, and why. If you prefer clarity over inspiration, you're in the right place.",
@@ -583,6 +616,14 @@ export const translations: Record<Locale, TranslationKeys> = {
       earlyAccess: "Early Access",
       earlyAccessDesc:
         "Test tools and games before anyone else. Your feedback shapes the product.",
+    },
+    ctaBanner: {
+      headline: "We are making a game!",
+      subheadline:
+        "Follow its development and support the journey. Your support makes a difference.",
+      ctaPrimary: "Add to Wishlist on Steam",
+      ctaSecondary: "Support on Patreon",
+      kickstarterNote: "Kickstarter planned for later in development",
     },
     leadMagnet: {
       badge: "Free Guide",
@@ -652,7 +693,8 @@ export const translations: Record<Locale, TranslationKeys> = {
       signupModalDesc:
         "Leave your email to download the PDF and receive lab updates.",
       signupSuccessTitle: "Thanks for signing up!",
-      signupSuccessDesc: "You now have full access to the guide and interactive content.",
+      signupSuccessDesc:
+        "You now have full access to the guide and interactive content.",
       signupSuccessBtn: "View the complete guide",
       whatLabel: "The problem",
       whyLabel: "Why",
@@ -667,54 +709,68 @@ export const translations: Record<Locale, TranslationKeys> = {
     },
     roadmap: {
       title: "The System",
-      subtitle:
-        "Not a timeline. A system of active experiments. Each node is a hypothesis we're testing. Click to see what we're testing and what we're trying to learn.",
-      what: "What we're testing",
-      why: "Hypothesis",
-      next: "Next iteration",
-      milestones: {
-        validation: {
-          title: "Demand Validation",
-          timeframe: "Week 1-2",
-          status: "Completed",
-          what: "User interviews. Landing page with signup. Direct and indirect competitive analysis.",
-          why: "Building without validating is mistake #1. We need signals before investing time.",
-          next: "If >50 signups in 2 weeks → prototype. If not → pivot value proposition.",
+      liveLabel: "Live",
+      subtitle: "Our path to success",
+      focus: "Focus",
+      why: "Why now?",
+      unlocks: "Unlocks",
+
+      quarters: {
+        q1: {
+          title: "Starting path",
+          status: "In progress",
+          timeframe: "2026 · Q1",
+          summary: "Establish presence and launch the first tool (FlowFocus).",
+          focus: `Start building an audience.
+Finish and publish FlowFocus.
+Implement social strategy, lead magnet, and possible newsletter.
+Develop and publish the website.`,
+          why: "Priority: validate channels and generate interest signals before pushing the game.",
+          unlocks:
+            "Positive signals → ramp up game promotion and prepare Q2 (Kickstarter).",
         },
-        prototype: {
-          title: "Functional Prototype",
-          timeframe: "Week 3-6",
-          status: "In Progress",
-          what: "MVP with complete core loop. Minimum functionality, maximum experience on essentials.",
-          why: "The prototype answers one question: does the core loop hook? Everything else is noise.",
-          next: "10 active users with >3 sessions/week → beta. If not → iterate core loop.",
-        },
-        betaLaunch: {
-          title: "Closed Beta",
-          timeframe: "Week 7-10",
-          status: "Next",
-          what: "50-100 selected beta testers. Retention and engagement metrics. Structured qualitative feedback.",
-          why: "Beta isn't for polishing. It's for finding the PMF signal: do users return without reminders?",
-          next: "D7 retention >30% → scale. If not → analyze churns and adjust.",
-        },
-        iteration: {
-          title: "Iteration Cycles",
-          timeframe: "Week 11-20",
+
+        q2: {
+          title: "First steps",
           status: "Planned",
-          what: "2-week sprints. One hypothesis per sprint. Before/after metrics. Public documentation.",
-          why: "Growth isn't linear. It's a series of micro-experiments that compound.",
-          next: "Each sprint documents: hypothesis, experiment, result, learning.",
+          timeframe: "2026 · Q2",
+          summary: "Push the main game and prepare crowdfunding.",
+          focus: `Adjust strategy based on results.
+Ramp up game promotion.
+Launch Kickstarter.
+Create a Discord community.`,
+          why: "Kickstarter is the visibility and funding lever if the community responds.",
+          unlocks:
+            "Successful crowdfunding → funds for production and expanded reach.",
         },
-        publicLaunch: {
-          title: "Public Launch",
-          timeframe: "Week 21+",
+
+        q3: {
+          title: "Launching!",
           status: "Planned",
-          what: "Launch via Product Hunt, relevant communities, selective PR. Validated user base.",
-          why: "Launching isn't the goal. It's the point where the product has proven it deserves attention.",
-          next: "Post-launch: keep iterating. Launch is a milestone, not the end.",
+          timeframe: "2026 · Q3",
+          summary: "Release the game and collect real player metrics.",
+          focus: `Ship the game (main release).
+Decide: DLC/expansion or new project based on feedback.
+Seek newsletter collaborations.`,
+          why: "Release validates the product in real conditions and informs the content roadmap.",
+          unlocks:
+            "Clear decision: expansion / DLC or start a new project based on data.",
+        },
+
+        q4: {
+          title: "Expansion",
+          status: "Planned",
+          timeframe: "2026 · Q4",
+          summary: "Consolidate pipeline and pursue larger partnerships.",
+          focus: `Continue development of the next game / expansion.
+Seek larger deals and collaborations.`,
+          why: "Scale carefully and convert early signals into partnerships and reach.",
+          unlocks:
+            "Prepare 2027: prioritize roadmap based on revenue and community.",
         },
       },
     },
+
     projects: {
       title: "Projects",
       subtitle: "What we're currently building.",
@@ -776,7 +832,7 @@ export const translations: Record<Locale, TranslationKeys> = {
       privacyAuxText: "By signing up, you agree to our ",
     },
     footer: {
-      tagline: "Process over hype. Data over intuition.",
+      tagline: "Planification, creation and launch",
       roadmap: "Roadmap",
       about: "About",
       projects: "Projects",
@@ -799,7 +855,8 @@ export const translations: Record<Locale, TranslationKeys> = {
     },
     cookies: {
       title: "Cookie Preferences",
-      description: "We use cookies to improve your experience and analyze how you use our site. You can accept all or customize which ones you'd like to use.",
+      description:
+        "We use cookies to improve your experience and analyze how you use our site. You can accept all or customize which ones you'd like to use.",
       learnMore: "Learn more",
       privacyPolicy: "Privacy Policy",
       accept: "Accept all",
@@ -807,9 +864,11 @@ export const translations: Record<Locale, TranslationKeys> = {
       configure: "Customize cookies",
       configTitle: "Cookie Settings",
       essentialCookies: "Essential cookies",
-      essentialDesc: "Required for the site to work properly. These cannot be disabled.",
+      essentialDesc:
+        "Required for the site to work properly. These cannot be disabled.",
       analyticsCookies: "Analytics cookies",
-      analyticsDesc: "Help us understand how you use the site so we can improve it continuously.",
+      analyticsDesc:
+        "Help us understand how you use the site so we can improve it continuously.",
       savePreferences: "Save preferences",
       required: "Required",
     },
