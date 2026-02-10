@@ -55,7 +55,7 @@ export function CTABanner() {
               asChild
             >
               <a
-                href="https://patreon.com/kaizenith"
+                href="https://www.patreon.com/cw/kaizenithcore"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2"

@@ -321,7 +321,7 @@ export const translations: Record<Locale, TranslationKeys> = {
       headline: "Estamos desarrollando un juego!",
       subheadline:
         "Síguelo en wishlist y apóyanos. Tu support hace la diferencia.",
-      ctaPrimary: "Agregar a deseados en Steam",
+      ctaPrimary: "Seguir en Steam",
       ctaSecondary: "Apoyar en Patreon",
       kickstarterNote:
         "Kickstarter planeado para más adelante en el desarrollo",
@@ -621,7 +621,7 @@ Buscar acuerdos y colaboraciones más grandes.`,
       headline: "We are making a game!",
       subheadline:
         "Follow its development and support the journey. Your support makes a difference.",
-      ctaPrimary: "Add to Wishlist on Steam",
+      ctaPrimary: "Follow on Steam",
       ctaSecondary: "Support on Patreon",
       kickstarterNote: "Kickstarter planned for later in development",
     },

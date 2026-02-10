@@ -43,7 +43,8 @@ export const metadata: Metadata = {
     images: ['/og-image.png'],
   },
   icons: {
-    icon: '/icon.png',
+    icon: '/favicon_io/favicon-16x16.png',
+
   },
 }
 
