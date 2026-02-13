@@ -64,6 +64,43 @@ export function CTABanner() {
                 <ExternalLink className="w-4 h-4" />
               </a>
             </Button>
+
+            {/* Tertiary CTA - Ko-fi Support */}
+            <Button
+              size="lg"
+              variant="outline"
+              className="w-full sm:w-auto border border-border text-foreground hover:bg-secondary transition-all bg-transparent font-semibold px-8 py-6 sm:py-auto"
+              asChild
+            >
+              <a
+                href="https://ko-fi.com/kaizenith"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2"
+              >
+                {t.ctaBanner.ctaTertiary}
+                <ExternalLink className="w-4 h-4" />
+              </a>
+            </Button>
+
+            
+          </div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+            {/* Link to support page */}
+            <Button
+              size="lg"
+              variant="ghost"
+              className="w-full sm:w-auto text-foreground hover:text-primary transition-all font-medium px-8 py-6 sm:py-auto"
+              asChild
+            >
+              <a
+                href="/support"
+                className="flex items-center justify-center gap-2"
+              >
+                {t.ctaBanner.ctaSupport}
+                <ExternalLink className="w-4 h-4" />
+              </a>
+            </Button>
           </div>
 
           {/* Footer note about Kickstarter */}

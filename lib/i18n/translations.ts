@@ -50,7 +50,68 @@ export type TranslationKeys = {
     subheadline: string;
     ctaPrimary: string;
     ctaSecondary: string;
+    ctaTertiary: string;
     kickstarterNote: string;
+    ctaSupport: string;
+  };
+  // Affiliate Support Page
+  affiliate: {
+    hero: {
+      headline: string;
+      subheadline: string;
+      intro: string;
+      ctaPrimary: string;
+      ctaSecondary: string;
+    };
+    why: {
+      title: string;
+      p1: string;
+      p2: string;
+      p3: string;
+    };
+    how: {
+      title: string;
+      step1Title: string;
+      step1Desc: string;
+      step2Title: string;
+      step2Desc: string;
+      step3Title: string;
+      step3Desc: string;
+      note: string;
+    };
+    what: {
+      title: string;
+      intro: string;
+      item1: string;
+      item2: string;
+      item3: string;
+      item4: string;
+      item5: string;
+      footer: string;
+    };
+    transparency: {
+      title: string;
+      disclosure: string;
+      noPaidReviews: string;
+      noSponsored: string;
+      linksMarked: string;
+      editorial: string;
+      faqTitle: string;
+      faq1Q: string;
+      faq1A: string;
+      faq2Q: string;
+      faq2A: string;
+      faq3Q: string;
+      faq3A: string;
+    };
+    alternatives: {
+      title: string;
+      intro: string;
+      use: string;
+      share: string;
+      newsletter: string;
+      feedback: string;
+    };
   };
   // Lead Magnet
   leadMagnet: {
@@ -294,7 +355,7 @@ export const translations: Record<Locale, TranslationKeys> = {
       title: "El ruido mata proyectos indie. El proceso los salva.",
       subtitle:
         "La mayoría de estudios indie fallan en silencio. Nosotros documentamos cada experimento, cada métrica, cada error. Sin filtros. Si buscas claridad sobre cómo construir sin depender de la suerte, esto es para ti.",
-      ctaPrimary: "Accede al proceso — Newsletter semanal",
+      ctaPrimary: "Accede al proceso: Newsletter semanal",
       ctaSecondary: "Ver la hoja de ruta",
       noSpam: "Solo contenido útil",
       unsubscribe: "Cancela cuando quieras",
@@ -325,7 +386,92 @@ export const translations: Record<Locale, TranslationKeys> = {
       ctaSecondary: "Apoyar en Patreon",
       kickstarterNote:
         "Kickstarter planeado para más adelante en el desarrollo",
+      ctaSupport: "Otras formas de apoyar",
+      ctaTertiary: "Apoyar en Ko-fi",
     },
+    affiliate: {
+      hero: {
+        headline: "Apoya el Proyecto\nSin Coste Adicional",
+        subheadline:
+        "En preparación...",
+          // "Una forma transparente de apoyar el desarrollo a través de colaboraciones de afiliación.",
+        intro:
+          "Algunos enlaces en esta página son enlaces de afiliado. Si compras a través de ellos, puede generarse una pequeña comisión para apoyar el desarrollo continuo del proyecto sin aumentar el precio para ti.",
+        ctaPrimary: "Ver Herramientas Recomendadas",
+        ctaSecondary: "Cómo funciona",
+      },
+
+      why: {
+        title: "¿Por Qué Enlaces de Afiliado?",
+        p1: "Este proyecto se desarrolla de forma independiente. Para garantizar la sostenibilidad a largo plazo, se diversifican intencionalmente las fuentes de ingresos.",
+        p2: "Los enlaces de afiliado son completamente opcionales. Permiten que las personas que ya planeaban adquirir estos productos o servicios apoyen el proyecto sin realizar donaciones directas.",
+        p3: "En la mayoría de los casos, no hay impacto en tu coste. La comisión la paga el proveedor, no tú.",
+      },
+
+      how: {
+        title: "Cómo Funcionan las Colaboraciones de Afiliación",
+        step1Title: "1. Haces clic en un enlace",
+        step1Desc:
+          "Al hacer clic en un enlace recomendado, puede activarse un mecanismo de seguimiento de afiliación.",
+        step2Title: "2. Compras normalmente",
+        step2Desc:
+          "Realizas tu compra directamente en la plataforma del proveedor, como lo harías habitualmente.",
+        step3Title: "3. Puede generarse una pequeña comisión",
+        step3Desc:
+          "Si la compra cumple los requisitos, el proveedor paga una pequeña comisión para apoyar el desarrollo. El precio que pagas no aumenta.",
+        note: "Solo se recomiendan herramientas y recursos alineados con la filosofía del proyecto.",
+      },
+
+      what: {
+        title: "Qué Encontrarás Aquí",
+        intro:
+          "No es promoción aleatoria de productos. Es una selección curada alineada con el trabajo enfocado y los sistemas intencionales:",
+        item1: "Herramientas seleccionadas",
+        item2: "Recursos de productividad",
+        item3: "Hardware / herramientas de setup",
+        item4: "Libros",
+        item5: "Software y servicios digitales",
+        footer:
+          "Cada recomendación se elige con intención y visión a largo plazo.",
+      },
+
+      transparency: {
+        title: "Transparencia Primero",
+        disclosure:
+          "Divulgación de afiliación: Algunos enlaces en esta página son enlaces de afiliado y pueden generar una comisión.",
+        noPaidReviews:
+          "No hay reseñas pagadas. Las recomendaciones son independientes.",
+        noSponsored:
+          "No hay colocaciones patrocinadas salvo que se indique explícitamente.",
+        linksMarked:
+          "Los enlaces de afiliado están claramente marcados cuando es posible.",
+        editorial: "Se mantiene la independencia editorial completa.",
+        faqTitle: "Preguntas Frecuentes",
+
+        faq1Q: "¿Pago más si uso estos enlaces?",
+        faq1A:
+          "En la mayoría de los casos, no. El precio se mantiene igual. La comisión la paga el proveedor, no tú.",
+
+        faq2Q: "¿Todos los enlaces son de afiliado?",
+        faq2A:
+          "No necesariamente. Algunos enlaces pueden ser simples referencias. Las relaciones de afiliación se indican cuando aplican.",
+
+        faq3Q: "¿Puedo apoyar de otras formas?",
+        faq3A:
+          "Sí. Puedes usar los productos que construimos, compartir el proyecto, unirte al newsletter o proporcionar feedback.",
+      },
+
+      alternatives: {
+        title: "Otras Formas de Apoyar",
+        intro:
+          "Los enlaces de afiliado son solo una opción. También puedes apoyar:",
+        use: "Usando los productos que construimos",
+        share: "Compartiendo el proyecto",
+        newsletter: "Uniéndote al newsletter",
+        feedback: "Proporcionando feedback y sugerencias",
+      },
+    },
+
     leadMagnet: {
       badge: "Guía Gratuita",
       title: "7 Errores Fatales del Marketing Indie",
@@ -390,7 +536,7 @@ export const translations: Record<Locale, TranslationKeys> = {
       flowFocusSectionTitle: "Cómo usar FlowFocus para esto",
       flowFocusSectionDesc:
         "FlowFocus te ayuda a trackear el tiempo que dedicas a cada experimento de marketing. Aquí tienes un ejemplo de cómo estructurar una sesión de trabajo:",
-      flowFocusCtaBtn: "Probar FlowFocus — 7 días gratis",
+      flowFocusCtaBtn: "Probar FlowFocus por 7 días gratis",
       signupModalTitle: "Descarga la guía",
       signupModalDesc:
         "Deja tu email para descargar el PDF y recibir actualizaciones del lab.",
@@ -594,7 +740,7 @@ Buscar acuerdos y colaboraciones más grandes.`,
       title: "Noise kills indie projects. Process saves them.",
       subtitle:
         "Most indie studios fail in silence. We document every experiment, every metric, every mistake. Unfiltered. If you want clarity on how to build without relying on luck, this is for you.",
-      ctaPrimary: "Access the process — Weekly newsletter",
+      ctaPrimary: "Access the process: Weekly newsletter",
       ctaSecondary: "View the roadmap",
       noSpam: "Useful content only",
       unsubscribe: "Unsubscribe anytime",
@@ -624,7 +770,88 @@ Buscar acuerdos y colaboraciones más grandes.`,
       ctaPrimary: "Follow on Steam",
       ctaSecondary: "Support on Patreon",
       kickstarterNote: "Kickstarter planned for later in development",
+      ctaSupport: "Other ways to support",
+      ctaTertiary: "Support on Ko-fi",
     },
+    affiliate: {
+      hero: {
+        headline: "Support the Project\nAt No Extra Cost",
+        subheadline:
+        "Comming soon...",
+          // "A transparent way to support development through affiliate partnerships.",
+        intro:
+          "Some links on this page are affiliate links. If you purchase through them, a small commission may be earned to support ongoing project development without increasing the price for you.",
+        ctaPrimary: "Browse Recommended Tools",
+        ctaSecondary: "Learn how it works",
+      },
+
+      why: {
+        title: "Why Affiliate Links?",
+        p1: "This project is independently developed. To ensure long-term sustainability, revenue sources are intentionally diversified.",
+        p2: "Affiliate links are completely optional. They allow people who were already planning to purchase these products or services to support the project without making direct donations.",
+        p3: "In most cases, there is no impact on your cost. The commission is paid by the provider, not by you.",
+      },
+
+      how: {
+        title: "How Affiliate Partnerships Work",
+        step1Title: "1. You click a link",
+        step1Desc:
+          "When you click a recommended link, an affiliate tracking mechanism may be activated.",
+        step2Title: "2. You purchase normally",
+        step2Desc:
+          "You complete your purchase directly on the provider's platform, just as you normally would.",
+        step3Title: "3. A small commission may be paid",
+        step3Desc:
+          "If the purchase qualifies, a small commission is paid by the provider to support development. Your price does not increase.",
+        note: "Only tools and resources that align with the project's philosophy are recommended.",
+      },
+
+      what: {
+        title: "What You'll Find Here",
+        intro:
+          "This is not random product promotion. It is a curated selection aligned with focused work and intentional systems:",
+        item1: "Curated tools",
+        item2: "Productivity resources",
+        item3: "Hardware / setup tools",
+        item4: "Books",
+        item5: "Software and digital services",
+        footer:
+          "Every recommendation is selected with intention and long-term value in mind.",
+      },
+
+      transparency: {
+        title: "Transparency First",
+        disclosure:
+          "Affiliate disclosure: Some links on this page are affiliate links and may generate a commission.",
+        noPaidReviews: "No paid reviews. Recommendations are independent.",
+        noSponsored: "No sponsored placements unless explicitly stated.",
+        linksMarked: "Affiliate links are clearly marked whenever possible.",
+        editorial: "Full editorial independence is maintained.",
+        faqTitle: "Frequently Asked Questions",
+
+        faq1Q: "Do I pay more if I use these links?",
+        faq1A:
+          "In most cases, no. The price remains the same. The commission is paid by the provider, not by you.",
+
+        faq2Q: "Are all recommendations affiliate links?",
+        faq2A:
+          "Not necessarily. Some links may be standard references. Affiliate relationships are disclosed when applicable.",
+
+        faq3Q: "Can I support in other ways?",
+        faq3A:
+          "Yes. You can use the products we build, share the project, join the newsletter, or provide feedback.",
+      },
+
+      alternatives: {
+        title: "Other Ways to Support",
+        intro: "Affiliate links are just one option. You can also support by:",
+        use: "Using the products we build",
+        share: "Sharing the project with others",
+        newsletter: "Joining the newsletter",
+        feedback: "Providing feedback and suggestions",
+      },
+    },
+
     leadMagnet: {
       badge: "Free Guide",
       title: "7 Fatal Indie Marketing Mistakes",
@@ -688,7 +915,7 @@ Buscar acuerdos y colaboraciones más grandes.`,
       flowFocusSectionTitle: "How to use FlowFocus for this",
       flowFocusSectionDesc:
         "FlowFocus helps you track the time you spend on each marketing experiment. Here's an example of how to structure a work session:",
-      flowFocusCtaBtn: "Try FlowFocus — 7 days free",
+      flowFocusCtaBtn: "Try FlowFocus for 7 days free",
       signupModalTitle: "Download the guide",
       signupModalDesc:
         "Leave your email to download the PDF and receive lab updates.",

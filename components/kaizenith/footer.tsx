@@ -51,6 +51,12 @@ export function Footer() {
                   {t.footer.projects}
                 </a>
                 <a
+                  href="/support"
+                  className="text-sm text-foreground/80 hover:text-foreground transition-colors"
+                >
+                  Support the Project
+                </a>
+                <a
                   className="text-sm text-foreground/80 hover:text-foreground transition-colors"
                   href="/privacy"
                 >
@@ -90,7 +96,7 @@ export function Footer() {
                 {t.footer.connect}
               </h4>
               <nav className="flex flex-col gap-2">
-                <a
+                {/* <a
                   href="https://twitter.com/kaizenith"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -121,7 +127,7 @@ export function Footer() {
                   className="text-sm text-foreground/80 hover:text-foreground transition-colors"
                 >
                   Discord
-                </a>
+                </a> */}
                 <a
                   href="https://github.com/kaizenith"
                   target="_blank"
@@ -131,7 +137,7 @@ export function Footer() {
                   {t.footer.github}
                 </a>
                 <a
-                  href="mailto:hello@kaizenith.com"
+                  href="mailto:contacto@kaizenith.es"
                   className="text-sm text-foreground/80 hover:text-foreground transition-colors"
                 >
                   Email
