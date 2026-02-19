@@ -11,3 +11,20 @@ export type SignupContext = {
   /** Variant or experiment (A, B, etc) */
   variant?: string
 }
+
+/**
+ * Lead Magnet Data
+ * Defines the content for lead magnet components
+ */
+export type LeadMagnetData = {
+  /** Badge text (e.g., "Free Guide") */
+  badge: string
+  /** Main title */
+  title: string
+  /** Description text */
+  description: string
+  /** CTA button text */
+  cta: string
+  /** URL for preview (where to redirect on click) */
+  url?: string
+}

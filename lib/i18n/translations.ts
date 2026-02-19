@@ -113,6 +113,42 @@ export type TranslationKeys = {
       feedback: string;
     };
   };
+  // CTAs Lead Magnet
+  ctasLeadMagnet: {
+    title: string;
+    subtitle: string;
+    introTitle: string;
+    intro1: string;
+    intro2: string;
+    intro3: string;
+    intro4: string;
+    ctasTitle: string;
+    category1Title: string;
+    category1Desc: string;
+    category2Title: string;
+    category2Desc: string;
+    category3Title: string;
+    category3Desc: string;
+    category4Title: string;
+    category4Desc: string;
+    strategyTitle: string;
+    contentTypeTitle: string;
+    contentTypeDesc: string;
+    audienceTitle: string;
+    audienceDesc: string;
+    rulesTitle: string;
+    rule1: string;
+    rule2: string;
+    rule3: string;
+    rule4: string;
+    rule5: string;
+    copyBtnLabel: string;
+    copiedLabel: string;
+    signupTitle: string;
+    signupSubtitle: string;
+    signupButton: string;
+    signupDisclaimer: string;
+   };
   // Lead Magnet
   leadMagnet: {
     badge: string;
@@ -243,20 +279,29 @@ export type TranslationKeys = {
     subtitle: string;
     comingSoon: string;
     viewProject: string;
+    statusActive: string;
+    statusInPreparation: string;
+    statusOnHold: string;
     project0: {
       title: string;
       subtitle: string;
       description: string;
+      status: string;
+      cta: string;
     };
     project1: {
       title: string;
       subtitle: string;
       description: string;
+      status: string;
+      cta: string;
     };
     project2: {
       title: string;
       subtitle: string;
       description: string;
+      status: string;
+      cta: string;
     };
   };
   // Principles
@@ -381,13 +426,48 @@ export const translations: Record<Locale, TranslationKeys> = {
     ctaBanner: {
       headline: "Estamos desarrollando un juego!",
       subheadline:
-        "Síguelo en wishlist y apóyanos. Tu support hace la diferencia.",
+        "Síguelo en Steam y apóyanos. Tu support hace la diferencia.",
       ctaPrimary: "Seguir en Steam",
       ctaSecondary: "Apoyar en Patreon",
       kickstarterNote:
         "Kickstarter planeado para más adelante en el desarrollo",
       ctaSupport: "Otras formas de apoyar",
       ctaTertiary: "Apoyar en Ko-fi",
+    },
+    ctasLeadMagnet: {
+      title: "50 CTAs Específicas para Videojuegos y Estudios Indie",
+      subtitle: "Llamadas a la acción diseñadas para creadores de contenido de videojuegos y estudios indie que quieren crecer su audiencia, generar tráfico, conseguir testers, o vender.",
+      introTitle: "Por qué esta lista existe",
+      intro1: "Los CTAs genéricos ('dale like', 'sígueme') no funcionan igual en el nicho de videojuegos. Los desarrolladores indie y creadores de contenido de gaming necesitan CTAs que conecten con objetivos específicos: conseguir wishlists, capturar testers, llevar tráfico a Steam, o construir comunidad antes del lanzamiento.",
+      intro2: "Los CTAs cambian según la etapa del funnel. Un devlog temprano necesita CTAs de seguimiento. Un anuncio de demo necesita CTAs de acción inmediata. Una semana antes del lanzamiento necesita urgencia. Esta lista cubre todo el espectro.",
+      intro3: "Úsala como referencia rápida. Copia, adapta, y prueba. Cada CTA está diseñada para un contexto y objetivo específico, pero todas se pueden personalizar a tu tono y proyecto.",
+      intro4: "No uses todas. Elige las que encajan con tu etapa actual y tu estilo. La mejor CTA es la que suena natural viniendo de ti.",
+      ctasTitle: "50 CTAs por Objetivo",
+      category1Title: "Ganar seguidores",
+      category1Desc: "Para cuando necesitas crecer tu audiencia base y que la gente te siga en el proceso.",
+      category2Title: "Aumentar tráfico a otras redes",
+      category2Desc: "Redirigir audiencia a donde tienes contenido más profundo o lanzamientos importantes.",
+      category3Title: "Conseguir usuarios para demos/playtests",
+      category3Desc: "Capturar gente dispuesta a probar tu juego y darte feedback real.",
+      category4Title: "Conseguir ventas o wishlists",
+      category4Desc: "Convertir interés en acción comercial: compras, pre-órdenes, o wishlists en Steam.",
+      strategyTitle: "Guía de Estrategia",
+      contentTypeTitle: "Qué CTA usar según tu tipo de contenido",
+      contentTypeDesc: "El contexto importa. Un devlog técnico permite CTAs más informales de seguimiento. Un anuncio de lanzamiento requiere CTAs directas. Usa esta guía para elegir bien.",
+      audienceTitle: "Adapta el CTA según tu audiencia",
+      audienceDesc: "No todos tus seguidores son iguales. Devs indies responden a transparencia y proceso. Gamers casuales responden a diversión y novedad. Early adopters responden a exclusividad. Ajusta el mensaje.",
+      rulesTitle: "Reglas prácticas",
+      rule1: "1 CTA principal por pieza de contenido. No mezcles objetivos.",
+      rule2: "No mezcles 'sígueme' con 'compra' en el mismo post. Elige uno.",
+      rule3: "Adapta según la fase del funnel: awareness → interés → consideración → acción.",
+      rule4: "Repite CTAs estratégicas en series de contenido para reforzar.",
+      rule5: "Testea variaciones. Lo que funciona para un dev no funciona igual para otro.",
+      copyBtnLabel: "Copiar",
+      copiedLabel: "Copiado",
+      signupTitle: "Desbloquear la lista completa",
+      signupSubtitle: "Accede a todas las CTAs y la guía completa de estrategia.",
+      signupButton: "Desbloquear ahora",
+      signupDisclaimer: "Gratis · sin spam · acceso inmediato",
     },
     affiliate: {
       hero: {
@@ -626,23 +706,32 @@ Buscar acuerdos y colaboraciones más grandes.`,
       subtitle: "Lo que estamos construyendo actualmente.",
       comingSoon: "Próximamente",
       viewProject: "Ver proyecto",
+      statusActive: "Activo",
+      statusInPreparation: "En preparación",
+      statusOnHold: "En reposo",
       project0: {
-        title: "FlowFocus",
-        subtitle: "Herramienta de productividad.",
+        title: "Kaizenith Workspace",
+        subtitle: "Herramienta de gestión de tiempo y productividad.",
         description:
-          "Probando mejora de enfoque basada en datos vs temporizadores tradicionales.",
+          "Nuestro espacio de trabajo, diseñado para optimizar el flujo y la concentración. No es un producto genérico, es nuestro laboratorio de productividad.",
+        status: "active",
+        cta: "Ver workspace",
       },
       project1: {
-        title: "Forja Pixel",
-        subtitle: "Conceptos tempranos de pixel art.",
+        title: "AutoForge",
+        subtitle: "Juego en desarrollo: automatización, pixel art cozy y espadas.",
         description:
-          "Mecánicas de automatización, pixel art y espadas, todo en un juego.",
+          "Déjate llevar en este juego de automatización y pixel art cozy. Crea tu propia forja y automatízala!. No es un juego de nicho, es nuestro proyecto principal para aprender y compartir cada paso del proceso de desarrollo.",
+        status: "preparation",
+        cta: "Ver en Steam",
       },
       project2: {
-        title: "Build Log",
+        title: "Newsletter Kaizenith",
         subtitle: "Actualización semanal de estados de los proyectos.",
         description:
-          "La transparencia genera confianza. Números reales, lecciones reales.",
+          "La transparencia genera confianza. Números reales, lecciones reales. Semanal, sin filtros ni spam. Comenzaremos con lo básico: qué estamos haciendo, qué estamos aprendiendo, y cómo lo estamos haciendo",
+        status: "preparation",
+        cta: "Suscribirse",
       },
     },
     principles: {
@@ -671,7 +760,7 @@ Buscar acuerdos y colaboraciones más grandes.`,
     signup: {
       title: "Accede al Proceso",
       subtitle:
-        "Newsletter semanal con experimentos, métricas y lecciones. Sin motivación vacía. Solo lo que funciona (y lo que no).",
+        "Próximamente únete a la newsletter semanal con experimentos, métricas y lecciones. Sin motivación vacía. Solo lo que funciona (y lo que no).",
       emailPlaceholder: "tu@email.com",
       namePlaceholder: "Tu nombre (opcional)",
       submit: "Quiero acceso",
@@ -772,6 +861,41 @@ Buscar acuerdos y colaboraciones más grandes.`,
       kickstarterNote: "Kickstarter planned for later in development",
       ctaSupport: "Other ways to support",
       ctaTertiary: "Support on Ko-fi",
+    },
+    ctasLeadMagnet: {
+      title: "50 Specific CTAs for Video Games and Indie Studios",
+      subtitle: "Calls to action designed for video game content creators and indie studios who want to grow their audience, generate traffic, get testers, or sell.",
+      introTitle: "Why this list exists",
+      intro1: "Generic CTAs ('hit like', 'follow me') don't work the same in the gaming niche. Indie developers and game content creators need CTAs that connect with specific goals: getting wishlists, capturing testers, driving traffic to Steam, or building community before launch.",
+      intro2: "CTAs change depending on the funnel stage. An early devlog needs follow CTAs. A demo announcement needs immediate action CTAs. A week before launch needs urgency. This list covers the full spectrum.",
+      intro3: "Use it as a quick reference. Copy, adapt, and test. Each CTA is designed for a specific context and goal, but all can be personalized to your tone and project.",
+      intro4: "Don't use all of them. Choose the ones that fit your current stage and style. The best CTA is the one that sounds natural coming from you.",
+      ctasTitle: "50 CTAs by Objective",
+      category1Title: "Gain followers",
+      category1Desc: "For when you need to grow your base audience and have people follow your process.",
+      category2Title: "Increase traffic to other networks",
+      category2Desc: "Redirect audience to where you have deeper content or important launches.",
+      category3Title: "Get users for demos/playtests",
+      category3Desc: "Capture people willing to try your game and give you real feedback.",
+      category4Title: "Get sales or wishlists",
+      category4Desc: "Convert interest into commercial action: purchases, pre-orders, or Steam wishlists.",
+      strategyTitle: "Strategy Guide",
+      contentTypeTitle: "What CTA to use based on your content type",
+      contentTypeDesc: "Context matters. A technical devlog allows more informal follow CTAs. A launch announcement requires direct CTAs. Use this guide to choose wisely.",
+      audienceTitle: "Adapt the CTA to your audience",
+      audienceDesc: "Not all your followers are the same. Indie devs respond to transparency and process. Casual gamers respond to fun and novelty. Early adopters respond to exclusivity. Adjust the message.",
+      rulesTitle: "Practical rules",
+      rule1: "1 main CTA per piece of content. Don't mix objectives.",
+      rule2: "Don't mix 'follow me' with 'buy' in the same post. Choose one.",
+      rule3: "Adapt based on funnel phase: awareness → interest → consideration → action.",
+      rule4: "Repeat strategic CTAs in content series to reinforce.",
+      rule5: "Test variations. What works for one dev doesn't work the same for another.",
+      copyBtnLabel: "Copy",
+      copiedLabel: "Copied",
+      signupTitle: "Unlock the full list",
+      signupSubtitle: "Access all CTAs and the complete strategy guide.",
+      signupButton: "Unlock now",
+      signupDisclaimer: "Free · no spam · immediate access",
     },
     affiliate: {
       hero: {
@@ -1003,22 +1127,32 @@ Seek larger deals and collaborations.`,
       subtitle: "What we're currently building.",
       comingSoon: "Coming Soon",
       viewProject: "View project",
+      statusActive: "Active",
+      statusInPreparation: "In preparation",
+      statusOnHold: "On hold",
       project0: {
-        title: "FlowFocus",
-        subtitle: "Productivity tool UI mock",
+        title: "Kaizenith Workspace",
+        subtitle: "Time management and productivity tool.",
         description:
-          "Testing data-driven focus improvement vs traditional timers.",
+          "Our workspace, designed to optimize flow and concentration. Not a generic product, it's our productivity lab.",
+        status: "active",
+        cta: "View workspace",
       },
       project1: {
-        title: "Forja Pixel",
-        subtitle: "Early pixel art concepts.",
+        title: "AutoForge",
+        subtitle: "Game in development: automation, cozy pixel art and swords.",
         description:
-          "Combining automation mechanics with satisfying visual craft.",
+          "Get carried away in this automation and cozy pixel art game. Create your own forge and automate it! Not a niche game, it's our main project to learn and share every step of the development process.",
+        status: "preparation",
+        cta: "View on Steam",
       },
       project2: {
-        title: "Build Log",
-        subtitle: "Weekly update screenshot.",
-        description: "Transparency builds trust. Real numbers, real lessons.",
+        title: "Kaizenith Newsletter",
+        subtitle: "Weekly project status update.",
+        description:
+          "Transparency builds trust. Real numbers, real lessons. Weekly, unfiltered and spam-free. We'll start with the basics: what we're doing, what we're learning, and how we're doing it.",
+        status: "preparation",
+        cta: "Subscribe",
       },
     },
     principles: {

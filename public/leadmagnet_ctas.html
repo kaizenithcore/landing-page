@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>50 CTAs para Videojuegos y Estudios Indie | Kaizenith Lab</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #e5e5e5;
+            background: #111216;
+            padding: 2rem 1rem;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .subtitle {
+            font-size: 1.25rem;
+            color: #a1a1aa;
+            margin-bottom: 3rem;
+        }
+        
+        .intro-section {
+            margin-bottom: 3rem;
+        }
+        
+        .intro-card {
+            background: #1a1a1f;
+            border: 1px solid #2a2a30;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .intro-card.highlight {
+            border-color: #854CAD;
+            background: rgba(133, 76, 173, 0.05);
+        }
+        
+        .category-section {
+            margin-bottom: 3rem;
+        }
+        
+        .category-desc {
+            color: #a1a1aa;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-card {
+            background: #1a1a1f;
+            border: 1px solid #2a2a30;
+            border-radius: 0.5rem;
+            padding: 1rem 1.25rem;
+            margin-bottom: 0.75rem;
+            transition: border-color 0.2s;
+            position: relative;
+        }
+        
+        .cta-card:hover {
+            border-color: #854CAD;
+        }
+        
+        .cta-text {
+            color: #e5e5e5;
+            padding-right: 3rem;
+        }
+        
+        .copy-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #2a2a30;
+            border: none;
+            border-radius: 0.375rem;
+            padding: 0.5rem;
+            cursor: pointer;
+            color: #a1a1aa;
+            transition: all 0.2s;
+        }
+        
+        .copy-btn:hover {
+            background: rgba(133, 76, 173, 0.1);
+            color: #854CAD;
+        }
+        
+        .copy-btn.copied {
+            color: #854CAD;
+        }
+        
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .strategy-card {
+            background: #1a1a1f;
+            border: 1px solid #2a2a30;
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+        }
+        
+        .strategy-card h4 {
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .strategy-card p {
+            color: #a1a1aa;
+            font-size: 0.875rem;
+        }
+        
+        .audience-card {
+            background: #1a1a1f;
+            border: 1px solid #2a2a30;
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        .audience-card h4 {
+            color: #854CAD;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        
+        .audience-example {
+            margin-bottom: 0.75rem;
+        }
+        
+        .audience-label {
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            color: #71717a;
+            margin-bottom: 0.25rem;
+        }
+        
+        .audience-text {
+            color: #e5e5e5;
+        }
+        
+        .audience-text.adapted {
+            font-weight: 500;
+        }
+        
+        .rule-card {
+            background: #1a1a1f;
+            border: 1px solid #2a2a30;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #2a2a30;
+            text-align: center;
+            color: #71717a;
+            font-size: 0.875rem;
+        }
+        
+        .lang-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: #1a1a1f;
+            border: 1px solid #2a2a30;
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            color: #e5e5e5;
+            font-size: 0.875rem;
+            z-index: 100;
+        }
+        
+        .lang-toggle:hover {
+            border-color: #854CAD;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.125rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="lang-toggle" onclick="toggleLanguage()">
+        <span id="lang-btn-text">English</span>
+    </button>
+    
+    <div class="container">
+        <header>
+            <h1 id="main-title">50 CTAs Específicas para Videojuegos y Estudios Indie</h1>
+            <p class="subtitle" id="main-subtitle">Llamadas a la acción diseñadas para creadores de contenido de videojuegos y estudios indie que quieren crecer su audiencia, generar tráfico, conseguir testers, o vender.</p>
+        </header>
+        
+        <section class="intro-section">
+            <h2 id="intro-title">Por qué esta lista existe</h2>
+            
+            <div class="intro-card">
+                <p id="intro-1">Los CTAs genéricos ('dale like', 'sígueme') no funcionan igual en el nicho de videojuegos. Los desarrolladores indie y creadores de contenido de gaming necesitan CTAs que conecten con objetivos específicos: conseguir wishlists, capturar testers, llevar tráfico a Steam, o construir comunidad antes del lanzamiento.</p>
+            </div>
+            
+            <div class="intro-card">
+                <p id="intro-2">Los CTAs cambian según la etapa del funnel. Un devlog temprano necesita CTAs de seguimiento. Un anuncio de demo necesita CTAs de acción inmediata. Una semana antes del lanzamiento necesita urgencia. Esta lista cubre todo el espectro.</p>
+            </div>
+            
+            <div class="intro-card">
+                <p id="intro-3">Úsala como referencia rápida. Copia, adapta, y prueba. Cada CTA está diseñada para un contexto y objetivo específico, pero todas se pueden personalizar a tu tono y proyecto.</p>
+            </div>
+            
+            <div class="intro-card highlight">
+                <p id="intro-4">No uses todas. Elige las que encajan con tu etapa actual y tu estilo. La mejor CTA es la que suena natural viniendo de ti.</p>
+            </div>
+        </section>
+        
+        <h2 id="ctas-title">50 CTAs por Objetivo</h2>
+        
+        <!-- Category 1 -->
+        <section class="category-section">
+            <h3 id="cat1-title">Ganar seguidores</h3>
+            <p class="category-desc" id="cat1-desc">Para cuando necesitas crecer tu audiencia base y que la gente te siga en el proceso.</p>
+            
+            <div class="cta-card">
+                <p class="cta-text" data-es="Sígueme para ver cómo evoluciona este juego cada semana." data-en="Follow me to see how this game evolves each week.">Sígueme para ver cómo evoluciona este juego cada semana.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Si te interesa el desarrollo indie sin humo, lo cuento todo aquí." data-en="If you're interested in smoke-free indie development, I share everything here.">Si te interesa el desarrollo indie sin humo, lo cuento todo aquí.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Únete mientras convierto esta idea en un juego real." data-en="Join me as I turn this idea into a real game.">Únete mientras convierto esta idea en un juego real.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Si quieres ver más errores reales de desarrollo, sígueme." data-en="If you want to see more real development mistakes, follow me.">Si quieres ver más errores reales de desarrollo, sígueme.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Si estás creando tu primer juego, esto es para ti." data-en="If you're creating your first game, this is for you.">Si estás creando tu primer juego, esto es para ti.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Guarda este perfil si estás en etapas tempranas." data-en="Save this profile if you're in early stages.">Guarda este perfil si estás en etapas tempranas.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Sigue la serie completa aquí." data-en="Follow the complete series here.">Sigue la serie completa aquí.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Próximo episodio mañana." data-en="Next episode tomorrow.">Próximo episodio mañana.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Esto es solo el comienzo." data-en="This is just the beginning.">Esto es solo el comienzo.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Documentando el proceso sin filtros." data-en="Documenting the process without filters.">Documentando el proceso sin filtros.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Desarrollo en público, semana a semana." data-en="Development in public, week by week.">Desarrollo en público, semana a semana.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Si también eres indie dev, este perfil es para ti." data-en="If you're also an indie dev, this profile is for you.">Si también eres indie dev, este perfil es para ti.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Comparto todo el proceso aquí." data-en="I share the entire process here.">Comparto todo el proceso aquí.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+        </section>
+        
+        <!-- Category 2 -->
+        <section class="category-section">
+            <h3 id="cat2-title">Aumentar tráfico a otras redes</h3>
+            <p class="category-desc" id="cat2-desc">Redirigir audiencia a donde tienes contenido más profundo o lanzamientos importantes.</p>
+            
+            <div class="cta-card">
+                <p class="cta-text" data-es="El desglose completo está en mi canal de YouTube." data-en="The full breakdown is on my YouTube channel.">El desglose completo está en mi canal de YouTube.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Demo y recursos en el link del perfil." data-en="Demo and resources in the profile link.">Demo y recursos en el link del perfil.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Explico todo el sistema en la newsletter." data-en="I explain the entire system in the newsletter.">Explico todo el sistema en la newsletter.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Hilo detallado en Twitter." data-en="Detailed thread on Twitter.">Hilo detallado en Twitter.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Roadmap completo en Discord." data-en="Full roadmap on Discord.">Roadmap completo en Discord.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Acceso anticipado en Patreon." data-en="Early access on Patreon.">Acceso anticipado en Patreon.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Tutorial extendido en el canal." data-en="Extended tutorial on the channel.">Tutorial extendido en el canal.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Plantillas gratis en la bio." data-en="Free templates in the bio.">Plantillas gratis en la bio.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Lista de herramientas en el link." data-en="List of tools in the link.">Lista de herramientas en el link.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Devlog completo en YouTube." data-en="Complete devlog on YouTube.">Devlog completo en YouTube.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Análisis largo en la newsletter." data-en="Long analysis in the newsletter.">Análisis largo en la newsletter.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Recursos descargables en la web." data-en="Downloadable resources on the web.">Recursos descargables en la web.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="El proceso completo paso a paso en mi perfil." data-en="The complete process step by step on my profile.">El proceso completo paso a paso en mi perfil.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+        </section>
+        
+        <!-- Category 3 -->
+        <section class="category-section">
+            <h3 id="cat3-title">Conseguir usuarios para demos/playtests</h3>
+            <p class="category-desc" id="cat3-desc">Capturar gente dispuesta a probar tu juego y darte feedback real.</p>
+            
+            <div class="cta-card">
+                <p class="cta-text" data-es="Ya puedes probar la demo." data-en="You can now try the demo.">Ya puedes probar la demo.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Busco testers para esta versión." data-en="I'm looking for testers for this version.">Busco testers para esta versión.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Si quieres jugar antes que nadie, comenta." data-en="If you want to play before anyone else, comment.">Si quieres jugar antes que nadie, comenta.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Demo abierta por tiempo limitado." data-en="Demo open for a limited time.">Demo abierta por tiempo limitado.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Playtest privado disponible." data-en="Private playtest available.">Playtest privado disponible.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Necesito feedback real." data-en="I need real feedback.">Necesito feedback real.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="¿Quieres probarlo?" data-en="Want to try it?">¿Quieres probarlo?</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Regístrate para el playtest." data-en="Sign up for the playtest.">Regístrate para el playtest.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Acceso anticipado para la comunidad." data-en="Early access for the community.">Acceso anticipado para la comunidad.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Link de la demo en el perfil." data-en="Demo link in the profile.">Link de la demo en el perfil.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Si quieres participar, escríbeme." data-en="If you want to participate, write to me.">Si quieres participar, escríbeme.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Próximo test cerrado esta semana." data-en="Next closed test this week.">Próximo test cerrado esta semana.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+        </section>
+        
+        <!-- Category 4 -->
+        <section class="category-section">
+            <h3 id="cat4-title">Conseguir ventas o wishlists</h3>
+            <p class="category-desc" id="cat4-desc">Convertir interés en acción comercial: compras, pre-órdenes, o wishlists en Steam.</p>
+            
+            <div class="cta-card">
+                <p class="cta-text" data-es="Agrégalo a tu lista de deseados." data-en="Add it to your wishlist.">Agrégalo a tu lista de deseados.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Ya disponible en Steam." data-en="Now available on Steam.">Ya disponible en Steam.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Lanzamiento oficial hoy." data-en="Official launch today.">Lanzamiento oficial hoy.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Descuento de lanzamiento." data-en="Launch discount.">Descuento de lanzamiento.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Si te gusta este género, guárdalo." data-en="If you like this genre, save it.">Si te gusta este género, guárdalo.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Disponible ahora mismo." data-en="Available right now.">Disponible ahora mismo.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Apoya el proyecto comprándolo." data-en="Support the project by buying it.">Apoya el proyecto comprándolo.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Early access abierto." data-en="Early access open.">Early access abierto.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Últimos días de la oferta." data-en="Last days of the offer.">Últimos días de la oferta.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Si quieres apoyar el desarrollo, puedes hacerlo aquí." data-en="If you want to support development, you can do so here.">Si quieres apoyar el desarrollo, puedes hacerlo aquí.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Disponible en la tienda." data-en="Available in the store.">Disponible en la tienda.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+            <div class="cta-card">
+                <p class="cta-text" data-es="Reserva tu copia ahora." data-en="Pre-order your copy now.">Reserva tu copia ahora.</p>
+                <button class="copy-btn" onclick="copyText(this)">📋</button>
+            </div>
+        </section>
+        
+        <!-- Strategy Guide -->
+        <h2 id="strategy-title">Guía de Estrategia</h2>
+        
+        <section class="category-section">
+            <h3 id="content-type-title">Qué CTA usar según tu tipo de contenido</h3>
+            <p class="category-desc" id="content-type-desc">El contexto importa. Un devlog técnico permite CTAs más informales de seguimiento. Un anuncio de lanzamiento requiere CTAs directas. Usa esta guía para elegir bien.</p>
+            
+            <div class="strategy-grid">
+                <div class="strategy-card">
+                    <h4>Contenido educativo</h4>
+                    <p>CTAs de seguimiento + tráfico a contenido profundo</p>
+                </div>
+                <div class="strategy-card">
+                    <h4>Devlog</h4>
+                    <p>Proceso transparente + seguimiento</p>
+                </div>
+                <div class="strategy-card">
+                    <h4>Gameplay</h4>
+                    <p>Wishlists + demos</p>
+                </div>
+                <div class="strategy-card">
+                    <h4>Anuncio importante</h4>
+                    <p>Acción directa (wishlist, compra, demo)</p>
+                </div>
+                <div class="strategy-card">
+                    <h4>Contenido viral/trending</h4>
+                    <p>Seguimiento + perfil</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="category-section">
+            <h3 id="audience-title">Adapta el CTA según tu audiencia</h3>
+            <p class="category-desc" id="audience-desc">No todos tus seguidores son iguales. Devs indies responden a transparencia y proceso. Gamers casuales responden a diversión y novedad. Early adopters responden a exclusividad. Ajusta el mensaje.</p>
+            
+            <div class="audience-card">
+                <h4>Otros devs</h4>
+                <div class="audience-example">
+                    <div class="audience-label">Base:</div>
+                    <div class="audience-text">Agrégalo a tu lista de deseados</div>
+                </div>
+                <div class="audience-example">
+                    <div class="audience-label">Adaptado:</div>
+                    <div class="audience-text adapted">Si trabajas en algo similar, chequea cómo resolvimos esto</div>
+                </div>
+            </div>
+            
+            <div class="audience-card">
+                <h4>Gamers casuales</h4>
+                <div class="audience-example">
+                    <div class="audience-label">Base:</div>
+                    <div class="audience-text">Demo disponible</div>
+                </div>
+                <div class="audience-example">
+                    <div class="audience-label">Adaptado:</div>
+                    <div class="audience-text adapted">Pruébalo gratis y dime qué te parece</div>
+                </div>
+            </div>
+            
+            <div class="audience-card">
+                <h4>Early adopters</h4>
+                <div class="audience-example">
+                    <div class="audience-label">Base:</div>
+                    <div class="audience-text">Ya disponible</div>
+                </div>
+                <div class="audience-example">
+                    <div class="audience-label">Adaptado:</div>
+                    <div class="audience-text adapted">Acceso anticipado abierto para la comunidad</div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="category-section">
+            <h3 id="rules-title">Reglas prácticas</h3>
+            
+            <div class="rule-card">
+                <p id="rule-1">1 CTA principal por pieza de contenido. No mezcles objetivos.</p>
+            </div>
+            <div class="rule-card">
+                <p id="rule-2">No mezcles 'sígueme' con 'compra' en el mismo post. Elige uno.</p>
+            </div>
+            <div class="rule-card">
+                <p id="rule-3">Adapta según la fase del funnel: awareness → interés → consideración → acción.</p>
+            </div>
+            <div class="rule-card">
+                <p id="rule-4">Repite CTAs estratégicas en series de contenido para reforzar.</p>
+            </div>
+            <div class="rule-card">
+                <p id="rule-5">Testea variaciones. Lo que funciona para un dev no funciona igual para otro.</p>
+            </div>
+        </section>
+        
+        <footer class="footer">
+            <p>© 2024 Kaizenith Lab · <a href="https://kaizenith.com" style="color: #854CAD; text-decoration: none;">kaizenith.com</a></p>
+        </footer>
+    </div>
+    
+    <script>
+        let currentLang = 'es';
+        
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            updateLanguage();
+        }
+        
+        function updateLanguage() {
+            const langBtnText = document.getElementById('lang-btn-text');
+            langBtnText.textContent = currentLang === 'es' ? 'English' : 'Español';
+            
+            // Update static translations
+            const translations = {
+                'main-title': {
+                    es: '50 CTAs Específicas para Videojuegos y Estudios Indie',
+                    en: '50 Specific CTAs for Video Games and Indie Studios'
+                },
+                'main-subtitle': {
+                    es: 'Llamadas a la acción diseñadas para creadores de contenido de videojuegos y estudios indie que quieren crecer su audiencia, generar tráfico, conseguir testers, o vender.',
+                    en: 'Calls to action designed for video game content creators and indie studios who want to grow their audience, generate traffic, get testers, or sell.'
+                },
+                'intro-title': {
+                    es: 'Por qué esta lista existe',
+                    en: 'Why this list exists'
+                },
+                'intro-1': {
+                    es: "Los CTAs genéricos ('dale like', 'sígueme') no funcionan igual en el nicho de videojuegos. Los desarrolladores indie y creadores de contenido de gaming necesitan CTAs que conecten con objetivos específicos: conseguir wishlists, capturar testers, llevar tráfico a Steam, o construir comunidad antes del lanzamiento.",
+                    en: "Generic CTAs ('hit like', 'follow me') don't work the same in the gaming niche. Indie developers and game content creators need CTAs that connect with specific goals: getting wishlists, capturing testers, driving traffic to Steam, or building community before launch."
+                },
+                'intro-2': {
+                    es: 'Los CTAs cambian según la etapa del funnel. Un devlog temprano necesita CTAs de seguimiento. Un anuncio de demo necesita CTAs de acción inmediata. Una semana antes del lanzamiento necesita urgencia. Esta lista cubre todo el espectro.',
+                    en: 'CTAs change depending on the funnel stage. An early devlog needs follow CTAs. A demo announcement needs immediate action CTAs. A week before launch needs urgency. This list covers the full spectrum.'
+                },
+                'intro-3': {
+                    es: 'Úsala como referencia rápida. Copia, adapta, y prueba. Cada CTA está diseñada para un contexto y objetivo específico, pero todas se pueden personalizar a tu tono y proyecto.',
+                    en: 'Use it as a quick reference. Copy, adapt, and test. Each CTA is designed for a specific context and goal, but all can be personalized to your tone and project.'
+                },
+                'intro-4': {
+                    es: 'No uses todas. Elige las que encajan con tu etapa actual y tu estilo. La mejor CTA es la que suena natural viniendo de ti.',
+                    en: "Don't use all of them. Choose the ones that fit your current stage and style. The best CTA is the one that sounds natural coming from you."
+                },
+                'ctas-title': {
+                    es: '50 CTAs por Objetivo',
+                    en: '50 CTAs by Objective'
+                },
+                'cat1-title': {
+                    es: 'Ganar seguidores',
+                    en: 'Gain followers'
+                },
+                'cat1-desc': {
+                    es: 'Para cuando necesitas crecer tu audiencia base y que la gente te siga en el proceso.',
+                    en: 'For when you need to grow your base audience and have people follow your process.'
+                },
+                'cat2-title': {
+                    es: 'Aumentar tráfico a otras redes',
+                    en: 'Increase traffic to other networks'
+                },
+                'cat2-desc': {
+                    es: 'Redirigir audiencia a donde tienes contenido más profundo o lanzamientos importantes.',
+                    en: 'Redirect audience to where you have deeper content or important launches.'
+                },
+                'cat3-title': {
+                    es: 'Conseguir usuarios para demos/playtests',
+                    en: 'Get users for demos/playtests'
+                },
+                'cat3-desc': {
+                    es: 'Capturar gente dispuesta a probar tu juego y darte feedback real.',
+                    en: 'Capture people willing to try your game and give you real feedback.'
+                },
+                'cat4-title': {
+                    es: 'Conseguir ventas o wishlists',
+                    en: 'Get sales or wishlists'
+                },
+                'cat4-desc': {
+                    es: 'Convertir interés en acción comercial: compras, pre-órdenes, o wishlists en Steam.',
+                    en: 'Convert interest into commercial action: purchases, pre-orders, or Steam wishlists.'
+                },
+                'strategy-title': {
+                    es: 'Guía de Estrategia',
+                    en: 'Strategy Guide'
+                },
+                'content-type-title': {
+                    es: 'Qué CTA usar según tu tipo de contenido',
+                    en: 'What CTA to use based on your content type'
+                },
+                'content-type-desc': {
+                    es: 'El contexto importa. Un devlog técnico permite CTAs más informales de seguimiento. Un anuncio de lanzamiento requiere CTAs directas. Usa esta guía para elegir bien.',
+                    en: 'Context matters. A technical devlog allows more informal follow CTAs. A launch announcement requires direct CTAs. Use this guide to choose wisely.'
+                },
+                'audience-title': {
+                    es: 'Adapta el CTA según tu audiencia',
+                    en: 'Adapt the CTA to your audience'
+                },
+                'audience-desc': {
+                    es: 'No todos tus seguidores son iguales. Devs indies responden a transparencia y proceso. Gamers casuales responden a diversión y novedad. Early adopters responden a exclusividad. Ajusta el mensaje.',
+                    en: 'Not all your followers are the same. Indie devs respond to transparency and process. Casual gamers respond to fun and novelty. Early adopters respond to exclusivity. Adjust the message.'
+                },
+                'rules-title': {
+                    es: 'Reglas prácticas',
+                    en: 'Practical rules'
+                },
+                'rule-1': {
+                    es: '1 CTA principal por pieza de contenido. No mezcles objetivos.',
+                    en: '1 main CTA per piece of content. Don\'t mix objectives.'
+                },
+                'rule-2': {
+                    es: 'No mezcles \'sígueme\' con \'compra\' en el mismo post. Elige uno.',
+                    en: 'Don\'t mix \'follow me\' with \'buy\' in the same post. Choose one.'
+                },
+                'rule-3': {
+                    es: 'Adapta según la fase del funnel: awareness → interés → consideración → acción.',
+                    en: 'Adapt based on funnel phase: awareness → interest → consideration → action.'
+                },
+                'rule-4': {
+                    es: 'Repite CTAs estratégicas en series de contenido para reforzar.',
+                    en: 'Repeat strategic CTAs in content series to reinforce.'
+                },
+                'rule-5': {
+                    es: 'Testea variaciones. Lo que funciona para un dev no funciona igual para otro.',
+                    en: 'Test variations. What works for one dev doesn\'t work the same for another.'
+                }
+            };
+            
+            // Update static elements
+            for (const [id, text] of Object.entries(translations)) {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.textContent = text[currentLang];
+                }
+            }
+            
+            // Update CTA cards
+            const ctaTexts = document.querySelectorAll('.cta-text');
+            ctaTexts.forEach(el => {
+                const text = el.getAttribute('data-' + currentLang);
+                if (text) {
+                    el.textContent = text;
+                }
+            });
+        }
+        
+        function copyText(btn) {
+            const card = btn.closest('.cta-card');
+            const text = card.querySelector('.cta-text').textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                btn.textContent = '✓';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = '📋';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

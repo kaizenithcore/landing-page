@@ -3,13 +3,22 @@
 import { Download } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useLocale } from "@/lib/i18n/locale-context"
+import type { LeadMagnetData } from "@/lib/types"
 
 interface LeadMagnetProps {
   onOpenSignup: () => void
+  /** Optional lead magnet data. If not provided, uses default from translations */
+  data?: LeadMagnetData
 }
 
-export function LeadMagnet({ onOpenSignup }: LeadMagnetProps) {
+export function LeadMagnet({ onOpenSignup, data }: LeadMagnetProps) {
   const { t } = useLocale()
+
+  // Use provided data or fall back to translations
+  const badge = data?.badge ?? t.leadMagnet.badge
+  const title = data?.title ?? t.leadMagnet.title
+  const description = data?.description ?? t.leadMagnet.description
+  const cta = data?.cta ?? t.leadMagnet.cta
 
   return (
     <section className="py-16 md:py-24">
@@ -33,12 +42,12 @@ export function LeadMagnet({ onOpenSignup }: LeadMagnetProps) {
             {/* Content */}
             <div className="flex-1 space-y-4">
               <div className="space-y-2">
-                <span className="text-xs uppercase tracking-wider text-primary font-medium">{t.leadMagnet.badge}</span>
+                <span className="text-xs uppercase tracking-wider text-primary font-medium">{badge}</span>
                 <h3 className="text-xl md:text-2xl font-bold text-foreground text-balance">
-                  {t.leadMagnet.title}
+                  {title}
                 </h3>
                 <p className="text-muted-foreground">
-                  {t.leadMagnet.description}
+                  {description}
                 </p>
               </div>
             </div>
@@ -48,7 +57,7 @@ export function LeadMagnet({ onOpenSignup }: LeadMagnetProps) {
               onClick={onOpenSignup}
               className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:-translate-y-0.5 transition-all whitespace-nowrap"
             >
-              {t.leadMagnet.cta}
+              {cta}
             </Button>
           </div>
         </div>
