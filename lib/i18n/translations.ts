@@ -22,21 +22,18 @@ export type TranslationKeys = {
   };
   // Hero
   hero: {
+    badge: string;
     title: string;
     subtitle: string;
     ctaPrimary: string;
     ctaSecondary: string;
-    noSpam: string;
-    unsubscribe: string;
-    ctaCommingSoon: string;
-    thankYou: string;
+    trust: string;
+    cosmeticsLabel: string;
   };
   // Intro/About
   intro: {
     title: string;
-    p1: string;
-    p2: string;
-    p3: string;
+    lead: string;
     buildLogs: string;
     buildLogsDesc: string;
     realNumbers: string;
@@ -51,8 +48,14 @@ export type TranslationKeys = {
     ctaPrimary: string;
     ctaSecondary: string;
     ctaTertiary: string;
-    kickstarterNote: string;
-    ctaSupport: string;
+  };
+  // Support Contact Page (/soporte)
+  supportContact: {
+    title: string;
+    subtitle: string;
+    description: string;
+    emailCta: string;
+    note: string;
   };
   // Affiliate Support Page
   affiliate: {
@@ -273,35 +276,50 @@ export type TranslationKeys = {
       };
     };
   };
+  // Ping Pong Mate roadmap (featured game roadmap section)
+  gameRoadmap: {
+    badge: string;
+    title: string;
+    subtitle: string;
+    countdownLabel: string;
+    countdownDays: string;
+    countdownHours: string;
+    countdownMinutes: string;
+    countdownSeconds: string;
+    futureNote: string;
+    milestones: {
+      development: { status: string; date: string; title: string; description: string };
+      wishlist: { status: string; date: string; title: string; description: string };
+      launch: { status: string; date: string; title: string; description: string };
+      postLaunch: { status: string; date: string; title: string; description: string };
+      future: { status: string; date: string; title: string; description: string };
+    };
+  };
   // Projects
   projects: {
     title: string;
     subtitle: string;
-    comingSoon: string;
     viewProject: string;
-    statusActive: string;
-    statusInPreparation: string;
-    statusOnHold: string;
-    project0: {
-      title: string;
-      subtitle: string;
-      description: string;
-      status: string;
-      cta: string;
+    statusComplete: string;
+    statusAdvanced: string;
+    statusAlmostReady: string;
+    categoryProductivity: string;
+    categoryBusiness: string;
+    categoryGames: string;
+    items: {
+      workspace: { title: string; subtitle: string; description: string };
+      zarpe: { title: string; subtitle: string; description: string };
+      serena: { title: string; subtitle: string; description: string };
+      enlace: { title: string; subtitle: string; description: string };
+      nexa: { title: string; subtitle: string; description: string };
+      cashpilot: { title: string; subtitle: string; description: string };
+      paranormalDetector: { title: string; subtitle: string; description: string };
+      mhadle: { title: string; subtitle: string; description: string };
     };
-    project1: {
+    ctaCard: {
       title: string;
-      subtitle: string;
       description: string;
-      status: string;
-      cta: string;
-    };
-    project2: {
-      title: string;
-      subtitle: string;
-      description: string;
-      status: string;
-      cta: string;
+      button: string;
     };
   };
   // Principles
@@ -345,6 +363,7 @@ export type TranslationKeys = {
     roadmap: string;
     about: string;
     projects: string;
+    support: string;
     newsletter: string;
     twitter: string;
     github: string;
@@ -397,42 +416,40 @@ export const translations: Record<Locale, TranslationKeys> = {
       joinBuild: "Únete",
     },
     hero: {
-      title: "El ruido mata proyectos indie. El proceso los salva.",
+      badge: "Ping Pong Mate · En desarrollo",
+      title: "Tu espera, convertida en arcade.",
       subtitle:
-        "La mayoría de estudios indie fallan en silencio. Nosotros documentamos cada experimento, cada métrica, cada error. Sin filtros. Si buscas claridad sobre cómo construir sin depender de la suerte, esto es para ti.",
-      ctaPrimary: "Accede al proceso: Newsletter semanal",
+        "Ping Pong Mate se queda en una esquina de tu pantalla mientras haces otras cosas. Encadena combos, gana puntos y canjéalos por cosméticos coleccionables, sin dejar lo que estabas haciendo.",
+      ctaPrimary: "Añadir a la lista de deseos",
       ctaSecondary: "Ver la hoja de ruta",
-      noSpam: "Solo contenido útil",
-      unsubscribe: "Cancela cuando quieras",
-      ctaCommingSoon: "Próximamente: acceso al proceso",
-      thankYou:
-        "Gracias por tu interés. Estamos preparando todo. Pronto podrás acceder al newsletter.",
+      trust: "Ayuda a que el juego llegue a más gente.",
+      cosmeticsLabel: "Cosméticos: 3/12 desbloqueados",
     },
     intro: {
       title: "Planificación, creación y lanzamiento",
-      p1: "No creemos en lanzamientos épicos ni en marketing de humo. Creemos en ciclos cortos, hipótesis claras y métricas que no mienten. Cada decisión se prueba, se mide, se ajusta.",
-      p2: "Kaizen (mejora continua) + Zenith (el punto más alto). Apuntamos alto, pero el camino es metodológico: pequeños incrementos, resultados compuestos.",
-      p3: "El newsletter no es contenido motivacional. Es un registro técnico de lo que funciona, lo que falla, y por qué. Si prefieres claridad sobre inspiración, estás en el lugar correcto.",
+      lead: "Kaizen (mejora continua) + Zenith (el punto más alto): ciclos cortos, hipótesis claras y métricas que no mienten, en vez de lanzamientos de humo.",
       buildLogs: "Registro Técnico",
-      buildLogsDesc:
-        "Cada semana: qué hipótesis probamos, qué medimos, qué aprendimos. Sin adornos.",
+      buildLogsDesc: "Qué probamos, qué medimos, qué aprendimos.",
       realNumbers: "Métricas Reales",
-      realNumbersDesc:
-        "Descargas, retención, conversión. Los números que importan, no vanity metrics.",
+      realNumbersDesc: "Descargas, retención, conversión. Sin vanity metrics.",
       earlyAccess: "Acceso Anticipado",
-      earlyAccessDesc:
-        "Prueba herramientas y juegos antes que nadie. Tu feedback moldea el producto.",
+      earlyAccessDesc: "Prueba juegos y herramientas antes que nadie.",
     },
     ctaBanner: {
-      headline: "Estamos desarrollando un juego!",
+      headline: "Ping Pong Mate ya se puede añadir a tu wishlist",
       subheadline:
-        "Síguelo en Steam y apóyanos. Tu support hace la diferencia.",
-      ctaPrimary: "Seguir en Steam",
+        "Sigue su desarrollo en Steam y apóyanos. Tu apoyo hace la diferencia.",
+      ctaPrimary: "Añadir a la wishlist",
       ctaSecondary: "Apoyar en Patreon",
-      kickstarterNote:
-        "Kickstarter planeado para más adelante en el desarrollo",
-      ctaSupport: "Otras formas de apoyar",
       ctaTertiary: "Apoyar en Ko-fi",
+    },
+    supportContact: {
+      title: "Soporte",
+      subtitle: "¿Algo no funciona como debería?",
+      description:
+        "Soporte técnico general para todos los juegos y herramientas de Kaizenith. Escríbenos y te responderemos lo antes posible.",
+      emailCta: "Escribir a soporte",
+      note: "También puedes copiar el correo directamente: soporte@kaizenith.es",
     },
     ctasLeadMagnet: {
       title: "50 CTAs Específicas para Videojuegos y Estudios Indie",
@@ -638,7 +655,7 @@ export const translations: Record<Locale, TranslationKeys> = {
     roadmap: {
       title: "El sistema",
       liveLabel: "En vivo",
-      subtitle: "Nuestro camino al éxito",
+      subtitle: "Cuatro trimestres, cuatro apuestas. Toca uno para ver el detalle.",
       focus: "En qué estamos centrados",
       why: "Por qué importa ahora",
       unlocks: "Qué conseguimos después",
@@ -701,37 +718,121 @@ Buscar acuerdos y colaboraciones más grandes.`,
       },
     },
 
+    gameRoadmap: {
+      badge: "Ping Pong Mate · Hoja de ruta",
+      title: "Del desarrollo a tu escritorio",
+      subtitle: "Así de cerca está Ping Pong Mate de llegar a Steam, y qué viene después.",
+      countdownLabel: "Lanzamiento previsto en",
+      countdownDays: "Días",
+      countdownHours: "Horas",
+      countdownMinutes: "Min",
+      countdownSeconds: "Seg",
+      futureNote:
+        "Estos planes dependen del éxito del lanzamiento. Se irán confirmando según la respuesta de la comunidad.",
+      milestones: {
+        development: {
+          status: "En desarrollo",
+          date: "Ahora",
+          title: "Puliendo la base",
+          description:
+            "Ajustes, rendimiento y las últimas piezas antes de abrir la wishlist.",
+        },
+        wishlist: {
+          status: "Próximamente",
+          date: "Agosto 2026",
+          title: "Wishlist en Steam",
+          description:
+            "La página de Steam estará lista para añadir Ping Pong Mate a tu lista de deseos.",
+        },
+        launch: {
+          status: "Fecha provisional",
+          date: "29 de septiembre 2026",
+          title: "Lanzamiento",
+          description: "El día que Ping Pong Mate llega a tu escritorio.",
+        },
+        postLaunch: {
+          status: "Compromiso",
+          date: "Después del lanzamiento",
+          title: "Más contenido, sin parar",
+          description:
+            "Logros, nuevos cosméticos (¡música y estelas!), más personalización y ajustes continuos.",
+        },
+        future: {
+          status: "Si el proyecto despega",
+          date: "Más adelante",
+          title: "Nuevos modos y competición",
+          description:
+            "Modos de juego (retos, contrarreloj), leaderboards, y cosméticos temáticos exclusivos por eventos especiales.",
+        },
+      },
+    },
+
     projects: {
       title: "Proyectos",
-      subtitle: "Lo que estamos construyendo actualmente.",
-      comingSoon: "Próximamente",
-      viewProject: "Ver proyecto",
-      statusActive: "Activo",
-      statusInPreparation: "En preparación",
-      statusOnHold: "En reposo",
-      project0: {
-        title: "Kaizenith Workspace",
-        subtitle: "Herramienta de gestión de tiempo y productividad.",
-        description:
-          "Nuestro espacio de trabajo, diseñado para optimizar el flujo y la concentración. No es un producto genérico, es nuestro laboratorio de productividad.",
-        status: "active",
-        cta: "Ver workspace",
+      subtitle:
+        "Estudio activo, catálogo variado: herramientas propias, SaaS para negocios y administraciones, y juegos.",
+      viewProject: "Ver",
+      statusComplete: "Completo",
+      statusAdvanced: "Muy avanzado",
+      statusAlmostReady: "Casi listo",
+      categoryProductivity: "Productividad interna",
+      categoryBusiness: "SaaS para negocios y administraciones",
+      categoryGames: "Juegos",
+      items: {
+        workspace: {
+          title: "Kaizenith Workspace",
+          subtitle: "Herramienta de gestión de tiempo y productividad.",
+          description:
+            "Nuestro propio espacio de trabajo, diseñado para optimizar el flujo y la concentración. Es nuestro laboratorio de productividad, en uso diario.",
+        },
+        zarpe: {
+          title: "Zarpe",
+          subtitle: "Webs a medida para negocio local.",
+          description:
+            "Presencia online rápida y profesional para negocios que todavía no la tienen.",
+        },
+        serena: {
+          title: "Serena",
+          subtitle: "Reservas de citas para psicología privada.",
+          description:
+            "Agenda especializada pensada para el día a día de un gabinete de psicología privado.",
+        },
+        enlace: {
+          title: "Enlace",
+          subtitle: "Gestión de servicios sociales para ayuntamientos.",
+          description:
+            "Centraliza casos, seguimiento y coordinación de los servicios sociales municipales.",
+        },
+        nexa: {
+          title: "Nexa",
+          subtitle: "Matrículas, alumnado y clases para escuelas de danza.",
+          description:
+            "Gestión de matrículas, alumnado, profesorado y horarios. Ya maduro en danza; en construcción para gimnasios e idiomas.",
+        },
+        cashpilot: {
+          title: "CashPilot",
+          subtitle: "Nombre provisional.",
+          description:
+            "Herramienta de gestión financiera personal, en su recta final antes de lanzarse.",
+        },
+        paranormalDetector: {
+          title: "Paranormal Detector",
+          subtitle: "Buscaminas + battleships multijugador para streamers.",
+          description:
+            "Juego de navegador con ambientación paranormal, pensado para retransmitirse en directo.",
+        },
+        mhadle: {
+          title: "MHAdle",
+          subtitle: "Adivina el personaje, estilo Wordle.",
+          description:
+            "Un reto diario para fans de My Hero Academia. Sin monetización, hecho por diversión.",
+        },
       },
-      project1: {
-        title: "AutoForge",
-        subtitle: "Juego en desarrollo: automatización, pixel art cozy y espadas.",
+      ctaCard: {
+        title: "¿Quieres que el tuyo también esté aquí?",
         description:
-          "Déjate llevar en este juego de automatización y pixel art cozy. Crea tu propia forja y automatízala!. No es un juego de nicho, es nuestro proyecto principal para aprender y compartir cada paso del proceso de desarrollo.",
-        status: "preparation",
-        cta: "Ver en Steam",
-      },
-      project2: {
-        title: "Newsletter Kaizenith",
-        subtitle: "Actualización semanal de estados de los proyectos.",
-        description:
-          "La transparencia genera confianza. Números reales, lecciones reales. Semanal, sin filtros ni spam. Comenzaremos con lo básico: qué estamos haciendo, qué estamos aprendiendo, y cómo lo estamos haciendo",
-        status: "preparation",
-        cta: "Suscribirse",
+          "Desarrollamos apps y SaaS a medida. Si tienes una idea o necesitas una herramienta para tu negocio, hablemos.",
+        button: "Cuéntanos tu proyecto",
       },
     },
     principles: {
@@ -777,6 +878,7 @@ Buscar acuerdos y colaboraciones más grandes.`,
       roadmap: "Hoja de Ruta",
       about: "Nosotros",
       projects: "Proyectos",
+      support: "Soporte",
       newsletter: "Newsletter",
       twitter: "Twitter",
       github: "GitHub",
@@ -826,41 +928,40 @@ Buscar acuerdos y colaboraciones más grandes.`,
       joinBuild: "Join",
     },
     hero: {
-      title: "Noise kills indie projects. Process saves them.",
+      badge: "Ping Pong Mate · In development",
+      title: "Your waiting time, turned into arcade.",
       subtitle:
-        "Most indie studios fail in silence. We document every experiment, every metric, every mistake. Unfiltered. If you want clarity on how to build without relying on luck, this is for you.",
-      ctaPrimary: "Access the process: Weekly newsletter",
+        "Ping Pong Mate sits in a corner of your screen while you do other things. Chain combos, earn points, and trade them for collectible cosmetics, without stopping what you were doing.",
+      ctaPrimary: "Add to wishlist",
       ctaSecondary: "View the roadmap",
-      noSpam: "Useful content only",
-      unsubscribe: "Unsubscribe anytime",
-      ctaCommingSoon: "Coming soon: access the process",
-      thankYou:
-        "Thanks for your interest. We're setting everything up. You'll get access to the newsletter soon.",
+      trust: "Helps the game reach more people.",
+      cosmeticsLabel: "Cosmetics: 3/12 unlocked",
     },
     intro: {
       title: "Planification, creation and launch.",
-      p1: "We don't believe in epic launches or smoke-and-mirrors marketing. We believe in short cycles, clear hypotheses, and metrics that don't lie. Every decision is tested, measured, adjusted.",
-      p2: "Kaizen (continuous improvement) + Zenith (the highest point). We aim high, but the path is methodical: small increments, compounding results.",
-      p3: "The newsletter isn't motivational content. It's a technical log of what works, what fails, and why. If you prefer clarity over inspiration, you're in the right place.",
+      lead: "Kaizen (continuous improvement) + Zenith (the highest point): short cycles, clear hypotheses, and metrics that don't lie, instead of smoke-and-mirrors launches.",
       buildLogs: "Technical Log",
-      buildLogsDesc:
-        "Every week: what hypothesis we tested, what we measured, what we learned. No fluff.",
+      buildLogsDesc: "What we tested, what we measured, what we learned.",
       realNumbers: "Real Metrics",
-      realNumbersDesc:
-        "Downloads, retention, conversion. Numbers that matter, not vanity metrics.",
+      realNumbersDesc: "Downloads, retention, conversion. No vanity metrics.",
       earlyAccess: "Early Access",
-      earlyAccessDesc:
-        "Test tools and games before anyone else. Your feedback shapes the product.",
+      earlyAccessDesc: "Test games and tools before anyone else.",
     },
     ctaBanner: {
-      headline: "We are making a game!",
+      headline: "You can now wishlist Ping Pong Mate",
       subheadline:
-        "Follow its development and support the journey. Your support makes a difference.",
-      ctaPrimary: "Follow on Steam",
+        "Follow its development on Steam and support us. Your support makes a difference.",
+      ctaPrimary: "Add to wishlist",
       ctaSecondary: "Support on Patreon",
-      kickstarterNote: "Kickstarter planned for later in development",
-      ctaSupport: "Other ways to support",
       ctaTertiary: "Support on Ko-fi",
+    },
+    supportContact: {
+      title: "Support",
+      subtitle: "Something not working as it should?",
+      description:
+        "General technical support for all Kaizenith games and tools. Write to us and we'll get back to you as soon as possible.",
+      emailCta: "Email support",
+      note: "You can also copy the email directly: soporte@kaizenith.es",
     },
     ctasLeadMagnet: {
       title: "50 Specific CTAs for Video Games and Indie Studios",
@@ -1061,7 +1162,7 @@ Buscar acuerdos y colaboraciones más grandes.`,
     roadmap: {
       title: "The System",
       liveLabel: "Live",
-      subtitle: "Our path to success",
+      subtitle: "Four quarters, four bets. Tap one to see the detail.",
       focus: "Focus",
       why: "Why now?",
       unlocks: "Unlocks",
@@ -1122,37 +1223,116 @@ Seek larger deals and collaborations.`,
       },
     },
 
+    gameRoadmap: {
+      badge: "Ping Pong Mate · Roadmap",
+      title: "From development to your desktop",
+      subtitle: "How close Ping Pong Mate is to Steam, and what comes next.",
+      countdownLabel: "Launching in",
+      countdownDays: "Days",
+      countdownHours: "Hours",
+      countdownMinutes: "Min",
+      countdownSeconds: "Sec",
+      futureNote:
+        "These plans depend on how launch goes. They'll be confirmed based on community response.",
+      milestones: {
+        development: {
+          status: "In development",
+          date: "Now",
+          title: "Polishing the core",
+          description: "Tuning, performance, and the last pieces before opening the wishlist.",
+        },
+        wishlist: {
+          status: "Coming soon",
+          date: "August 2026",
+          title: "Wishlist on Steam",
+          description:
+            "The Steam page will be ready for you to add Ping Pong Mate to your wishlist.",
+        },
+        launch: {
+          status: "Provisional date",
+          date: "September 29, 2026",
+          title: "Launch",
+          description: "The day Ping Pong Mate lands on your desktop.",
+        },
+        postLaunch: {
+          status: "Ongoing",
+          date: "After launch",
+          title: "More content, no stopping",
+          description:
+            "Achievements, new cosmetics (music and trails!), more customization, and continuous tweaks.",
+        },
+        future: {
+          status: "If the project takes off",
+          date: "Later on",
+          title: "New modes and competition",
+          description:
+            "Game modes (challenges, time attack), leaderboards, and themed cosmetics exclusive to special events.",
+        },
+      },
+    },
+
     projects: {
       title: "Projects",
-      subtitle: "What we're currently building.",
-      comingSoon: "Coming Soon",
-      viewProject: "View project",
-      statusActive: "Active",
-      statusInPreparation: "In preparation",
-      statusOnHold: "On hold",
-      project0: {
-        title: "Kaizenith Workspace",
-        subtitle: "Time management and productivity tool.",
-        description:
-          "Our workspace, designed to optimize flow and concentration. Not a generic product, it's our productivity lab.",
-        status: "active",
-        cta: "View workspace",
+      subtitle:
+        "An active studio with a varied catalog: our own tools, SaaS for businesses and public administrations, and games.",
+      viewProject: "View",
+      statusComplete: "Complete",
+      statusAdvanced: "Very advanced",
+      statusAlmostReady: "Almost ready",
+      categoryProductivity: "Internal productivity",
+      categoryBusiness: "SaaS for businesses and administrations",
+      categoryGames: "Games",
+      items: {
+        workspace: {
+          title: "Kaizenith Workspace",
+          subtitle: "Time management and productivity tool.",
+          description:
+            "Our own workspace, designed to optimize flow and focus. It's our productivity lab, used daily.",
+        },
+        zarpe: {
+          title: "Zarpe",
+          subtitle: "Custom websites for local businesses.",
+          description: "Fast, professional online presence for businesses that don't have one yet.",
+        },
+        serena: {
+          title: "Serena",
+          subtitle: "Appointment booking for private psychology practices.",
+          description:
+            "Specialized scheduling built for the day-to-day of a private psychology practice.",
+        },
+        enlace: {
+          title: "Enlace",
+          subtitle: "Social services management for city councils.",
+          description:
+            "Centralizes cases, follow-up, and coordination of municipal social services.",
+        },
+        nexa: {
+          title: "Nexa",
+          subtitle: "Enrollment, students, and classes for dance schools.",
+          description:
+            "Manages enrollment, students, teachers, and schedules. Mature for dance; being built out for gyms and language schools.",
+        },
+        cashpilot: {
+          title: "CashPilot",
+          subtitle: "Working name.",
+          description: "Personal finance management tool, in its final stretch before launch.",
+        },
+        paranormalDetector: {
+          title: "Paranormal Detector",
+          subtitle: "Multiplayer minesweeper + battleship for streamers.",
+          description: "A browser game with a paranormal theme, built to be fun to watch live.",
+        },
+        mhadle: {
+          title: "MHAdle",
+          subtitle: "Guess the character, Wordle-style.",
+          description: "A daily challenge for My Hero Academia fans. No monetization, made for fun.",
+        },
       },
-      project1: {
-        title: "AutoForge",
-        subtitle: "Game in development: automation, cozy pixel art and swords.",
+      ctaCard: {
+        title: "Want yours here too?",
         description:
-          "Get carried away in this automation and cozy pixel art game. Create your own forge and automate it! Not a niche game, it's our main project to learn and share every step of the development process.",
-        status: "preparation",
-        cta: "View on Steam",
-      },
-      project2: {
-        title: "Kaizenith Newsletter",
-        subtitle: "Weekly project status update.",
-        description:
-          "Transparency builds trust. Real numbers, real lessons. Weekly, unfiltered and spam-free. We'll start with the basics: what we're doing, what we're learning, and how we're doing it.",
-        status: "preparation",
-        cta: "Subscribe",
+          "We build custom apps and SaaS. If you have an idea or need a tool for your business, let's talk.",
+        button: "Tell us about your project",
       },
     },
     principles: {
@@ -1197,6 +1377,7 @@ Seek larger deals and collaborations.`,
       roadmap: "Roadmap",
       about: "About",
       projects: "Projects",
+      support: "Support",
       newsletter: "Newsletter",
       twitter: "Twitter",
       github: "GitHub",

@@ -128,7 +128,8 @@ export function SignupForm() {
           )}
 
           <p className="text-xs text-muted-foreground">
-            {t.hero.noSpam}. {t.hero.unsubscribe}.
+            {t.signup.privacyAuxText}
+            <a href="/privacy" className="hover:underline">{t.signup.privacy}</a>
           </p>
         </form>
       </div>

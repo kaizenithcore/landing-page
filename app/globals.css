@@ -132,6 +132,21 @@
   50% { transform: translateY(-10px); }
 }
 
+@keyframes ping-pong-bounce {
+  0%, 100% { transform: translate(-46px, -18px); }
+  50% { transform: translate(46px, 18px); }
+}
+
+@keyframes paddle-left {
+  0%, 45%, 100% { transform: translateY(14px); }
+  50%, 95% { transform: translateY(-14px); }
+}
+
+@keyframes paddle-right {
+  0%, 45%, 100% { transform: translateY(-14px); }
+  50%, 95% { transform: translateY(14px); }
+}
+
 @keyframes draw-line {
   from { stroke-dashoffset: 1000; }
   to { stroke-dashoffset: 0; }
@@ -186,15 +201,38 @@
   animation: scale-in 0.4s ease-out forwards;
 }
 
+.animate-ping-pong-bounce {
+  animation: ping-pong-bounce 2.4s ease-in-out infinite;
+}
+
+.animate-paddle-left {
+  animation: paddle-left 2.4s ease-in-out infinite;
+}
+
+.animate-paddle-right {
+  animation: paddle-right 2.4s ease-in-out infinite;
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .animate-float,
   .animate-draw-line,
   .animate-glow-pulse,
   .animate-fade-in-up,
-  .animate-scale-in {
+  .animate-scale-in,
+  .animate-ping-pong-bounce,
+  .animate-paddle-left,
+  .animate-paddle-right {
     animation: none;
   }
+}
+
+/* Display heading — large, compact leading, slightly negative tracking */
+.text-display {
+  font-size: clamp(2.25rem, 1.6rem + 3vw, 4rem);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  font-weight: 800;
 }
 
 /* Focus styles */

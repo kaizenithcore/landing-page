@@ -51,6 +51,12 @@ export function Footer() {
                   {t.footer.projects}
                 </a>
                 <a
+                  href="/soporte"
+                  className="text-sm text-foreground/80 hover:text-foreground transition-colors"
+                >
+                  {t.footer.support}
+                </a>
+                <a
                   href="/support"
                   className="text-sm text-foreground/80 hover:text-foreground transition-colors"
                 >

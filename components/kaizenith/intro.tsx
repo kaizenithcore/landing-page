@@ -1,62 +1,45 @@
 "use client"
 
-import React from "react"
 import { Lightbulb, LineChart, Zap } from "lucide-react"
 import { useLocale } from "@/lib/i18n/locale-context"
 
 export function IntroSection() {
   const { t } = useLocale()
 
+  const items = [
+    { icon: <Lightbulb className="w-4 h-4" />, title: t.intro.buildLogs, description: t.intro.buildLogsDesc },
+    { icon: <LineChart className="w-4 h-4" />, title: t.intro.realNumbers, description: t.intro.realNumbersDesc },
+    { icon: <Zap className="w-4 h-4" />, title: t.intro.earlyAccess, description: t.intro.earlyAccessDesc },
+  ]
+
   return (
-    <section id="about" className="py-24 md:py-32 bg-card/30">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-12">
-          {/* Philosophy */}
-          <div className="space-y-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-balance">
+    <section id="about" className="py-12 md:py-16 border-y border-border bg-card/30">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-12">
+          {/* Lead */}
+          <div className="md:max-w-xs shrink-0 space-y-2">
+            <span className="text-xs font-medium text-primary uppercase tracking-wider">
               {t.intro.title}
-            </h2>
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
-              <p>{t.intro.p1}</p>
-              <p>{t.intro.p2}</p>
-              <p>{t.intro.p3}</p>
-            </div>
+            </span>
+            <p className="text-foreground/90 leading-relaxed">{t.intro.lead}</p>
           </div>
 
-          {/* Benefits */}
-          <div className="grid sm:grid-cols-3 gap-6">
-            <BenefitCard
-              icon={<Lightbulb className="w-5 h-5" />}
-              title={t.intro.buildLogs}
-              description={t.intro.buildLogsDesc}
-            />
-            <BenefitCard
-              icon={<LineChart className="w-5 h-5" />}
-              title={t.intro.realNumbers}
-              description={t.intro.realNumbersDesc}
-            />
-            <BenefitCard
-              icon={<Zap className="w-5 h-5" />}
-              title={t.intro.earlyAccess}
-              description={t.intro.earlyAccessDesc}
-            />
+          {/* Compact item row */}
+          <div className="flex-1 grid sm:grid-cols-3 gap-6 md:gap-8 md:border-l md:border-border md:pl-8">
+            {items.map((item) => (
+              <div key={item.title} className="flex items-start gap-3">
+                <div className="p-1.5 rounded-lg bg-primary/10 text-primary shrink-0 mt-0.5">
+                  {item.icon}
+                </div>
+                <div>
+                  <h3 className="text-sm font-semibold text-foreground">{item.title}</h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{item.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
     </section>
-  )
-}
-
-function BenefitCard({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) {
-  return (
-    <div className="p-6 rounded-xl bg-card border border-border">
-      <div className="flex items-center gap-3 mb-3">
-        <div className="p-2 rounded-lg bg-primary/10 text-primary">
-          {icon}
-        </div>
-        <h3 className="font-semibold text-foreground">{title}</h3>
-      </div>
-      <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
-    </div>
   )
 }

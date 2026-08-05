@@ -3,112 +3,82 @@
 import { useLocale } from '@/lib/i18n/locale-context'
 import { Button } from '@/components/ui/button'
 import { ExternalLink } from 'lucide-react'
+import { EyebrowBadge } from './eyebrow-badge'
+import { STEAM_WISHLIST_URL, PATREON_URL, KOFI_URL } from '@/lib/site-links'
 
 export function CTABanner() {
   const { t } = useLocale()
 
   return (
-    <section className="relative w-full py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8">
-      {/* Gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-primary/5 rounded-2xl opacity-60" />
-      
-      {/* Card container */}
-      <div className="relative z-10 max-w-4xl mx-auto">
-        <div className="rounded-2xl border border-border/50 bg-card/30 backdrop-blur-sm p-8 sm:p-12 md:p-16 space-y-8">
-          {/* Content */}
-          <div className="space-y-4 text-center">
-            {/* Headline */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground text-balance leading-tight">
-              {t.ctaBanner.headline}
-            </h2>
-            
-            {/* Subheadline */}
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              {t.ctaBanner.subheadline}
-            </p>
-          </div>
+    <section className="relative w-full py-24 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Gradient background, consistent with Hero */}
+      <div className="absolute inset-0 bg-gradient-to-b from-card/30 via-background to-background pointer-events-none" />
 
-          {/* CTA Buttons - Mobile stacked, Desktop horizontal */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            {/* Primary CTA - Steam Wishlist */}
-            <Button
-              size="lg"
-              className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:-translate-y-0.5 transition-all text-base font-semibold px-8 py-6 sm:py-auto"
-              asChild
+      <div className="relative z-10 max-w-3xl mx-auto text-center space-y-8">
+        <div className="flex justify-center">
+          <EyebrowBadge>{t.hero.badge}</EyebrowBadge>
+        </div>
+
+        <h2 className="text-display text-foreground text-balance">{t.ctaBanner.headline}</h2>
+
+        <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          {t.ctaBanner.subheadline}
+        </p>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+          {/* Primary CTA - Steam Wishlist */}
+          <Button
+            size="lg"
+            className="w-full sm:w-auto rounded-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:-translate-y-0.5 transition-all text-base font-semibold px-8 py-6 sm:py-auto"
+            asChild
+          >
+            <a
+              href={STEAM_WISHLIST_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2"
             >
-              <a
-                href="https://steamcommunity.com/groups/kaizenith"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2"
-              >
-                {t.ctaBanner.ctaPrimary}
-                <ExternalLink className="w-4 h-4" />
-              </a>
-            </Button>
+              {t.ctaBanner.ctaPrimary}
+              <ExternalLink className="w-4 h-4" />
+            </a>
+          </Button>
 
-            {/* Secondary CTA - Patreon Support */}
-            <Button
-              size="lg"
-              variant="outline"
-              className="w-full sm:w-auto border border-border text-foreground hover:bg-secondary transition-all bg-transparent font-semibold px-8 py-6 sm:py-auto"
-              asChild
+          {/* Secondary CTA - Patreon Support */}
+          <Button
+            size="lg"
+            variant="outline"
+            className="w-full sm:w-auto rounded-full border border-border text-foreground hover:bg-secondary transition-all bg-transparent font-semibold px-8 py-6 sm:py-auto"
+            asChild
+          >
+            <a
+              href={PATREON_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2"
             >
-              <a
-                href="https://www.patreon.com/cw/kaizenithcore"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2"
-              >
-                {t.ctaBanner.ctaSecondary}
-                <ExternalLink className="w-4 h-4" />
-              </a>
-            </Button>
+              {t.ctaBanner.ctaSecondary}
+              <ExternalLink className="w-4 h-4" />
+            </a>
+          </Button>
 
-            {/* Tertiary CTA - Ko-fi Support */}
-            <Button
-              size="lg"
-              variant="outline"
-              className="w-full sm:w-auto border border-border text-foreground hover:bg-secondary transition-all bg-transparent font-semibold px-8 py-6 sm:py-auto"
-              asChild
+          {/* Tertiary CTA - Ko-fi Support */}
+          <Button
+            size="lg"
+            variant="outline"
+            className="w-full sm:w-auto rounded-full border border-border text-foreground hover:bg-secondary transition-all bg-transparent font-semibold px-8 py-6 sm:py-auto"
+            asChild
+          >
+            <a
+              href={KOFI_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2"
             >
-              <a
-                href="https://ko-fi.com/kaizenith"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2"
-              >
-                {t.ctaBanner.ctaTertiary}
-                <ExternalLink className="w-4 h-4" />
-              </a>
-            </Button>
-
-            
-          </div>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            {/* Link to support page */}
-            <Button
-              size="lg"
-              variant="ghost"
-              className="w-full sm:w-auto text-foreground hover:text-primary transition-all font-medium px-8 py-6 sm:py-auto"
-              asChild
-            >
-              <a
-                href="/support"
-                className="flex items-center justify-center gap-2"
-              >
-                {t.ctaBanner.ctaSupport}
-                <ExternalLink className="w-4 h-4" />
-              </a>
-            </Button>
-          </div>
-
-          {/* Footer note about Kickstarter */}
-          <div className="pt-4 text-center">
-            <p className="text-sm text-muted-foreground">
-              {t.ctaBanner.kickstarterNote}
-            </p>
-          </div>
+              {t.ctaBanner.ctaTertiary}
+              <ExternalLink className="w-4 h-4" />
+            </a>
+          </Button>
         </div>
       </div>
     </section>

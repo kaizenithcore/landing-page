@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronDown } from "lucide-react";
 import { useLocale } from "@/lib/i18n/locale-context";
+import { EyebrowBadge } from "./eyebrow-badge";
 
 interface RoadmapNode {
   id: string;
@@ -33,7 +34,6 @@ export function Roadmap() {
   const [animatedNodes, setAnimatedNodes] = useState<Set<string>>(new Set());
   const [lineProgress, setLineProgress] = useState(0);
   const sectionRef = useRef<HTMLElement | null>(null);
-  const nodeRefs = useRef<(HTMLDivElement | null)[]>([]);
   const { t } = useLocale();
 
   // Get translated roadmap data (Q1-Q4 2026, games-first)
@@ -166,35 +166,155 @@ Buscar acuerdos y colaboraciones más grandes.`,
     setExpandedNode((prev) => (prev === id ? null : id));
   };
 
+  const labels = {
+    focus: t?.roadmap?.focus ?? "En qué estamos centrados",
+    why: t?.roadmap?.why ?? "Por qué importa ahora",
+    unlocks: t?.roadmap?.unlocks ?? "Qué desbloquea después",
+  };
+
+  const expandedNodeData = roadmapData.find((n) => n.id === expandedNode) ?? null;
+
   return (
     <section id="roadmap" ref={sectionRef} className="py-24 md:py-32">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 space-y-6">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-sm font-medium text-primary uppercase tracking-wider">
-              {t?.roadmap?.liveLabel ?? "Live System"}
-            </span>
+          <div className="flex justify-center">
+            <EyebrowBadge>{t?.roadmap?.liveLabel ?? "Live System"}</EyebrowBadge>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground text-balance">
             {t?.roadmap?.title ?? "El Sistema"}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            {t?.roadmap?.subtitle ??
-              "No es un timeline. Es un sistema de experimentos activos. Cada nodo es una hipótesis que estamos probando. Haz clic para ver qué estamos testing y qué buscamos aprender."}
+            {t?.roadmap?.subtitle ?? "Cuatro trimestres, cuatro apuestas."}
           </p>
         </div>
 
-        {/* Roadmap visualization */}
-        <div className="relative">
-          {/* Vertical connecting line with glow */}
+        {/* Desktop: horizontal stepper */}
+        <div className="hidden md:block">
+          <div className="relative">
+            {/* Horizontal connecting line with glow */}
+            <div
+              className="absolute left-0 right-0 top-7 h-0.5 bg-border pointer-events-none"
+              aria-hidden="true"
+            >
+              <div
+                className="absolute top-0 left-0 h-full bg-primary transition-all duration-100 ease-out"
+                style={{
+                  width: `${lineProgress * 100}%`,
+                  boxShadow:
+                    "0 0 12px 2px rgba(133, 76, 173, 0.5), 0 0 24px 4px rgba(133, 76, 173, 0.3)",
+                }}
+              />
+            </div>
+
+            <div className="relative z-10 grid grid-cols-4 gap-4">
+              {roadmapData.map((node, index) => {
+                const isAnimated = animatedNodes.has(node.id);
+                const isExpanded = expandedNode === node.id;
+                return (
+                  <button
+                    key={node.id}
+                    onClick={() => toggleNode(node.id)}
+                    className={`text-left transition-all duration-500 focus-visible-ring rounded-xl ${
+                      isAnimated ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                    }`}
+                    style={{ transitionDelay: `${index * 80}ms` }}
+                    aria-expanded={isExpanded}
+                    aria-controls="roadmap-shared-panel"
+                  >
+                    {/* Node marker */}
+                    <div className="flex justify-center mb-4">
+                      <div
+                        className={`w-4 h-4 rounded-full border-2 transition-all duration-300 ${
+                          isAnimated
+                            ? isExpanded
+                              ? "bg-primary border-primary scale-125"
+                              : "bg-primary border-primary"
+                            : "bg-card border-border"
+                        }`}
+                        style={{
+                          boxShadow: isAnimated
+                            ? isExpanded
+                              ? "0 0 16px 4px rgba(133, 76, 173, 0.6)"
+                              : "0 0 8px 2px rgba(133, 76, 173, 0.4)"
+                            : "none",
+                        }}
+                      />
+                    </div>
+
+                    <div
+                      className={`rounded-xl border p-5 h-full transition-all duration-300 group ${
+                        isExpanded
+                          ? "bg-primary/10 border-primary/30"
+                          : "bg-card border-border hover:border-primary/30 hover:bg-card/80"
+                      }`}
+                    >
+                      <div className="text-3xl font-extrabold tracking-tight text-foreground/90">
+                        Q{index + 1}
+                      </div>
+                      <p className="text-xs text-muted-foreground mt-1">{node.timeframe}</p>
+                      {node.status && (
+                        <span
+                          className={`inline-block mt-2 text-xs px-2 py-0.5 rounded-full border ${
+                            statusColors[node.status] ??
+                            "bg-muted-foreground/20 text-muted-foreground border-muted-foreground/30"
+                          }`}
+                        >
+                          {node.status}
+                        </span>
+                      )}
+                      <p className="text-sm text-foreground/80 mt-3 leading-relaxed">
+                        {node.summary}
+                      </p>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Shared detail panel */}
+            <div
+              id="roadmap-shared-panel"
+              className={`overflow-hidden transition-all duration-300 ${
+                expandedNodeData ? "max-h-[28rem] opacity-100 mt-6" : "max-h-0 opacity-0"
+              }`}
+            >
+              {expandedNodeData && (
+                <div className="rounded-xl border border-primary/20 bg-primary/5 p-6">
+                  <dl className="grid sm:grid-cols-3 gap-6 text-sm">
+                    <div>
+                      <dt className="font-medium text-foreground mb-1">{labels.focus}</dt>
+                      <dd className="text-muted-foreground whitespace-pre-line">
+                        {expandedNodeData.focus}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="font-medium text-foreground mb-1">{labels.why}</dt>
+                      <dd className="text-muted-foreground whitespace-pre-line">
+                        {expandedNodeData.why}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="font-medium text-foreground mb-1">{labels.unlocks}</dt>
+                      <dd className="text-muted-foreground whitespace-pre-line">
+                        {expandedNodeData.unlocks}
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile: vertical accordion */}
+        <div className="md:hidden relative">
           <div
-            className="absolute left-[1.75rem] md:left-[2.75rem] top-6 w-0.5 bg-border pointer-events-none"
+            className="absolute left-[1.75rem] top-6 w-0.5 bg-border pointer-events-none"
             style={{ height: "calc(100% - 3rem)" }}
             aria-hidden="true"
           >
-            {/* Animated progress line */}
             <div
               className="absolute top-0 left-0 w-full bg-primary transition-all duration-100 ease-out"
               style={{
@@ -205,7 +325,6 @@ Buscar acuerdos y colaboraciones más grandes.`,
             />
           </div>
 
-          {/* Nodes */}
           <div className="space-y-6 relative z-10">
             {roadmapData.map((node, index) => (
               <RoadmapCard
@@ -215,14 +334,7 @@ Buscar acuerdos y colaboraciones más grandes.`,
                 isAnimated={animatedNodes.has(node.id)}
                 onToggle={() => toggleNode(node.id)}
                 index={index}
-                nodeRef={(el) => {
-                  nodeRefs.current[index] = el;
-                }}
-                labels={{
-                  focus: t?.roadmap?.focus ?? "En qué estamos centrados",
-                  why: t?.roadmap?.why ?? "Por qué importa ahora",
-                  unlocks: t?.roadmap?.unlocks ?? "Qué desbloquea después",
-                }}
+                labels={labels}
               />
             ))}
           </div>
@@ -238,7 +350,6 @@ interface RoadmapCardProps {
   isAnimated: boolean;
   onToggle: () => void;
   index: number;
-  nodeRef: (el: HTMLDivElement | null) => void;
   labels: {
     focus: string;
     why: string;
@@ -252,20 +363,18 @@ function RoadmapCard({
   isAnimated,
   onToggle,
   index,
-  nodeRef,
   labels,
 }: RoadmapCardProps) {
   return (
     <div
-      ref={nodeRef}
-      className={`ml-14 md:ml-20 transition-all duration-500 relative ${
+      className={`ml-14 transition-all duration-500 relative ${
         isAnimated ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
       }`}
       style={{ transitionDelay: `${index * 80}ms` }}
     >
       {/* Node marker */}
       <div
-        className={`absolute -left-[2.25rem] md:-left-[2.75rem] top-7 w-4 h-4 rounded-full border-2 z-10 transition-all duration-300 ${
+        className={`absolute -left-[2.25rem] top-7 w-4 h-4 rounded-full border-2 z-10 transition-all duration-300 ${
           isAnimated
             ? isExpanded
               ? "bg-primary border-primary scale-125"
