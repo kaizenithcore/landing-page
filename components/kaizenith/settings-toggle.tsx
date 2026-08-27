@@ -22,7 +22,7 @@ export function ThemeToggle() {
         <Button 
           variant="ghost" 
           size="icon" 
-          className="h-9 w-9 text-muted-foreground hover:text-foreground"
+          className="h-9 w-9 text-muted-foreground hover:bg-primary/10 hover:text-primary dark:hover:bg-primary/10"
           aria-label={theme === "dark" ? t.theme.dark : t.theme.light}
         >
           <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
@@ -59,7 +59,7 @@ export function ThemeToggleSimple() {
       variant="ghost" 
       size="icon" 
       onClick={toggleTheme}
-      className="h-9 w-9 text-muted-foreground hover:text-foreground"
+      className="h-9 w-9 text-muted-foreground hover:bg-primary/10 hover:text-primary dark:hover:bg-primary/10"
       aria-label={theme === "dark" ? t.theme.light : t.theme.dark}
     >
       <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
@@ -77,7 +77,7 @@ export function LanguageToggle() {
         <Button 
           variant="ghost" 
           size="sm" 
-          className="h-9 gap-2 text-muted-foreground hover:text-foreground px-3"
+          className="h-9 gap-2 text-muted-foreground hover:bg-primary/10 hover:text-primary dark:hover:bg-primary/10 px-3"
           aria-label={t.settings.language}
         >
           <Globe className="h-4 w-4" />

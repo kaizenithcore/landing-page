@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronDown } from "lucide-react";
 import { useLocale } from "@/lib/i18n/locale-context";
-import { EyebrowBadge } from "./eyebrow-badge";
 
 interface RoadmapNode {
   id: string;
@@ -40,83 +39,83 @@ export function Roadmap() {
   const roadmapData: RoadmapNode[] = [
     {
       id: "q1-2026",
-      title: t?.roadmap?.quarters?.q1?.title ?? "— 2026 · Q1 —",
-      status: t?.roadmap?.quarters?.q1?.status ?? "In progress",
-      timeframe: t?.roadmap?.quarters?.q1?.timeframe ?? "2026 · Q1",
+      title: t?.studio?.roadmap?.quarters?.q1?.title ?? "— 2026 · Q1 —",
+      status: t?.studio?.roadmap?.quarters?.q1?.status ?? "In progress",
+      timeframe: t?.studio?.roadmap?.quarters?.q1?.timeframe ?? "2026 · Q1",
       summary:
-        t?.roadmap?.quarters?.q1?.summary ??
+        t?.studio?.roadmap?.quarters?.q1?.summary ??
         "Establecer presencia y lanzar la primera herramienta (FlowFocus).",
       focus:
-        t?.roadmap?.quarters?.q1?.focus ??
+        t?.studio?.roadmap?.quarters?.q1?.focus ??
         `Comenzar a crear audiencia.
 Terminar y publicar FlowFocus.
 Implementar estrategia de redes, lead magnet y posible newsletter.
 Desarrollo y publicación de la web.`,
       why:
-        t?.roadmap?.quarters?.q1?.why ??
+        t?.studio?.roadmap?.quarters?.q1?.why ??
         "Prioridad: validar canales y generar señales de interés antes de empujar el juego.",
       unlocks:
-        t?.roadmap?.quarters?.q1?.unlocks ??
+        t?.studio?.roadmap?.quarters?.q1?.unlocks ??
         "Señales positivas → intensificar promoción del juego y preparar Q2 (Kickstarter).",
     },
     {
       id: "q2-2026",
-      title: t?.roadmap?.quarters?.q2?.title ?? "— 2026 · Q2 —",
-      status: t?.roadmap?.quarters?.q2?.status ?? "Planned",
-      timeframe: t?.roadmap?.quarters?.q2?.timeframe ?? "2026 · Q2",
+      title: t?.studio?.roadmap?.quarters?.q2?.title ?? "— 2026 · Q2 —",
+      status: t?.studio?.roadmap?.quarters?.q2?.status ?? "Planned",
+      timeframe: t?.studio?.roadmap?.quarters?.q2?.timeframe ?? "2026 · Q2",
       summary:
-        t?.roadmap?.quarters?.q2?.summary ??
+        t?.studio?.roadmap?.quarters?.q2?.summary ??
         "Dar empuje al juego principal y preparar el crowdfunding.",
       focus:
-        t?.roadmap?.quarters?.q2?.focus ??
+        t?.studio?.roadmap?.quarters?.q2?.focus ??
         `Ajustar estrategia según resultados.
 Intensificar promoción del juego.
 Lanzar Kickstarter.
 Crear Discord para la comunidad.`,
       why:
-        t?.roadmap?.quarters?.q2?.why ??
+        t?.studio?.roadmap?.quarters?.q2?.why ??
         "Kickstarter es la palanca de visibilidad y financiación si la comunidad responde.",
       unlocks:
-        t?.roadmap?.quarters?.q2?.unlocks ??
+        t?.studio?.roadmap?.quarters?.q2?.unlocks ??
         "Éxito en crowdfunding → fondos para producción y alcance ampliado.",
     },
     {
       id: "q3-2026",
-      title: t?.roadmap?.quarters?.q3?.title ?? "— 2026 · Q3 —",
-      status: t?.roadmap?.quarters?.q3?.status ?? "Planned",
-      timeframe: t?.roadmap?.quarters?.q3?.timeframe ?? "2026 · Q3",
+      title: t?.studio?.roadmap?.quarters?.q3?.title ?? "— 2026 · Q3 —",
+      status: t?.studio?.roadmap?.quarters?.q3?.status ?? "Planned",
+      timeframe: t?.studio?.roadmap?.quarters?.q3?.timeframe ?? "2026 · Q3",
       summary:
-        t?.roadmap?.quarters?.q3?.summary ??
+        t?.studio?.roadmap?.quarters?.q3?.summary ??
         "Publicar el juego y recoger métricas reales de los jugadores.",
       focus:
-        t?.roadmap?.quarters?.q3?.focus ??
+        t?.studio?.roadmap?.quarters?.q3?.focus ??
         `Publicar el juego (release principal).
 Decidir: DLC/expansión o nuevo proyecto según feedback.
 Buscar colaboraciones para la newsletter.`,
       why:
-        t?.roadmap?.quarters?.q3?.why ??
+        t?.studio?.roadmap?.quarters?.q3?.why ??
         "El lanzamiento valida el producto en condiciones reales y guía el roadmap de contenido.",
       unlocks:
-        t?.roadmap?.quarters?.q3?.unlocks ??
+        t?.studio?.roadmap?.quarters?.q3?.unlocks ??
         "Decisión clara: expansión / DLC o iniciar nuevo proyecto según datos.",
     },
     {
       id: "q4-2026",
-      title: t?.roadmap?.quarters?.q4?.title ?? "— 2026 · Q4 —",
-      status: t?.roadmap?.quarters?.q4?.status ?? "Planned",
-      timeframe: t?.roadmap?.quarters?.q4?.timeframe ?? "2026 · Q4",
+      title: t?.studio?.roadmap?.quarters?.q4?.title ?? "— 2026 · Q4 —",
+      status: t?.studio?.roadmap?.quarters?.q4?.status ?? "Planned",
+      timeframe: t?.studio?.roadmap?.quarters?.q4?.timeframe ?? "2026 · Q4",
       summary:
-        t?.roadmap?.quarters?.q4?.summary ??
+        t?.studio?.roadmap?.quarters?.q4?.summary ??
         "Consolidar pipeline y buscar acuerdos mayores.",
       focus:
-        t?.roadmap?.quarters?.q4?.focus ??
+        t?.studio?.roadmap?.quarters?.q4?.focus ??
         `Continuar desarrollo del siguiente juego / expansión.
 Buscar acuerdos y colaboraciones más grandes.`,
       why:
-        t?.roadmap?.quarters?.q4?.why ??
+        t?.studio?.roadmap?.quarters?.q4?.why ??
         "Escalar con prudencia y convertir señales tempranas en acuerdos y alcance.",
       unlocks:
-        t?.roadmap?.quarters?.q4?.unlocks ??
+        t?.studio?.roadmap?.quarters?.q4?.unlocks ??
         "Preparar 2027: priorizar roadmap en función de ingresos y comunidad.",
     },
   ];
@@ -167,9 +166,9 @@ Buscar acuerdos y colaboraciones más grandes.`,
   };
 
   const labels = {
-    focus: t?.roadmap?.focus ?? "En qué estamos centrados",
-    why: t?.roadmap?.why ?? "Por qué importa ahora",
-    unlocks: t?.roadmap?.unlocks ?? "Qué desbloquea después",
+    focus: t?.studio?.roadmap?.focus ?? "En qué estamos centrados",
+    why: t?.studio?.roadmap?.why ?? "Por qué importa ahora",
+    unlocks: t?.studio?.roadmap?.unlocks ?? "Qué desbloquea después",
   };
 
   const expandedNodeData = roadmapData.find((n) => n.id === expandedNode) ?? null;
@@ -179,14 +178,11 @@ Buscar acuerdos y colaboraciones más grandes.`,
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 space-y-6">
-          <div className="flex justify-center">
-            <EyebrowBadge>{t?.roadmap?.liveLabel ?? "Live System"}</EyebrowBadge>
-          </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground text-balance">
-            {t?.roadmap?.title ?? "El Sistema"}
+            {t?.studio?.roadmap?.title ?? "El Sistema"}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            {t?.roadmap?.subtitle ?? "Cuatro trimestres, cuatro apuestas."}
+            {t?.studio?.roadmap?.subtitle ?? "Cuatro trimestres, cuatro apuestas."}
           </p>
         </div>
 

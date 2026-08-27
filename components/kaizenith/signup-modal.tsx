@@ -193,7 +193,7 @@ function SuccessContent({ onClose, t }: { onClose: () => void; t: ReturnType<typ
             rel="noopener noreferrer"
             className="text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
-            {t.footer.twitter}
+            {t.studio.footer.twitter}
           </a>
           <span className="text-muted-foreground">·</span>
           <a

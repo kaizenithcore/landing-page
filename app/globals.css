@@ -39,6 +39,19 @@
   --sidebar-accent-foreground: #111216;
   --sidebar-border: rgba(17, 18, 22, 0.1);
   --sidebar-ring: #854CAD;
+
+  /* Always-dark band tokens — theme-independent by design, used for the
+     full-bleed contrast sections (root/why-us, works/trust). --band-bg is
+     deliberately darker than .dark's own --background (#111216) so the band
+     still reads as a distinct section break when the surrounding page is
+     already in dark theme, not just against the light background. */
+  --band-bg: #08090b;
+  --band-foreground: #F5F5F6;
+  --band-foreground-muted: rgba(245, 245, 246, 0.6);
+  --band-card: #222329;
+  --band-border: rgba(245, 245, 246, 0.1);
+  --band-border-strong: rgba(245, 245, 246, 0.15);
+  --band-edge: rgba(133, 76, 173, 0.35);
 }
 
 .dark {
@@ -132,21 +145,6 @@
   50% { transform: translateY(-10px); }
 }
 
-@keyframes ping-pong-bounce {
-  0%, 100% { transform: translate(-46px, -18px); }
-  50% { transform: translate(46px, 18px); }
-}
-
-@keyframes paddle-left {
-  0%, 45%, 100% { transform: translateY(14px); }
-  50%, 95% { transform: translateY(-14px); }
-}
-
-@keyframes paddle-right {
-  0%, 45%, 100% { transform: translateY(-14px); }
-  50%, 95% { transform: translateY(14px); }
-}
-
 @keyframes draw-line {
   from { stroke-dashoffset: 1000; }
   to { stroke-dashoffset: 0; }
@@ -201,16 +199,21 @@
   animation: scale-in 0.4s ease-out forwards;
 }
 
-.animate-ping-pong-bounce {
-  animation: ping-pong-bounce 2.4s ease-in-out infinite;
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
-.animate-paddle-left {
-  animation: paddle-left 2.4s ease-in-out infinite;
+.animate-marquee {
+  animation: marquee 28s linear infinite;
 }
 
-.animate-paddle-right {
-  animation: paddle-right 2.4s ease-in-out infinite;
+.marquee-pause:hover .animate-marquee {
+  animation-play-state: paused;
 }
 
 /* Reduced motion */
@@ -220,9 +223,8 @@
   .animate-glow-pulse,
   .animate-fade-in-up,
   .animate-scale-in,
-  .animate-ping-pong-bounce,
-  .animate-paddle-left,
-  .animate-paddle-right {
+  .animate-marquee,
+  .animate-pulse {
     animation: none;
   }
 }
@@ -233,6 +235,44 @@
   line-height: 1.04;
   letter-spacing: -0.02em;
   font-weight: 800;
+}
+
+/* Root only — bigger, tighter, more DICE/Riverside */
+.text-display-xl {
+  font-size: clamp(2.5rem, 1.8rem + 5vw, 5.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  font-weight: 900;
+}
+
+/* Works only — factory.ai-style all-caps industrial headline */
+.text-display-caps {
+  font-size: clamp(2.5rem, 1.6rem + 4.5vw, 5rem);
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+/* Studio only — bigger, heavier, punchier than Root's version of the same
+   sans; the arcade energy comes from weight and scale, not a new face. */
+.text-display-arcade {
+  font-size: clamp(2.75rem, 1.7rem + 6.5vw, 7rem);
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  font-weight: 900;
+}
+
+/* Vision only — a distinct serif display voice (loaded in app/design/layout.tsx),
+   deliberately different from the sans used everywhere else: the one area
+   selling visual identity should look like it. Serifs carry more built-in
+   optical spacing, so tracking stays looser than the sans display faces. */
+.text-display-vision {
+  font-family: var(--font-display-vision), Georgia, serif;
+  font-size: clamp(2.5rem, 1.7rem + 4vw, 5.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  font-weight: 600;
 }
 
 /* Focus styles */

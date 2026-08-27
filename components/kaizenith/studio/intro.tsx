@@ -7,9 +7,9 @@ export function IntroSection() {
   const { t } = useLocale()
 
   const items = [
-    { icon: <Lightbulb className="w-4 h-4" />, title: t.intro.buildLogs, description: t.intro.buildLogsDesc },
-    { icon: <LineChart className="w-4 h-4" />, title: t.intro.realNumbers, description: t.intro.realNumbersDesc },
-    { icon: <Zap className="w-4 h-4" />, title: t.intro.earlyAccess, description: t.intro.earlyAccessDesc },
+    { icon: <Lightbulb className="w-4 h-4" />, title: t.studio.intro.buildLogs, description: t.studio.intro.buildLogsDesc },
+    { icon: <LineChart className="w-4 h-4" />, title: t.studio.intro.realNumbers, description: t.studio.intro.realNumbersDesc },
+    { icon: <Zap className="w-4 h-4" />, title: t.studio.intro.earlyAccess, description: t.studio.intro.earlyAccessDesc },
   ]
 
   return (
@@ -19,9 +19,9 @@ export function IntroSection() {
           {/* Lead */}
           <div className="md:max-w-xs shrink-0 space-y-2">
             <span className="text-xs font-medium text-primary uppercase tracking-wider">
-              {t.intro.title}
+              {t.studio.intro.title}
             </span>
-            <p className="text-foreground/90 leading-relaxed">{t.intro.lead}</p>
+            <p className="text-foreground/90 leading-relaxed">{t.studio.intro.lead}</p>
           </div>
 
           {/* Compact item row */}
@@ -32,7 +32,7 @@ export function IntroSection() {
                   {item.icon}
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-foreground">{item.title}</h3>
+                  <h2 className="text-sm font-semibold text-foreground">{item.title}</h2>
                   <p className="text-xs text-muted-foreground leading-relaxed">{item.description}</p>
                 </div>
               </div>

@@ -25,3 +25,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# AI coding tool state (local, not app code)
+/.codex/
+/.impeccable/

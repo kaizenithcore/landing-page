@@ -27,9 +27,9 @@ export function LeadMagnet({ onOpenSignup, data }: LeadMagnetProps) {
           {/* Decorative diagonal pattern */}
           <div className="absolute top-0 right-0 w-64 h-64 opacity-5 pointer-events-none">
             <svg viewBox="0 0 100 100" fill="none" className="w-full h-full">
-              <path d="M0 100 L50 50 L100 100" stroke="#854CAD" strokeWidth="2" />
-              <path d="M0 80 L50 30 L100 80" stroke="#854CAD" strokeWidth="2" />
-              <path d="M0 60 L50 10 L100 60" stroke="#854CAD" strokeWidth="2" />
+              <path d="M0 100 L50 50 L100 100" stroke="var(--primary)" strokeWidth="2" />
+              <path d="M0 80 L50 30 L100 80" stroke="var(--primary)" strokeWidth="2" />
+              <path d="M0 60 L50 10 L100 60" stroke="var(--primary)" strokeWidth="2" />
             </svg>
           </div>
 

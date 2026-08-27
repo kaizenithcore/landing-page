@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react"
 import { Wrench, Heart, Rocket, Sparkles, Trophy, type LucideIcon } from "lucide-react"
 import { useLocale } from "@/lib/i18n/locale-context"
-import { EyebrowBadge } from "./eyebrow-badge"
 
 // Provisional release date. Update here if the date changes.
 const LAUNCH_DATE = new Date("2026-09-29T00:00:00")
@@ -51,7 +50,7 @@ interface MilestoneData {
 export function GameRoadmap() {
   const { t } = useLocale()
   const timeLeft = useCountdown(LAUNCH_DATE)
-  const m = t.gameRoadmap.milestones
+  const m = t.studio.gameRoadmap.milestones
 
   const milestones: Array<{ key: string; icon: LucideIcon; data: MilestoneData; state: MilestoneState }> = [
     { key: "development", icon: Wrench, data: m.development, state: "current" },
@@ -66,30 +65,27 @@ export function GameRoadmap() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12 space-y-6">
-          <div className="flex justify-center">
-            <EyebrowBadge>{t.gameRoadmap.badge}</EyebrowBadge>
-          </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground text-balance">
-            {t.gameRoadmap.title}
+            {t.studio.gameRoadmap.title}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            {t.gameRoadmap.subtitle}
+            {t.studio.gameRoadmap.subtitle}
           </p>
         </div>
 
         {/* Countdown to launch */}
-        <div className="mb-16 rounded-2xl border border-primary/20 bg-primary/5 p-6 md:p-8 text-center space-y-4">
+        {/* <div className="mb-16 rounded-2xl border border-primary/20 bg-primary/5 p-6 md:p-8 text-center space-y-4">
           <p className="text-sm font-medium text-primary uppercase tracking-wider">
-            {t.gameRoadmap.countdownLabel}
+            {t.studio.gameRoadmap.countdownLabel}
           </p>
           <div className="flex justify-center gap-3 sm:gap-4">
-            <CountdownUnit value={timeLeft?.days} label={t.gameRoadmap.countdownDays} />
-            <CountdownUnit value={timeLeft?.hours} label={t.gameRoadmap.countdownHours} />
-            <CountdownUnit value={timeLeft?.minutes} label={t.gameRoadmap.countdownMinutes} />
-            <CountdownUnit value={timeLeft?.seconds} label={t.gameRoadmap.countdownSeconds} />
+            <CountdownUnit value={timeLeft?.days} label={t.studio.gameRoadmap.countdownDays} />
+            <CountdownUnit value={timeLeft?.hours} label={t.studio.gameRoadmap.countdownHours} />
+            <CountdownUnit value={timeLeft?.minutes} label={t.studio.gameRoadmap.countdownMinutes} />
+            <CountdownUnit value={timeLeft?.seconds} label={t.studio.gameRoadmap.countdownSeconds} />
           </div>
           <p className="text-sm text-muted-foreground">{m.launch.date}</p>
-        </div>
+        </div> */}
 
         {/* Timeline */}
         <div className="relative">
@@ -129,7 +125,7 @@ export function GameRoadmap() {
           </div>
         </div>
 
-        <p className="text-center text-xs text-muted-foreground mt-8 italic">{t.gameRoadmap.futureNote}</p>
+        <p className="text-center text-xs text-muted-foreground mt-8 italic">{t.studio.gameRoadmap.futureNote}</p>
       </div>
     </section>
   )

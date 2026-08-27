@@ -3,7 +3,6 @@
 import { useLocale } from '@/lib/i18n/locale-context'
 import { Button } from '@/components/ui/button'
 import { ExternalLink } from 'lucide-react'
-import { EyebrowBadge } from './eyebrow-badge'
 import { STEAM_WISHLIST_URL, PATREON_URL, KOFI_URL } from '@/lib/site-links'
 
 export function CTABanner() {
@@ -15,14 +14,10 @@ export function CTABanner() {
       <div className="absolute inset-0 bg-gradient-to-b from-card/30 via-background to-background pointer-events-none" />
 
       <div className="relative z-10 max-w-3xl mx-auto text-center space-y-8">
-        <div className="flex justify-center">
-          <EyebrowBadge>{t.hero.badge}</EyebrowBadge>
-        </div>
-
-        <h2 className="text-display text-foreground text-balance">{t.ctaBanner.headline}</h2>
+        <h2 className="text-display text-foreground text-balance">{t.studio.ctaBanner.headline}</h2>
 
         <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          {t.ctaBanner.subheadline}
+          {t.studio.ctaBanner.subheadline}
         </p>
 
         {/* CTA Buttons */}
@@ -39,7 +34,7 @@ export function CTABanner() {
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2"
             >
-              {t.ctaBanner.ctaPrimary}
+              {t.studio.ctaBanner.ctaPrimary}
               <ExternalLink className="w-4 h-4" />
             </a>
           </Button>
@@ -57,7 +52,7 @@ export function CTABanner() {
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2"
             >
-              {t.ctaBanner.ctaSecondary}
+              {t.studio.ctaBanner.ctaSecondary}
               <ExternalLink className="w-4 h-4" />
             </a>
           </Button>
@@ -75,7 +70,7 @@ export function CTABanner() {
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2"
             >
-              {t.ctaBanner.ctaTertiary}
+              {t.studio.ctaBanner.ctaTertiary}
               <ExternalLink className="w-4 h-4" />
             </a>
           </Button>

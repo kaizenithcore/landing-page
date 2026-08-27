@@ -19,27 +19,27 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Kaizenith — We build in public',
-  description: 'Kaizenith documents experiments, failures and lessons — short, useful updates and early access to our projects.',
+  title: 'Kaizenith | Software, games, and brands',
+  description: 'Kaizenith is a group of independent studios: Studio (games), Works (software and SaaS), and Vision (design and branding), built with the same method.',
   generator: 'v0.app',
-  keywords: ['Kaizenith', 'Kaizen', 'Build in public', 'Product development', 'Startups', 'Indie hackers', 'Tech experiments'],
+  keywords: ['Kaizenith', 'Kaizen', 'Kaizenith Studio', 'Kaizenith Works', 'Game studio', 'SaaS', 'Branding', 'Product development'],
   openGraph: {
-    title: 'Kaizenith — We build in public',
-    description: 'Kaizenith documents experiments, failures and lessons — short, useful updates and early access to our projects.',
+    title: 'Kaizenith | Software, games, and brands',
+    description: 'Kaizenith is a group of independent studios: Studio (games), Works (software and SaaS), and Vision (design and branding), built with the same method.',
     type: 'website',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Kaizenith - We build in public',
+        alt: 'Kaizenith',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Kaizenith — We build in public',
-    description: 'Kaizenith documents experiments, failures and lessons — short, useful updates and early access to our projects.',
+    title: 'Kaizenith | Software, games, and brands',
+    description: 'Kaizenith is a group of independent studios: Studio (games), Works (software and SaaS), and Vision (design and branding), built with the same method.',
     images: ['/og-image.png'],
   },
   icons: {
@@ -60,8 +60,25 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" className="dark" suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function () {
+                try {
+                  var stored = localStorage.getItem('kaizenith-theme');
+                  var theme = stored === 'light' || stored === 'dark'
+                    ? stored
+                    : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                  document.documentElement.classList.add(theme);
+                } catch (e) {
+                  document.documentElement.classList.add('dark');
+                }
+              })();
+            `,
+          }}
+        />
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-Q54HMYXVR1"

@@ -4,8 +4,8 @@ import React from "react";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { useLocale } from "@/lib/i18n/locale-context";
-import { Navigation } from "@/components/kaizenith/navigation";
-import { Footer } from "@/components/kaizenith/footer";
+import { SiteNav } from "@/components/kaizenith/site-nav";
+import { SiteFooter } from "@/components/kaizenith/site-footer";
 
 type SectionId =
   | "intro"
@@ -177,7 +177,7 @@ These providers may process data outside the European Economic Area, applying ap
 
   return (
     <>
-      <Navigation onOpenSignup={() => {}} />
+      <SiteNav area="root" />
 
       <main className="min-h-screen bg-background mt-8">
         {/* Header */}
@@ -289,7 +289,7 @@ These providers may process data outside the European Economic Area, applying ap
         
       </main>
 
-      <Footer />
+      <SiteFooter area="root" tagline={t.root.footer.tagline} />
     </>
   );
 }

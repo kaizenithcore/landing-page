@@ -1,7 +1,7 @@
 "use client"
 
-import { Navigation } from "@/components/kaizenith/navigation"
-import { Footer } from "@/components/kaizenith/footer"
+import { SiteNav } from "@/components/kaizenith/site-nav"
+import { SiteFooter } from "@/components/kaizenith/site-footer"
 import { useLocale } from "@/lib/i18n/locale-context"
 import { Button } from "@/components/ui/button"
 import { Mail } from "lucide-react"
@@ -12,7 +12,7 @@ export default function SoportePage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navigation onOpenSignup={() => {}} />
+      <SiteNav area="root" />
 
       <main className="pt-24">
         <section className="py-16 md:py-24">
@@ -38,7 +38,7 @@ export default function SoportePage() {
         </section>
       </main>
 
-      <Footer />
+      <SiteFooter area="root" tagline={t.root.footer.tagline} />
     </div>
   )
 }

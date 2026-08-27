@@ -4,8 +4,8 @@ import React from "react";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { useLocale } from "@/lib/i18n/locale-context";
-import { Navigation } from "@/components/kaizenith/navigation";
-import { Footer } from "@/components/kaizenith/footer";
+import { SiteNav } from "@/components/kaizenith/site-nav";
+import { SiteFooter } from "@/components/kaizenith/site-footer";
 
 type SectionId =
   | "identity"
@@ -315,7 +315,7 @@ You can manage and withdraw your consent at any time through the cookie settings
 
   return (
     <>
-      <Navigation onOpenSignup={() => {}} />
+      <SiteNav area="root" />
 
       <main className="min-h-screen bg-background mt-8">
         {/* Header */}
@@ -436,7 +436,7 @@ You can manage and withdraw your consent at any time through the cookie settings
         </section>
       </main>
 
-      <Footer />
+      <SiteFooter area="root" tagline={t.root.footer.tagline} />
     </>
   );
 }
