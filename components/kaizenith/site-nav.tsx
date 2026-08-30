@@ -5,7 +5,7 @@ import { KaizenithLogo } from "./logo"
 import { SettingsToggles } from "./settings-toggle"
 import { useLocale } from "@/lib/i18n/locale-context"
 
-export type Area = "root" | "studio" | "works" | "design"
+export type Area = "root" | "studio" | "works" | "design" | "blog"
 
 interface SiteNavProps {
   area: Area
@@ -58,7 +58,15 @@ export function SiteNav({ area }: SiteNavProps) {
 
           <div className="flex items-center gap-3 sm:gap-4 shrink-0">
             <a
-              href="#contact"
+              href="/blog"
+              className={`hidden sm:inline text-xs transition-colors focus-visible-ring rounded px-2 py-1 uppercase tracking-wider ${
+                area === "blog" ? "text-foreground font-medium" : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {t.common.nav.blog}
+            </a>
+            <a
+              href={area === "blog" ? "/#contact" : "#contact"}
               className="hidden sm:inline text-xs text-muted-foreground hover:text-foreground transition-colors focus-visible-ring rounded px-2 py-1 uppercase tracking-wider"
             >
               {t.common.nav.contact}

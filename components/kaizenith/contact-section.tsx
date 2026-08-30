@@ -9,7 +9,7 @@ import { useLocale } from "@/lib/i18n/locale-context"
 import type { Area } from "./site-nav"
 
 interface ContactSectionProps {
-  area: Area
+  area: Exclude<Area, "blog">
 }
 
 type ChipArea = "general" | "studio" | "works" | "design"

@@ -4,11 +4,15 @@ export const metadata: Metadata = {
   title: "Kaizenith Works | Software that works",
   description:
     "Kaizenith Works builds SaaS products and custom applications for businesses and public administrations: Zarpe, Enlace, Cronista, Serena, Nexa, and more.",
+  alternates: {
+    canonical: "/works",
+  },
   openGraph: {
     title: "Kaizenith Works | Software that works",
     description:
       "Kaizenith Works builds SaaS products and custom applications for businesses and public administrations: Zarpe, Enlace, Cronista, Serena, Nexa, and more.",
     type: "website",
+    url: "https://kaizenith.es/works",
   },
 }
 

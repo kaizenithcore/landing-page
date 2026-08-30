@@ -62,6 +62,14 @@ export function SiteFooter({ area, tagline }: SiteFooterProps) {
                 >
                   {t.common.nav.design}
                 </a>
+                <a
+                  href="/blog"
+                  className={`text-sm transition-colors ${
+                    area === "blog" ? "text-foreground font-medium" : "text-foreground/80 hover:text-foreground"
+                  }`}
+                >
+                  {t.common.nav.blog}
+                </a>
               </nav>
             </div>
 

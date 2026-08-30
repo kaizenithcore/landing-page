@@ -13,11 +13,15 @@ export const metadata: Metadata = {
   title: "Kaizenith Vision | Brands with character",
   description:
     "Kaizenith Vision is Kaizenith's design studio: logo design, branding, web design, and marketing for projects that want to stand out for what they are.",
+  alternates: {
+    canonical: "/design",
+  },
   openGraph: {
     title: "Kaizenith Vision | Brands with character",
     description:
       "Kaizenith Vision is Kaizenith's design studio: logo design, branding, web design, and marketing for projects that want to stand out for what they are.",
     type: "website",
+    url: "https://kaizenith.es/design",
   },
 }
 

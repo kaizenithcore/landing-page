@@ -1,10 +1,13 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
 import { useLocale } from "@/lib/i18n/locale-context"
+import { designProjects } from "@/lib/design-projects"
 
 interface PortfolioItem {
   id: string
+  slug: string
   image: string
   client: string
   category: string
@@ -15,22 +18,12 @@ export function PortfolioSection() {
   const { t } = useLocale()
   const items = t.design.portfolio.items
 
-  const projects: PortfolioItem[] = [
-    { id: "seis-sentidos", image: "/images/portfolio/seis-sentidos.jpg", ...items.seisSentidos },
-    { id: "moratalaz", image: "/images/portfolio/moratalaz.png", ...items.moratalaz },
-    { id: "teresa-de-la-rosa", image: "/images/portfolio/teresa-de-la-rosa.jpg", ...items.teresaDeLaRosa },
-    { id: "aeda", image: "/images/portfolio/aeda.png", ...items.aeda },
-    { id: "mar-de-posibilidades", image: "/images/portfolio/mar-de-posibilidades.png", ...items.marDePosibilidades },
-    { id: "babilonia-world", image: "/images/portfolio/babilonia-world.png", ...items.babiloniaWorld },
-    { id: "maymol", image: "/images/portfolio/maymol.jpg", ...items.maymol },
-    { id: "graficas-illescas", image: "/images/portfolio/graficas-illescas.jpg", ...items.graficasIllescas },
-    { id: "zenkyu", image: "/images/portfolio/zenkyu.png", ...items.zenkyu },
-    { id: "carlos-sotomayor", image: "/images/portfolio/carlos-sotomayor.jpg", ...items.carlosSotomayor },
-    { id: "ayto-grinon", image: "/images/portfolio/ayto-grinon.jpg", ...items.aytoGrinon },
-    { id: "anthique", image: "/images/portfolio/antique.jpg", ...items.anthique },
-    { id: "reiki-mille-grazie", image: "/images/portfolio/reikimillegrazie.jpg", ...items.reikiMilleGrazie },
-    { id: "danzante", image: "/images/portfolio/danzante.png", ...items.danzante },
-  ]
+  const projects: PortfolioItem[] = designProjects.map((project) => ({
+    id: project.id,
+    slug: project.slug,
+    image: project.image,
+    ...items[project.id],
+  }))
 
   return (
     <section id="work" className="py-28 md:py-40">
@@ -44,9 +37,10 @@ export function PortfolioSection() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => (
-            <article
+            <Link
               key={project.id}
-              className="group relative rounded-2xl overflow-hidden border border-border bg-card"
+              href={`/design/${project.slug}`}
+              className="group relative rounded-2xl overflow-hidden border border-border bg-card block"
             >
               <div className="aspect-[4/3] relative bg-muted">
                 <Image
@@ -70,7 +64,7 @@ export function PortfolioSection() {
                 <p className="text-xs font-medium text-primary uppercase tracking-wider mb-1">{project.category}</p>
                 <h3 className="font-semibold text-foreground">{project.client}</h3>
               </div>
-            </article>
+            </Link>
           ))}
 
           <a

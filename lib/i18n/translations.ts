@@ -19,6 +19,7 @@ export type TranslationKeys = {
       studio: string;
       works: string;
       design: string;
+      blog: string;
       contact: string;
     };
     footer: {
@@ -345,6 +346,13 @@ export type TranslationKeys = {
         description: string;
         button: string;
       };
+      detail: {
+        back: string;
+        moreProjects: string;
+        ctaTitle: string;
+        ctaDescription: string;
+        ctaButton: string;
+      };
     };
     clients: {
       label: string;
@@ -376,6 +384,19 @@ export type TranslationKeys = {
     };
     footer: {
       tagline: string;
+    };
+  };
+  // Blog
+  blog: {
+    title: string;
+    subtitle: string;
+    footerTagline: string;
+    readMore: string;
+    back: string;
+    categoryLabels: {
+      general: string;
+      design: string;
+      development: string;
     };
   };
   // Support Contact Page (/soporte)
@@ -611,6 +632,7 @@ export const translations: Record<Locale, TranslationKeys> = {
         studio: "Studio",
         works: "Works",
         design: "Vision",
+        blog: "Blog",
         contact: "Contacto",
       },
       footer: {
@@ -1280,6 +1302,13 @@ Buscar acuerdos y colaboraciones más grandes.`,
           description: "Hablemos de tu proyecto y te decimos cómo podemos ayudarte.",
           button: "Empezar un proyecto",
         },
+        detail: {
+          back: "Volver a proyectos",
+          moreProjects: "Más proyectos",
+          ctaTitle: "¿Quieres algo así para tu marca?",
+          ctaDescription: "Hablemos de tu proyecto y te decimos cómo podemos ayudarte.",
+          ctaButton: "Empezar un proyecto",
+        },
       },
       clients: {
         label: "Clientes con los que hemos trabajado",
@@ -1379,6 +1408,18 @@ Buscar acuerdos y colaboraciones más grandes.`,
       },
       footer: {
         tagline: "Marcas con carácter, sin ruido.",
+      },
+    },
+    blog: {
+      title: "Blog",
+      subtitle: "Cómo pensamos, cómo trabajamos, y cómo se hacen los proyectos que ves en el portfolio.",
+      footerTagline: "Cómo pensamos y cómo trabajamos.",
+      readMore: "Leer entrada",
+      back: "Volver al blog",
+      categoryLabels: {
+        general: "General",
+        design: "Diseño",
+        development: "Desarrollo",
       },
     },
     supportContact: {
@@ -1640,6 +1681,7 @@ Buscar acuerdos y colaboraciones más grandes.`,
         studio: "Studio",
         works: "Works",
         design: "Vision",
+        blog: "Blog",
         contact: "Contact",
       },
       footer: {
@@ -2296,6 +2338,13 @@ Seek larger deals and collaborations.`,
           description: "Let's talk about your project and how we can help.",
           button: "Start a project",
         },
+        detail: {
+          back: "Back to projects",
+          moreProjects: "More projects",
+          ctaTitle: "Want something like this for your brand?",
+          ctaDescription: "Let's talk about your project and how we can help.",
+          ctaButton: "Start a project",
+        },
       },
       clients: {
         label: "Clients we've worked with",
@@ -2395,6 +2444,18 @@ Seek larger deals and collaborations.`,
       },
       footer: {
         tagline: "Brands with character, no noise.",
+      },
+    },
+    blog: {
+      title: "Blog",
+      subtitle: "How we think, how we work, and how the projects in the portfolio actually get made.",
+      footerTagline: "How we think and how we work.",
+      readMore: "Read post",
+      back: "Back to blog",
+      categoryLabels: {
+        general: "General",
+        design: "Design",
+        development: "Development",
       },
     },
     supportContact: {

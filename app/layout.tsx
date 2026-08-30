@@ -19,32 +19,33 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://kaizenith.es'),
   title: 'Kaizenith | Software, games, and brands',
   description: 'Kaizenith is a group of independent studios: Studio (games), Works (software and SaaS), and Vision (design and branding), built with the same method.',
-  generator: 'v0.app',
-  keywords: ['Kaizenith', 'Kaizen', 'Kaizenith Studio', 'Kaizenith Works', 'Game studio', 'SaaS', 'Branding', 'Product development'],
+  keywords: ['Kaizenith', 'Kaizen', 'Kaizenith Studio', 'Kaizenith Works', 'Kaizenith Vision', 'Game studio', 'SaaS', 'Branding', 'Diseño de marca', 'Desarrollo de software a medida'],
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: 'Kaizenith | Software, games, and brands',
     description: 'Kaizenith is a group of independent studios: Studio (games), Works (software and SaaS), and Vision (design and branding), built with the same method.',
     type: 'website',
-    images: [
-      {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'Kaizenith',
-      },
-    ],
+    url: 'https://kaizenith.es',
+    siteName: 'Kaizenith',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Kaizenith | Software, games, and brands',
     description: 'Kaizenith is a group of independent studios: Studio (games), Works (software and SaaS), and Vision (design and branding), built with the same method.',
-    images: ['/og-image.png'],
   },
+  manifest: '/favicon_io/site.webmanifest',
   icons: {
-    icon: '/favicon_io/favicon-16x16.png',
-
+    icon: [
+      { url: '/favicon_io/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon_io/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: '/favicon_io/apple-touch-icon.png',
+    shortcut: '/favicon_io/favicon.ico',
   },
 }
 
@@ -62,6 +63,27 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'Kaizenith',
+              url: 'https://kaizenith.es',
+              logo: 'https://kaizenith.es/logos/horizontal-dark.png',
+              description:
+                'Kaizenith is a group of independent studios: Studio (games), Works (software and SaaS), and Vision (design and branding), built with the same method.',
+              email: 'hola@kaizenith.es',
+              sameAs: [
+                'https://store.steampowered.com/app/4394040/Ping_Pong_Mate',
+                'https://www.patreon.com/cw/kaizenithcore',
+                'https://ko-fi.com/kaizenith',
+                'https://github.com/kaizenith',
+              ],
+            }),
+          }}
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `
