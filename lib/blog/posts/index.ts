@@ -1,9 +1,10 @@
 import type { BlogPost } from "../types"
 import { quienesSomos } from "./quienes-somos"
+import { queConstruimosAhora } from "./que-construimos-ahora"
 
 // New posts: import above and add to this array. Sorted by date desc below,
 // so insertion order here doesn't matter.
-export const blogPosts: BlogPost[] = [quienesSomos].sort(
+export const blogPosts: BlogPost[] = [quienesSomos, queConstruimosAhora].sort(
   (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
 )
 
