@@ -4,7 +4,8 @@ import { useRef, useState } from "react"
 import { ExternalLink, Pause, Play } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useLocale } from "@/lib/i18n/locale-context"
-import { STEAM_WISHLIST_URL } from "@/lib/site-links"
+import { STEAM_WISHLIST_URL, KOFI_URL } from "@/lib/site-links"
+import { SHOW_PING_PONG_MATE } from "@/lib/project-visibility"
 
 export function Hero() {
   const { t } = useLocale()
@@ -46,13 +47,12 @@ export function Hero() {
                 className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:-translate-y-0.5 transition-all text-base px-8"
               >
                 <a
-                  href={STEAM_WISHLIST_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={SHOW_PING_PONG_MATE ? STEAM_WISHLIST_URL : "#projects"}
+                  {...(SHOW_PING_PONG_MATE ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   className="flex items-center gap-2"
                 >
                   {t.studio.hero.ctaPrimary}
-                  <ExternalLink className="w-4 h-4" />
+                  {SHOW_PING_PONG_MATE && <ExternalLink className="w-4 h-4" />}
                 </a>
               </Button>
               <Button
@@ -61,22 +61,34 @@ export function Hero() {
                 asChild
                 className="rounded-full border-border text-foreground hover:bg-secondary transition-all bg-transparent"
               >
-                <a href="#roadmap">{t.studio.hero.ctaSecondary}</a>
+                {SHOW_PING_PONG_MATE ? (
+                  <a href="#roadmap">{t.studio.hero.ctaSecondary}</a>
+                ) : (
+                  <a href={KOFI_URL} target="_blank" rel="noopener noreferrer">
+                    {t.studio.hero.ctaSecondary}
+                  </a>
+                )}
               </Button>
             </div>
 
             <p className="text-sm text-muted-foreground">{t.studio.hero.trust}</p>
           </div>
 
-          {/* Hero visual - Ping Pong Mate trailer */}
+          {/* Hero visual - Ping Pong Mate trailer (hidden while its release is on hold); otherwise a looping GIF of a published game */}
           <div className="hidden lg:block">
             <div className="relative rounded-2xl border border-border bg-card shadow-2xl shadow-primary/10 overflow-hidden">
               <div className="flex items-center gap-1.5 px-4 py-3 border-b border-border bg-card/80">
                 <span className="w-2.5 h-2.5 rounded-full bg-muted-foreground/30" />
                 <span className="w-2.5 h-2.5 rounded-full bg-muted-foreground/30" />
                 <span className="w-2.5 h-2.5 rounded-full bg-muted-foreground/30" />
-                <span className="ml-3 text-xs text-muted-foreground">Ping Pong Mate</span>
+                <span className="ml-3 text-xs text-muted-foreground">
+                  {SHOW_PING_PONG_MATE ? "Ping Pong Mate" : "It Never Ends"}
+                </span>
               </div>
+              {!SHOW_PING_PONG_MATE ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src="/images/proyects/itNeverEnds.gif" alt="It Never Ends" className="w-full h-auto object-cover" />
+              ) : (
               <div className="relative">
                 <video
                   ref={videoRef}
@@ -98,6 +110,7 @@ export function Hero() {
                   {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
                 </button>
               </div>
+              )}
             </div>
           </div>
         </div>

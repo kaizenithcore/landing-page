@@ -1,3 +1,5 @@
+import { activeProjectsCount, worksVisibleCount } from "@/lib/project-visibility";
+
 export type Locale = "es" | "en";
 
 export const locales: Locale[] = ["es", "en"];
@@ -118,6 +120,7 @@ export type TranslationKeys = {
     projects: {
       title: string;
       subtitle: string;
+      inDevelopmentNote: string;
     };
     trajectory: {
       title: string;
@@ -227,7 +230,9 @@ export type TranslationKeys = {
       nexa: { title: string; subtitle: string; description: string };
       cashpilot: { title: string; subtitle: string; description: string };
       urbana: { title: string; subtitle: string; description: string };
-      paranormalDetector: { title: string; subtitle: string; description: string };
+      senal: { title: string; subtitle: string; description: string };
+      entrelazo: { title: string; subtitle: string; description: string };
+      armazon: { title: string; subtitle: string; description: string };
       mhadle: { title: string; subtitle: string; description: string };
       itNeverEnds: { title: string; subtitle: string; description: string };
       teenRomantic: { title: string; subtitle: string; description: string };
@@ -684,14 +689,14 @@ export const translations: Record<Locale, TranslationKeys> = {
         subtitle: "Un vistazo real a cada área, no solo enlaces.",
         studio: {
           label: "Kaizenith Studio",
-          title: "Ping Pong Mate",
-          description: "Nuestro primer lanzamiento en Steam, con hoja de ruta pública y wishlist abierta.",
+          title: "Juegos hechos en público",
+          description: "Señal y MHAdle en marcha, y juegos de jam terminados y publicados en itch.io.",
           cta: "Ver Studio",
         },
         works: {
           label: "Kaizenith Works",
-          title: "Kaizenith Workspace",
-          description: "Nuestra propia herramienta de productividad, en uso diario, y el resto del catálogo SaaS.",
+          title: "Workspace, Entrelazo y Armazón",
+          description: "Nuestra herramienta de productividad y Entrelazo, un editor de narrativa para videojuegos, en producción, y Armazón, un backend multi-tenant, muy avanzado.",
           cta: "Ver Works",
         },
         design: {
@@ -755,8 +760,8 @@ export const translations: Record<Locale, TranslationKeys> = {
         title: "En marcha ahora mismo",
         stat1Value: "3",
         stat1Label: "áreas de negocio activas",
-        stat2Value: "8+",
-        stat2Label: "proyectos en distintas fases",
+        stat2Value: String(activeProjectsCount),
+        stat2Label: "proyectos propios en marcha",
         stat3Value: "100%",
         stat3Label: "autofinanciado, sin inversores",
       },
@@ -766,12 +771,12 @@ export const translations: Record<Locale, TranslationKeys> = {
     },
     studio: {
       hero: {
-        title: "Tu espera, convertida en arcade.",
+        title: "Juegos pequeños, hechos en público.",
         subtitle:
-          "Ping Pong Mate se queda en una esquina de tu pantalla mientras haces otras cosas. Encadena combos, gana puntos y canjéalos por cosméticos coleccionables, sin dejar lo que estabas haciendo.",
-        ctaPrimary: "Añadir a la lista de deseos",
-        ctaSecondary: "Ver la hoja de ruta",
-        trust: "Ayuda a que el juego llegue a más gente.",
+          "Publicamos juegos jugables para aprender el ciclo entero: crear, publicar, medir. Algunos son proyectos de jam, otros siguen en marcha.",
+        ctaPrimary: "Ver los juegos",
+        ctaSecondary: "Apoyar en Ko-fi",
+        trust: "Hay más proyectos en desarrollo. Los publicaremos cuando estén listos.",
         playVideo: "Reproducir el tráiler",
         pauseVideo: "Pausar el tráiler",
       },
@@ -787,7 +792,8 @@ export const translations: Record<Locale, TranslationKeys> = {
       },
       projects: {
         title: "Nuestros juegos",
-        subtitle: "Dos prototipos completos, con más por llegar.",
+        subtitle: "Proyectos propios en marcha y juegos de jam terminados.",
+        inDevelopmentNote: "Hay más proyectos en desarrollo. Los publicaremos cuando estén listos.",
       },
       trajectory: {
         title: "De prototipo a lanzamiento",
@@ -807,9 +813,9 @@ export const translations: Record<Locale, TranslationKeys> = {
           },
           current: {
             date: "Ahora",
-            title: "Ping Pong Mate",
+            title: "Proyectos en marcha",
             description:
-              "Nuestro primer lanzamiento serio en Steam, con hoja de ruta pública y wishlist abierta.",
+              "Señal y MHAdle siguen su camino, y hay más proyectos en desarrollo que publicaremos cuando estén listos.",
           },
           next: {
             date: "Después",
@@ -932,9 +938,9 @@ Buscar acuerdos y colaboraciones más grandes.`,
         },
       },
       ctaBanner: {
-        headline: "Ping Pong Mate ya se puede añadir a tu wishlist",
+        headline: "Ayúdanos a seguir publicando juegos",
         subheadline:
-          "Sigue su desarrollo en Steam y apóyanos. Tu apoyo hace la diferencia.",
+          "Sigue lo que construimos y apóyanos. Tu apoyo hace la diferencia.",
         ctaPrimary: "Añadir a la wishlist",
         ctaSecondary: "Apoyar en Patreon",
         ctaTertiary: "Apoyar en Ko-fi",
@@ -962,7 +968,19 @@ Buscar acuerdos y colaboraciones más grandes.`,
           title: "Kaizenith Workspace",
           subtitle: "Herramienta de gestión de tiempo y productividad.",
           description:
-            "Nuestro propio espacio de trabajo, diseñado para optimizar el flujo y la concentración. Es nuestro laboratorio de productividad, en uso diario.",
+            "Nuestro propio espacio de trabajo, diseñado para optimizar el flujo y la concentración. Es nuestro laboratorio de productividad, en producción (v0.3.2) y en uso diario.",
+        },
+        entrelazo: {
+          title: "Entrelazo",
+          subtitle: "Editor para escribir narrativa de videojuegos.",
+          description:
+            "Fichas guiadas, notas enlazadas y diálogos con ramas y variables, con reproductor y exportación a Ink, Yarn Spinner y JSON. Local-first, sin cuentas, con demo gratuita. Nombre provisional.",
+        },
+        armazon: {
+          title: "Armazón",
+          subtitle: "Backend multi-tenant para Supabase.",
+          description:
+            "16 paquetes instalables por separado (RLS, roles, permisos, reservas, notificaciones, cobro…), con landing y demos propias. Las demos están en pausa y aún no hay sistema de venta.",
         },
         zarpe: {
           title: "Zarpe",
@@ -1012,11 +1030,11 @@ Buscar acuerdos y colaboraciones más grandes.`,
           description:
             "Digitaliza la tramitación de licencias urbanísticas municipales. Todavía en fase temprana.",
         },
-        paranormalDetector: {
-          title: "Paranormal Detector",
+        senal: {
+          title: "Señal",
           subtitle: "Buscaminas + battleships multijugador para streamers.",
           description:
-            "Juego de navegador con ambientación paranormal, pensado para retransmitirse en directo.",
+            "Juego de navegador con ambientación paranormal, pensado para retransmitirse en directo. Antes se llamaba Detector Paranormal. En desarrollo, aún sin publicar.",
         },
         mhadle: {
           title: "MHAdle",
@@ -1103,7 +1121,7 @@ Buscar acuerdos y colaboraciones más grandes.`,
         custom: {
           title: "Desarrollo a medida",
           description:
-            "Webs y aplicaciones a medida para negocios que necesitan algo propio, no una plantilla. Como hicimos con Zarpe.",
+            "Webs y aplicaciones a medida para negocios que necesitan algo propio, no una plantilla.",
         },
         detailedTitle: "Con más detalle",
         detailed: [
@@ -1130,7 +1148,7 @@ Buscar acuerdos y colaboraciones más grandes.`,
           {
             title: "Partimos de una base real",
             description:
-              "Si tu problema se parece al de Workspace, Enlace o Cronista, no empezamos de cero: adaptamos esa base a tu caso.",
+              "Si tu problema se parece al de Workspace o Entrelazo, no empezamos de cero: adaptamos esa base a tu caso.",
           },
         ],
       },
@@ -1155,8 +1173,8 @@ Buscar acuerdos y colaboraciones más grandes.`,
         },
       },
       trust: {
-        stat1Value: "7+",
-        stat1Label: "productos SaaS en distintas fases",
+        stat1Value: String(worksVisibleCount),
+        stat1Label: "proyectos propios en marcha",
         stat2Value: "100%",
         stat2Label: "stack moderno y mantenido",
         stat3Value: "1",
@@ -1802,8 +1820,8 @@ Buscar acuerdos y colaboraciones más grandes.`,
         title: "Happening right now",
         stat1Value: "3",
         stat1Label: "active business areas",
-        stat2Value: "8+",
-        stat2Label: "projects at different stages",
+        stat2Value: String(activeProjectsCount),
+        stat2Label: "own projects underway",
         stat3Value: "100%",
         stat3Label: "self-funded, no investors",
       },
@@ -1813,12 +1831,12 @@ Buscar acuerdos y colaboraciones más grandes.`,
     },
     studio: {
       hero: {
-        title: "Your waiting time, turned into arcade.",
+        title: "Small games, made in public.",
         subtitle:
-          "Ping Pong Mate sits in a corner of your screen while you do other things. Chain combos, earn points, and trade them for collectible cosmetics, without stopping what you were doing.",
-        ctaPrimary: "Add to wishlist",
-        ctaSecondary: "View the roadmap",
-        trust: "Helps the game reach more people.",
+          "We ship playable games to learn the whole cycle: build, publish, measure. Some are jam projects, others are still underway.",
+        ctaPrimary: "See the games",
+        ctaSecondary: "Support on Ko-fi",
+        trust: "More projects are in development. We'll publish them when they're ready.",
         playVideo: "Play the trailer",
         pauseVideo: "Pause the trailer",
       },
@@ -1834,7 +1852,8 @@ Buscar acuerdos y colaboraciones más grandes.`,
       },
       projects: {
         title: "Our games",
-        subtitle: "Six complete prototypes, with more on the way.",
+        subtitle: "Own projects underway and finished jam games.",
+        inDevelopmentNote: "More projects are in development. We'll publish them when they're ready.",
       },
       trajectory: {
         title: "From prototype to launch",
@@ -1854,9 +1873,9 @@ Buscar acuerdos y colaboraciones más grandes.`,
           },
           current: {
             date: "Now",
-            title: "Ping Pong Mate",
+            title: "Projects underway",
             description:
-              "Our first serious Steam launch, with a public roadmap and an open wishlist.",
+              "Señal and MHAdle keep moving, and more projects are in development. We'll publish them when they're ready.",
           },
           next: {
             date: "What's next",
@@ -1976,9 +1995,9 @@ Seek larger deals and collaborations.`,
         },
       },
       ctaBanner: {
-        headline: "You can now wishlist Ping Pong Mate",
+        headline: "Help us keep shipping games",
         subheadline:
-          "Follow its development on Steam and support us. Your support makes a difference.",
+          "Follow what we build and support us. Your support makes a difference.",
         ctaPrimary: "Add to wishlist",
         ctaSecondary: "Support on Patreon",
         ctaTertiary: "Support on Ko-fi",
@@ -2006,7 +2025,19 @@ Seek larger deals and collaborations.`,
           title: "Kaizenith Workspace",
           subtitle: "Time management and productivity tool.",
           description:
-            "Our own workspace, designed to optimize flow and focus. It's our productivity lab, used daily.",
+            "Our own workspace, designed to optimize flow and focus. It's our productivity lab, in production (v0.3.2) and used daily.",
+        },
+        entrelazo: {
+          title: "Entrelazo",
+          subtitle: "Editor for writing video game narrative.",
+          description:
+            "Guided sheets, linked notes and branching dialogue with variables, with a player and export to Ink, Yarn Spinner and JSON. Local-first, no accounts, free demo. Working name.",
+        },
+        armazon: {
+          title: "Armazón",
+          subtitle: "Multi-tenant backend for Supabase.",
+          description:
+            "16 independently installable packages (RLS, roles, permissions, bookings, notifications, billing…), with a landing page and demos of their own. The demos are paused and there is no sales system yet.",
         },
         zarpe: {
           title: "Zarpe",
@@ -2053,10 +2084,10 @@ Seek larger deals and collaborations.`,
           subtitle: "Urban planning license management for city councils.",
           description: "Digitizes municipal urban planning license processing. Still in an early stage.",
         },
-        paranormalDetector: {
-          title: "Paranormal Detector",
+        senal: {
+          title: "Señal",
           subtitle: "Multiplayer minesweeper + battleship for streamers.",
-          description: "A browser game with a paranormal theme, built to be fun to watch live.",
+          description: "A browser game with a paranormal theme, built to be fun to watch live. Formerly called Paranormal Detector. In development, not yet published.",
         },
         mhadle: {
           title: "MHAdle",
@@ -2142,7 +2173,7 @@ Seek larger deals and collaborations.`,
         custom: {
           title: "Custom development",
           description:
-            "Custom websites and applications for businesses that need something of their own, not a template. Like we did with Zarpe.",
+            "Custom websites and applications for businesses that need something of their own, not a template.",
         },
         detailedTitle: "In more detail",
         detailed: [
@@ -2169,7 +2200,7 @@ Seek larger deals and collaborations.`,
           {
             title: "Starting from a proven base",
             description:
-              "If your problem looks like Workspace's, Enlace's, or Cronista's, we don't start from zero: we adapt that base to your case.",
+              "If your problem looks like Workspace's or Entrelazo's, we don't start from zero: we adapt that base to your case.",
           },
         ],
       },
@@ -2194,8 +2225,8 @@ Seek larger deals and collaborations.`,
         },
       },
       trust: {
-        stat1Value: "7+",
-        stat1Label: "SaaS products at different stages",
+        stat1Value: String(worksVisibleCount),
+        stat1Label: "own projects underway",
         stat2Value: "100%",
         stat2Label: "modern, maintained stack",
         stat3Value: "1",

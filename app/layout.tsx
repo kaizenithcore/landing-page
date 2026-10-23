@@ -76,7 +76,6 @@ export default function RootLayout({
                 'Kaizenith is a group of independent studios: Studio (games), Works (software and SaaS), and Vision (design and branding), built with the same method.',
               email: 'hola@kaizenith.es',
               sameAs: [
-                'https://store.steampowered.com/app/4394040/Ping_Pong_Mate',
                 'https://www.patreon.com/cw/kaizenithcore',
                 'https://ko-fi.com/kaizenith',
                 'https://github.com/kaizenith',

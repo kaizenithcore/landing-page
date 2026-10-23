@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { Wrench, Heart, Rocket, Sparkles, Trophy, type LucideIcon } from "lucide-react"
 import { useLocale } from "@/lib/i18n/locale-context"
+import { SHOW_PING_PONG_MATE } from "@/lib/project-visibility"
 
 // Provisional release date. Update here if the date changes.
 const LAUNCH_DATE = new Date("2026-09-29T00:00:00")
@@ -59,6 +60,9 @@ export function GameRoadmap() {
     { key: "postLaunch", icon: Sparkles, data: m.postLaunch, state: "committed" },
     { key: "future", icon: Trophy, data: m.future, state: "tentative" },
   ]
+
+  // Ping Pong Mate's release is on hold indefinitely: roadmap hidden, not deleted.
+  if (!SHOW_PING_PONG_MATE) return null
 
   return (
     <section id="roadmap" className="py-24 md:py-32">

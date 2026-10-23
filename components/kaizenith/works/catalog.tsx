@@ -11,14 +11,17 @@ import {
   Wallet,
   Building2,
   Globe,
+  NotebookPen,
+  Blocks,
   type LucideIcon,
 } from "lucide-react"
 import { useLocale } from "@/lib/i18n/locale-context"
+import { WORKS_VISIBLE } from "@/lib/project-visibility"
 
 type ProjectTier = "complete" | "advanced" | "almostReady" | "inDevelopment"
 
 interface ProjectEntry {
-  id: string
+  id: keyof typeof WORKS_VISIBLE
   tier: ProjectTier
   title: string
   subtitle: string
@@ -58,7 +61,7 @@ export function CatalogSection() {
     }
   }
 
-  const products: ProjectEntry[] = [
+  const allProducts: ProjectEntry[] = [
     {
       id: "workspace",
       tier: "complete",
@@ -68,6 +71,25 @@ export function CatalogSection() {
       image: "/images/proyects/workspaceCaptura.png",
       url: "https://workspace.kaizenith.es",
       icon: LayoutDashboard,
+    },
+    {
+      id: "entrelazo",
+      tier: "complete",
+      title: items.entrelazo.title,
+      subtitle: items.entrelazo.subtitle,
+      description: items.entrelazo.description,
+      // image: add a screenshot when available (icon shown meanwhile)
+      url: "https://entrelazo.kaizenith.es",
+      icon: NotebookPen,
+    },
+    {
+      id: "armazon",
+      tier: "advanced",
+      title: items.armazon.title,
+      subtitle: items.armazon.subtitle,
+      description: items.armazon.description,
+      // image/url: add when the landing is public
+      icon: Blocks,
     },
     {
       id: "cashpilot",
@@ -142,7 +164,7 @@ export function CatalogSection() {
     },
   ]
 
-  const services: ProjectEntry[] = [
+  const allServices: ProjectEntry[] = [
     {
       id: "zarpe",
       tier: "complete",
@@ -154,6 +176,10 @@ export function CatalogSection() {
       icon: Globe,
     },
   ]
+
+  const isVisible = (p: ProjectEntry) => WORKS_VISIBLE[p.id]
+  const products = allProducts.filter(isVisible)
+  const services = allServices.filter(isVisible)
 
   return (
     <section id="projects" className="py-24 md:py-32 bg-card/30">
@@ -179,6 +205,7 @@ export function CatalogSection() {
           </div>
         </div>
 
+        {services.length > 0 && (
         <div>
           <div className="flex items-center gap-4 mb-6">
             <span className="text-xs font-semibold text-primary uppercase tracking-wider whitespace-nowrap">
@@ -198,6 +225,7 @@ export function CatalogSection() {
             ))}
           </div>
         </div>
+        )}
       </div>
     </section>
   )

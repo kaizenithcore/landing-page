@@ -3,11 +3,12 @@
 import Image from "next/image"
 import { ExternalLink, Ghost, Puzzle, type LucideIcon } from "lucide-react"
 import { useLocale } from "@/lib/i18n/locale-context"
+import { STUDIO_VISIBLE } from "@/lib/project-visibility"
 
-type ProjectTier = "complete" | "advanced" | "almostReady"
+type ProjectTier = "complete" | "advanced" | "almostReady" | "inDevelopment"
 
 interface ProjectEntry {
-  id: string
+  id: keyof typeof STUDIO_VISIBLE
   tier: ProjectTier
   title: string
   subtitle: string
@@ -31,6 +32,8 @@ export function ProjectsSection() {
         return t.projects.statusAdvanced
       case "almostReady":
         return t.projects.statusAlmostReady
+      case "inDevelopment":
+        return t.projects.statusInDevelopment
     }
   }
 
@@ -40,19 +43,20 @@ export function ProjectsSection() {
         return "bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/20"
       case "advanced":
       case "almostReady":
+      case "inDevelopment":
         return "bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 border-yellow-500/20"
     }
   }
 
-  const games: ProjectEntry[] = [
+  const allGames: ProjectEntry[] = [
     {
-      id: "paranormal-detector",
-      tier: "complete",
-      title: items.paranormalDetector.title,
-      subtitle: items.paranormalDetector.subtitle,
-      description: items.paranormalDetector.description,
+      id: "senal",
+      tier: "inDevelopment",
+      title: items.senal.title,
+      subtitle: items.senal.subtitle,
+      description: items.senal.description,
       image: "/images/proyects/paranormalDetector.png",
-      // url: paused (Supabase project limit) — add back once resumed
+      // url: add when it is deployed (pending Coolify resource)
       icon: Ghost,
     },
     {
@@ -62,11 +66,11 @@ export function ProjectsSection() {
       subtitle: items.mhadle.subtitle,
       description: items.mhadle.description,
       image: "/images/proyects/mhadle.png",
-      // url: paused (Supabase project limit) — add back once resumed
+      url: "https://mhadle.kaizenith.es",
       icon: Puzzle,
     },
     {
-      id: "it-never-ends",
+      id: "itNeverEnds",
       tier: "complete",
       title: items.itNeverEnds.title,
       subtitle: items.itNeverEnds.subtitle,
@@ -76,7 +80,7 @@ export function ProjectsSection() {
       icon: Puzzle,
     },
     {
-      id: "teen-romantic",
+      id: "teenRomantic",
       tier: "complete",
       title: items.teenRomantic.title,
       subtitle: items.teenRomantic.subtitle,
@@ -86,7 +90,7 @@ export function ProjectsSection() {
       icon: Puzzle,
     },
     {
-      id: "iudex-inquisitor",
+      id: "iudexInquisitor",
       tier: "complete",
       title: items.iudexInquisitor.title,
       subtitle: items.iudexInquisitor.subtitle,
@@ -96,7 +100,7 @@ export function ProjectsSection() {
       icon: Puzzle,
     },
     {
-      id: "from-hell",
+      id: "fromHell",
       tier: "complete",
       title: items.fromHell.title,
       subtitle: items.fromHell.subtitle,
@@ -106,7 +110,7 @@ export function ProjectsSection() {
       icon: Puzzle,
     },
     {
-      id: "devo-clicker",
+      id: "devoClicker",
       tier: "complete",
       title: items.devoClicker.title,
       subtitle: items.devoClicker.subtitle,
@@ -116,7 +120,7 @@ export function ProjectsSection() {
       icon: Puzzle,
     },
     {
-      id: "maldicion-aprendiz",
+      id: "maldicionAprendiz",
       tier: "complete",
       title: items.maldicionAprendiz.title,
       subtitle: items.maldicionAprendiz.subtitle,
@@ -126,7 +130,7 @@ export function ProjectsSection() {
       icon: Puzzle,
     },
     {
-      id: "charm-miners",
+      id: "charmMiners",
       tier: "complete",
       title: items.charmMiner.title,
       subtitle: items.charmMiner.subtitle,
@@ -136,7 +140,7 @@ export function ProjectsSection() {
       icon: Puzzle,
     },
     {
-      id: "void-survivor",
+      id: "voidSurvivor",
       tier: "complete",
       title: items.voidSurvivor.title,
       subtitle: items.voidSurvivor.subtitle,
@@ -146,6 +150,8 @@ export function ProjectsSection() {
       icon: Puzzle,
     },
   ]
+
+  const games = allGames.filter((g) => STUDIO_VISIBLE[g.id].visible)
 
   return (
     <section id="projects" className="py-24 md:py-32 bg-card/30">
@@ -167,6 +173,10 @@ export function ProjectsSection() {
             />
           ))}
         </div>
+
+        <p className="text-center text-sm text-muted-foreground mt-10 max-w-xl mx-auto">
+          {t.studio.projects.inDevelopmentNote}
+        </p>
       </div>
     </section>
   )
