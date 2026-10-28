@@ -4,8 +4,8 @@ import { useRef, useState } from "react"
 import { ExternalLink, Pause, Play } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useLocale } from "@/lib/i18n/locale-context"
-import { STEAM_WISHLIST_URL, KOFI_URL } from "@/lib/site-links"
-import { SHOW_PING_PONG_MATE } from "@/lib/project-visibility"
+import { STEAM_WISHLIST_URL } from "@/lib/site-links"
+import { SHOW_PING_PONG_MATE, PING_PONG_MATE_STEAM_LIVE } from "@/lib/project-visibility"
 
 export function Hero() {
   const { t } = useLocale()
@@ -39,36 +39,41 @@ export function Hero() {
               </p>
             </div>
 
-            {/* CTA buttons */}
+            {/* CTA buttons: wishlist only once the Steam page is public; otherwise roadmap + games */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 size="lg"
                 asChild
                 className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:-translate-y-0.5 transition-all text-base px-8"
               >
-                <a
-                  href={SHOW_PING_PONG_MATE ? STEAM_WISHLIST_URL : "#projects"}
-                  {...(SHOW_PING_PONG_MATE ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="flex items-center gap-2"
-                >
-                  {t.studio.hero.ctaPrimary}
-                  {SHOW_PING_PONG_MATE && <ExternalLink className="w-4 h-4" />}
-                </a>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                asChild
-                className="rounded-full border-border text-foreground hover:bg-secondary transition-all bg-transparent"
-              >
-                {SHOW_PING_PONG_MATE ? (
+                {SHOW_PING_PONG_MATE && PING_PONG_MATE_STEAM_LIVE ? (
+                  <a
+                    href={STEAM_WISHLIST_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2"
+                  >
+                    {t.studio.hero.ctaPrimary}
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                ) : SHOW_PING_PONG_MATE ? (
                   <a href="#roadmap">{t.studio.hero.ctaSecondary}</a>
                 ) : (
-                  <a href={KOFI_URL} target="_blank" rel="noopener noreferrer">
-                    {t.studio.hero.ctaSecondary}
-                  </a>
+                  <a href="#projects">{t.studio.hero.ctaGames}</a>
                 )}
               </Button>
+              {SHOW_PING_PONG_MATE && (
+                <Button
+                  size="lg"
+                  variant="outline"
+                  asChild
+                  className="rounded-full border-border text-foreground hover:bg-secondary transition-all bg-transparent"
+                >
+                  <a href={PING_PONG_MATE_STEAM_LIVE ? "#roadmap" : "#projects"}>
+                    {PING_PONG_MATE_STEAM_LIVE ? t.studio.hero.ctaSecondary : t.studio.hero.ctaGames}
+                  </a>
+                </Button>
+              )}
             </div>
 
             <p className="text-sm text-muted-foreground">{t.studio.hero.trust}</p>

@@ -9,7 +9,7 @@ export function FeaturedSection() {
   const f = t.root.featured
 
   const items = [
-    { href: "/studio", image: "/images/proyects/itNeverEnds.gif", isGif: true, ...f.studio },
+    { href: "/studio", image: "/images/GifGameplay1.gif", isGif: true, ...f.studio },
     { href: "/works", image: "/images/proyects/workspaceCaptura.png", isGif: false, ...f.works },
     { href: "/design", image: "/images/portfolio/zenkyu.png", isGif: false, ...f.design },
   ]

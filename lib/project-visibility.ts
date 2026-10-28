@@ -38,10 +38,17 @@ export const STUDIO_VISIBLE = {
 } as const
 
 /**
- * Ping Pong Mate: publicación retrasada indefinidamente.
- * `false` oculta hero con tráiler, hoja de ruta, wishlist de Steam y menciones en Root/metadatos.
+ * Ping Pong Mate: anunciado en Studio (hero, hoja de ruta) y Root.
+ * `false` lo oculta todo (tráiler, hoja de ruta, wishlist y menciones en Root/metadatos).
  */
-export const SHOW_PING_PONG_MATE = false
+export const SHOW_PING_PONG_MATE = true
+
+/**
+ * Poner a `true` solo cuando la página de Steam sea pública (objetivo: 20-nov-2026).
+ * Mientras sea `false` no hay botón de wishlist ni enlace a Steam: nada de wishlist falsa.
+ * Al activarlo, actualizar también studio.hero.trust, gameRoadmap y ctaBanner en translations.ts.
+ */
+export const PING_PONG_MATE_STEAM_LIVE = false
 
 export const isWorksVisible = (id: keyof typeof WORKS_VISIBLE) => WORKS_VISIBLE[id]
 

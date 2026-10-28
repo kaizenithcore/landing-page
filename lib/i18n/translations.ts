@@ -103,6 +103,7 @@ export type TranslationKeys = {
       subtitle: string;
       ctaPrimary: string;
       ctaSecondary: string;
+      ctaGames: string;
       trust: string;
       playVideo: string;
       pauseVideo: string;
@@ -265,10 +266,8 @@ export type TranslationKeys = {
     services: {
       title: string;
       subtitle: string;
-      saas: { title: string; description: string };
-      custom: { title: string; description: string };
-      detailedTitle: string;
-      detailed: { title: string; description: string }[];
+      tracks: { audience: string; title: string; description: string; items: string[]; cta: string }[];
+      closing: string;
     };
     process: {
       title: string;
@@ -306,8 +305,6 @@ export type TranslationKeys = {
     trust: {
       stat1Value: string;
       stat1Label: string;
-      stat2Value: string;
-      stat2Label: string;
       stat3Value: string;
       stat3Label: string;
       stat4Value: string;
@@ -689,8 +686,8 @@ export const translations: Record<Locale, TranslationKeys> = {
         subtitle: "Un vistazo real a cada área, no solo enlaces.",
         studio: {
           label: "Kaizenith Studio",
-          title: "Juegos hechos en público",
-          description: "Señal y MHAdle en marcha, y juegos de jam terminados y publicados en itch.io.",
+          title: "Ping Pong Mate",
+          description: "Nuestro primer lanzamiento en Steam: página en noviembre y demo en diciembre. Además, Señal, MHAdle y juegos de jam en itch.io.",
           cta: "Ver Studio",
         },
         works: {
@@ -771,12 +768,13 @@ export const translations: Record<Locale, TranslationKeys> = {
     },
     studio: {
       hero: {
-        title: "Juegos pequeños, hechos en público.",
+        title: "Tu espera, convertida en arcade.",
         subtitle:
-          "Publicamos juegos jugables para aprender el ciclo entero: crear, publicar, medir. Algunos son proyectos de jam, otros siguen en marcha.",
-        ctaPrimary: "Ver los juegos",
-        ctaSecondary: "Apoyar en Ko-fi",
-        trust: "Hay más proyectos en desarrollo. Los publicaremos cuando estén listos.",
+          "Ping Pong Mate se queda en una esquina de tu pantalla mientras haces otras cosas. Encadena combos, gana puntos y canjéalos por cosméticos coleccionables, sin dejar lo que estabas haciendo.",
+        ctaPrimary: "Añadir a la lista de deseos",
+        ctaSecondary: "Ver la hoja de ruta",
+        ctaGames: "Ver los juegos",
+        trust: "Próximamente en Steam: página en noviembre de 2026 y demo en diciembre.",
         playVideo: "Reproducir el tráiler",
         pauseVideo: "Pausar el tráiler",
       },
@@ -813,9 +811,9 @@ export const translations: Record<Locale, TranslationKeys> = {
           },
           current: {
             date: "Ahora",
-            title: "Proyectos en marcha",
+            title: "Ping Pong Mate",
             description:
-              "Señal y MHAdle siguen su camino, y hay más proyectos en desarrollo que publicaremos cuando estén listos.",
+              "Nuestro primer lanzamiento serio en Steam: página en noviembre, demo en diciembre. Además, Señal y MHAdle siguen su camino.",
           },
           next: {
             date: "Después",
@@ -892,7 +890,7 @@ Buscar acuerdos y colaboraciones más grandes.`,
       },
       gameRoadmap: {
         title: "Del desarrollo a tu escritorio",
-        subtitle: "Así de cerca está Ping Pong Mate de llegar a Steam, y qué viene después.",
+        subtitle: "Así de cerca está Ping Pong Mate de llegar a Steam, y qué viene después. Las fechas son objetivos, no promesas.",
         countdownLabel: "Lanzamiento previsto en",
         countdownDays: "Días",
         countdownHours: "Horas",
@@ -906,20 +904,20 @@ Buscar acuerdos y colaboraciones más grandes.`,
             date: "Ahora",
             title: "Puliendo la base",
             description:
-              "Ajustes, rendimiento y las últimas piezas antes de abrir la wishlist.",
+              "Ajustes, rendimiento y las últimas piezas antes de abrir la página de Steam.",
           },
           wishlist: {
             status: "Próximamente",
-            date: "Septiembre 2026",
-            title: "Wishlist en Steam",
+            date: "Noviembre 2026",
+            title: "Página en Steam",
             description:
-              "La página de Steam estará lista para añadir Ping Pong Mate a tu lista de deseos.",
+              "Publicaremos la página «Próximamente» de Steam para que puedas añadir Ping Pong Mate a tu lista de deseos.",
           },
           launch: {
-            status: "Fecha provisional",
-            date: "Octubre 2026",
-            title: "Lanzamiento",
-            description: "El día que Ping Pong Mate llega a tu escritorio.",
+            status: "Objetivo",
+            date: "Diciembre 2026",
+            title: "Demo jugable",
+            description: "Una demo en Steam para probar Ping Pong Mate antes del lanzamiento. Estudiamos presentarla en el Next Fest de febrero de 2027.",
           },
           postLaunch: {
             status: "Compromiso",
@@ -938,9 +936,9 @@ Buscar acuerdos y colaboraciones más grandes.`,
         },
       },
       ctaBanner: {
-        headline: "Ayúdanos a seguir publicando juegos",
+        headline: "Ping Pong Mate llega pronto a Steam",
         subheadline:
-          "Sigue lo que construimos y apóyanos. Tu apoyo hace la diferencia.",
+          "Sigue su desarrollo y apóyanos mientras llega. Tu apoyo hace la diferencia.",
         ctaPrimary: "Añadir a la wishlist",
         ctaSecondary: "Apoyar en Patreon",
         ctaTertiary: "Apoyar en Ko-fi",
@@ -1102,8 +1100,8 @@ Buscar acuerdos y colaboraciones más grandes.`,
       hero: {
         title: "Software que funciona, no solo que se ve bien.",
         subtitle:
-          "Somos una agencia de desarrollo. Construimos software a medida para negocios y administraciones — y documentamos en abierto los productos SaaS que hemos creado por el camino, como prueba de lo que sabemos hacer.",
-        ctaPrimary: "Hablemos de tu proyecto",
+          "Construimos software a medida para empresas medianas y cuidamos la presencia digital de los negocios pequeños: web, mantenimiento y automatizaciones. Y documentamos en abierto los productos que hemos creado, como prueba de lo que sabemos hacer.",
+        ctaPrimary: "Hablemos de tu caso",
         ctaSecondary: "Ver proyectos",
       },
       stack: {
@@ -1111,46 +1109,37 @@ Buscar acuerdos y colaboraciones más grandes.`,
         items: ["Next.js", "Supabase", "Stripe", "Vercel", "PostgreSQL", "TypeScript"],
       },
       services: {
-        title: "Lo que hacemos",
-        subtitle: "Desarrollo a medida, respaldado por proyectos reales que ya hemos construido.",
-        saas: {
-          title: "Proyectos propios, documentados en abierto",
-          description:
-            "Herramientas verticales que construimos y mantenemos nosotros mismos — la prueba de que sabemos construir software real, no solo prometerlo.",
-        },
-        custom: {
-          title: "Desarrollo a medida",
-          description:
-            "Webs y aplicaciones a medida para negocios que necesitan algo propio, no una plantilla.",
-        },
-        detailedTitle: "Con más detalle",
-        detailed: [
+        title: "Dos formas de trabajar con nosotros",
+        subtitle: "Una para empresas que necesitan algo construido a su medida, otra para negocios pequeños que quieren estar bien atendidos sin complicarse.",
+        tracks: [
           {
-            title: "Landing pages y webs corporativas",
-            description: "Presencia online rápida, profesional y lista para convertir.",
-          },
-          {
-            title: "Aplicaciones web a medida",
-            description: "SaaS y herramientas internas construidas para tu proceso, no al revés.",
-          },
-          {
-            title: "Integraciones",
-            description: "Pagos, IA, APIs externas — conectamos tu negocio con las herramientas que necesitas.",
-          },
-          {
-            title: "Migración y modernización",
-            description: "Actualizamos sistemas existentes sin parar la operación.",
-          },
-          {
-            title: "Mantenimiento y soporte",
-            description: "Seguimos ahí después del lanzamiento: actualizaciones, seguridad, rendimiento.",
-          },
-          {
-            title: "Partimos de una base real",
+            audience: "Para empresas medianas",
+            title: "Software a medida",
             description:
-              "Si tu problema se parece al de Workspace o Entrelazo, no empezamos de cero: adaptamos esa base a tu caso.",
+              "Una aplicación hecha para tu forma de trabajar, no al revés. Empezamos con un descubrimiento de alcance cerrado y solo seguimos si tiene sentido para los dos.",
+            items: [
+              "Descubrimiento y prototipo antes de construir",
+              "Aplicaciones web, herramientas internas y paneles de gestión",
+              "Integraciones: pagos, APIs externas, IA",
+              "Migración de sistemas existentes sin parar la operación",
+              "Soporte y evolución después del lanzamiento",
+            ],
+            cta: "Cuéntanos qué necesitas",
+          },
+          {
+            audience: "Para negocios pequeños y autónomos",
+            title: "Cuidado digital",
+            description:
+              "Nos encargamos de tu presencia en internet para que no tengas que hacerlo tú. Tres servicios cerrados, que puedes contratar por separado.",
+            items: [
+              "Presencia: web profesional, dominio y alojamiento puestos a punto",
+              "Mantenimiento: actualizaciones, seguridad, copias y cambios menores",
+              "Automatizaciones: formularios, avisos, reservas y tareas repetitivas",
+            ],
+            cta: "Pide una revisión de tu caso",
           },
         ],
+        closing: "En ambos casos el alcance y el precio se acuerdan por escrito antes de empezar. Lo que ves en Proyectos propios es lo que ya hemos construido y mantenemos nosotros mismos.",
       },
       process: {
         title: "Cómo trabajamos",
@@ -1201,9 +1190,7 @@ Buscar acuerdos y colaboraciones más grandes.`,
       trust: {
         stat1Value: "20+",
         stat1Label: "años de experiencia",
-        stat2Value: "100%",
-        stat2Label: "satisfacción de clientes",
-        stat3Value: "14",
+                stat3Value: "14",
         stat3Label: "proyectos documentados",
         stat4Value: "100%",
         stat4Label: "trabajo real, sin relleno",
@@ -1751,7 +1738,7 @@ Buscar acuerdos y colaboraciones más grandes.`,
         studio: {
           label: "Kaizenith Studio",
           title: "Ping Pong Mate",
-          description: "Our first Steam launch, with a public roadmap and an open wishlist.",
+          description: "Our first Steam launch: page in November and demo in December. Plus Señal, MHAdle and jam games on itch.io.",
           cta: "View Studio",
         },
         works: {
@@ -1831,12 +1818,13 @@ Buscar acuerdos y colaboraciones más grandes.`,
     },
     studio: {
       hero: {
-        title: "Small games, made in public.",
+        title: "Your waiting time, turned into arcade.",
         subtitle:
-          "We ship playable games to learn the whole cycle: build, publish, measure. Some are jam projects, others are still underway.",
-        ctaPrimary: "See the games",
-        ctaSecondary: "Support on Ko-fi",
-        trust: "More projects are in development. We'll publish them when they're ready.",
+          "Ping Pong Mate sits in a corner of your screen while you do other things. Chain combos, earn points, and trade them for collectible cosmetics, without stopping what you were doing.",
+        ctaPrimary: "Add to wishlist",
+        ctaSecondary: "View the roadmap",
+        ctaGames: "See the games",
+        trust: "Coming to Steam: page in November 2026, demo in December.",
         playVideo: "Play the trailer",
         pauseVideo: "Pause the trailer",
       },
@@ -1873,9 +1861,9 @@ Buscar acuerdos y colaboraciones más grandes.`,
           },
           current: {
             date: "Now",
-            title: "Projects underway",
+            title: "Ping Pong Mate",
             description:
-              "Señal and MHAdle keep moving, and more projects are in development. We'll publish them when they're ready.",
+              "Our first serious Steam launch: page in November, demo in December. Señal and MHAdle keep moving too.",
           },
           next: {
             date: "What's next",
@@ -1950,7 +1938,7 @@ Seek larger deals and collaborations.`,
       },
       gameRoadmap: {
         title: "From development to your desktop",
-        subtitle: "How close Ping Pong Mate is to Steam, and what comes next.",
+        subtitle: "How close Ping Pong Mate is to Steam, and what comes next. Dates are targets, not promises.",
         countdownLabel: "Launching in",
         countdownDays: "Days",
         countdownHours: "Hours",
@@ -1963,20 +1951,20 @@ Seek larger deals and collaborations.`,
             status: "In development",
             date: "Now",
             title: "Polishing the core",
-            description: "Tuning, performance, and the last pieces before opening the wishlist.",
+            description: "Tuning, performance, and the last pieces before opening the Steam page.",
           },
           wishlist: {
             status: "Coming soon",
-            date: "September 2026",
-            title: "Wishlist on Steam",
+            date: "November 2026",
+            title: "Steam page",
             description:
-              "The Steam page will be ready for you to add Ping Pong Mate to your wishlist.",
+              "We'll publish the \"Coming soon\" Steam page so you can add Ping Pong Mate to your wishlist.",
           },
           launch: {
-            status: "Provisional date",
-            date: "October, 2026",
-            title: "Launch",
-            description: "The day Ping Pong Mate lands on your desktop.",
+            status: "Target",
+            date: "December 2026",
+            title: "Playable demo",
+            description: "A demo on Steam to try Ping Pong Mate before launch. We're considering showing it at the February 2027 Next Fest.",
           },
           postLaunch: {
             status: "Ongoing",
@@ -1995,9 +1983,9 @@ Seek larger deals and collaborations.`,
         },
       },
       ctaBanner: {
-        headline: "Help us keep shipping games",
+        headline: "Ping Pong Mate is coming to Steam soon",
         subheadline:
-          "Follow what we build and support us. Your support makes a difference.",
+          "Follow its development and support us while it gets here. Your support makes a difference.",
         ctaPrimary: "Add to wishlist",
         ctaSecondary: "Support on Patreon",
         ctaTertiary: "Support on Ko-fi",
@@ -2154,8 +2142,8 @@ Seek larger deals and collaborations.`,
       hero: {
         title: "Software that works, not just looks good.",
         subtitle:
-          "We're a software development agency. We build custom software for businesses and public administrations — and we openly document the SaaS products we've built along the way, as proof of what we can do.",
-        ctaPrimary: "Let's talk about your project",
+          "We build custom software for mid-sized companies and take care of small businesses' digital presence: website, maintenance and automations. And we openly document the products we've built, as proof of what we can do.",
+        ctaPrimary: "Let's talk about your case",
         ctaSecondary: "View projects",
       },
       stack: {
@@ -2163,46 +2151,37 @@ Seek larger deals and collaborations.`,
         items: ["Next.js", "Supabase", "Stripe", "Vercel", "PostgreSQL", "TypeScript"],
       },
       services: {
-        title: "What we do",
-        subtitle: "Custom development, backed by real projects we've already built.",
-        saas: {
-          title: "Our own projects, documented in the open",
-          description:
-            "Vertical tools we build and maintain ourselves — proof that we know how to build real software, not just promise it.",
-        },
-        custom: {
-          title: "Custom development",
-          description:
-            "Custom websites and applications for businesses that need something of their own, not a template.",
-        },
-        detailedTitle: "In more detail",
-        detailed: [
+        title: "Two ways to work with us",
+        subtitle: "One for companies that need something built around them, one for small businesses that want to be well looked after without the hassle.",
+        tracks: [
           {
-            title: "Landing pages and corporate websites",
-            description: "Fast, professional online presence, ready to convert.",
-          },
-          {
-            title: "Custom web applications",
-            description: "SaaS and internal tools built for your process, not the other way around.",
-          },
-          {
-            title: "Integrations",
-            description: "Payments, AI, external APIs — we connect your business to the tools it needs.",
-          },
-          {
-            title: "Migration and modernization",
-            description: "We update existing systems without stopping the operation.",
-          },
-          {
-            title: "Maintenance and support",
-            description: "We stay around after launch: updates, security, performance.",
-          },
-          {
-            title: "Starting from a proven base",
+            audience: "For mid-sized companies",
+            title: "Custom software",
             description:
-              "If your problem looks like Workspace's or Entrelazo's, we don't start from zero: we adapt that base to your case.",
+              "An application built for the way you work, not the other way around. We start with a fixed-scope discovery and only continue if it makes sense for both of us.",
+            items: [
+              "Discovery and prototype before building",
+              "Web applications, internal tools and management panels",
+              "Integrations: payments, external APIs, AI",
+              "Migrating existing systems without stopping operations",
+              "Support and evolution after launch",
+            ],
+            cta: "Tell us what you need",
+          },
+          {
+            audience: "For small businesses and freelancers",
+            title: "Digital care",
+            description:
+              "We take care of your online presence so you don't have to. Three fixed services, which you can hire separately.",
+            items: [
+              "Presence: a professional website, with domain and hosting set up",
+              "Maintenance: updates, security, backups and minor changes",
+              "Automations: forms, notifications, bookings and repetitive tasks",
+            ],
+            cta: "Ask for a review of your case",
           },
         ],
+        closing: "In both cases scope and price are agreed in writing before we start. What you see under Our own projects is what we've already built and maintain ourselves.",
       },
       process: {
         title: "How we work",
@@ -2253,9 +2232,7 @@ Seek larger deals and collaborations.`,
       trust: {
         stat1Value: "20+",
         stat1Label: "years of experience",
-        stat2Value: "100%",
-        stat2Label: "client satisfaction",
-        stat3Value: "14",
+                stat3Value: "14",
         stat3Label: "documented projects",
         stat4Value: "100%",
         stat4Label: "real work, no filler",

@@ -78,7 +78,7 @@ export function CatalogSection() {
       title: items.entrelazo.title,
       subtitle: items.entrelazo.subtitle,
       description: items.entrelazo.description,
-      // image: add a screenshot when available (icon shown meanwhile)
+      image: "/images/proyects/entrelazo.png",
       url: "https://entrelazo.kaizenith.es",
       icon: NotebookPen,
     },
@@ -88,7 +88,8 @@ export function CatalogSection() {
       title: items.armazon.title,
       subtitle: items.armazon.subtitle,
       description: items.armazon.description,
-      // image/url: add when the landing is public
+      image: "/images/proyects/armazon.png",
+      // url: "https://armazon.kaizenith.es",
       icon: Blocks,
     },
     {

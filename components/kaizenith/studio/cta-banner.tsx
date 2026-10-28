@@ -4,7 +4,7 @@ import { useLocale } from '@/lib/i18n/locale-context'
 import { Button } from '@/components/ui/button'
 import { ExternalLink } from 'lucide-react'
 import { STEAM_WISHLIST_URL, PATREON_URL, KOFI_URL } from '@/lib/site-links'
-import { SHOW_PING_PONG_MATE } from '@/lib/project-visibility'
+import { SHOW_PING_PONG_MATE, PING_PONG_MATE_STEAM_LIVE } from '@/lib/project-visibility'
 
 export function CTABanner() {
   const { t } = useLocale()
@@ -24,7 +24,7 @@ export function CTABanner() {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
           {/* Primary CTA - Steam Wishlist (hidden while Ping Pong Mate is on hold) */}
-          {SHOW_PING_PONG_MATE && (
+          {SHOW_PING_PONG_MATE && PING_PONG_MATE_STEAM_LIVE && (
           <Button
             size="lg"
             className="w-full sm:w-auto rounded-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:-translate-y-0.5 transition-all text-base font-semibold px-8 py-6 sm:py-auto"
@@ -45,9 +45,9 @@ export function CTABanner() {
           {/* Patreon Support */}
           <Button
             size="lg"
-            variant={SHOW_PING_PONG_MATE ? "outline" : "default"}
+            variant={PING_PONG_MATE_STEAM_LIVE ? "outline" : "default"}
             className={`w-full sm:w-auto rounded-full font-semibold px-8 py-6 sm:py-auto transition-all ${
-              SHOW_PING_PONG_MATE
+              PING_PONG_MATE_STEAM_LIVE
                 ? "border border-border text-foreground hover:bg-secondary bg-transparent"
                 : "bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/20"
             }`}

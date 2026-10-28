@@ -3,14 +3,14 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Kaizenith Studio | We build in public",
   description:
-    "Kaizenith Studio documents game development in public | build logs, real numbers, and playable games like Señal, MHAdle and our jam projects on itch.io.",
+    "Kaizenith Studio documents game development in public | build logs, real numbers, and early access to our games, including Ping Pong Mate, coming to Steam.",
   alternates: {
     canonical: "/studio",
   },
   openGraph: {
     title: "Kaizenith Studio | We build in public",
     description:
-      "Kaizenith Studio documents game development in public | build logs, real numbers, and playable games like Señal, MHAdle and our jam projects on itch.io.",
+      "Kaizenith Studio documents game development in public | build logs, real numbers, and early access to our games, including Ping Pong Mate, coming to Steam.",
     type: "website",
     url: "https://kaizenith.es/studio",
   },
